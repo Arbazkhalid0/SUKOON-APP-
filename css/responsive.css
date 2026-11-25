@@ -1,1 +1,230 @@
 
+/* =====================================
+   SUKOON - RESPONSIVE DESIGN
+   Mobile, Tablet & Desktop
+===================================== */
+
+/* Small Mobile Screens */
+
+@media (max-width: 360px) {
+
+  .app-header {
+    padding: 12px 14px;
+    min-height: 72px;
+  }
+
+  .brand-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .brand h1 {
+    font-size: 20px;
+  }
+
+  .main-container {
+    padding: 17px 12px;
+  }
+
+  .welcome-section {
+    padding: 22px 16px;
+    border-radius: 19px;
+  }
+
+  .welcome-section h2 {
+    font-size: 21px;
+  }
+
+  .welcome-description {
+    font-size: 12px;
+  }
+
+  .date-card {
+    padding: 14px;
+  }
+
+  .reflection-card {
+    padding: 17px;
+  }
+
+  .reflection-card h2 {
+    font-size: 17px;
+  }
+
+  .section-title h2 {
+    font-size: 17px;
+  }
+
+  .feature-grid {
+    gap: 9px;
+  }
+
+  .feature-card {
+    min-height: 128px;
+    padding: 13px 10px;
+  }
+
+  .feature-card h3 {
+    font-size: 14px;
+  }
+
+  .feature-card p {
+    font-size: 10px;
+  }
+
+  .bottom-navigation {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .nav-item {
+    min-width: 55px;
+  }
+}
+
+/* Medium Mobile Screens */
+
+@media (min-width: 361px) and (max-width: 480px) {
+
+  .main-container {
+    padding: 20px 15px;
+  }
+
+  .welcome-section {
+    padding: 25px 20px;
+  }
+
+  .feature-grid {
+    gap: 11px;
+  }
+
+  .feature-card {
+    min-height: 135px;
+  }
+}
+
+/* Large Mobile & Small Tablets */
+
+@media (min-width: 481px) and (max-width: 699px) {
+
+  .main-container {
+    max-width: 600px;
+    padding: 24px 22px;
+  }
+
+  .welcome-section {
+    padding: 30px;
+  }
+
+  .welcome-section h2 {
+    font-size: 28px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .feature-card {
+    min-height: 150px;
+    padding: 18px;
+  }
+}
+
+/* Tablet & Desktop */
+
+@media (min-width: 700px) {
+
+  .app-header {
+    padding-left: max(25px, calc((100% - 900px) / 2));
+    padding-right: max(25px, calc((100% - 900px) / 2));
+  }
+
+  .main-container {
+    max-width: 850px;
+    padding: 30px 25px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .feature-card {
+    min-height: 155px;
+    padding: 20px;
+  }
+
+  .welcome-section {
+    padding: 38px;
+  }
+
+  .welcome-section h2 {
+    font-size: 30px;
+  }
+
+  .reflection-card {
+    padding: 25px;
+  }
+
+  .date-card {
+    padding: 20px 24px;
+  }
+
+  .bottom-navigation {
+    max-width: 850px;
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+    border: 1px solid #E9DFD3;
+    border-bottom: 0;
+    border-radius: 18px 18px 0 0;
+  }
+}
+
+/* Landscape Mobile */
+
+@media (max-height: 450px) and (orientation: landscape) {
+
+  body {
+    padding-bottom: 85px;
+  }
+
+  .main-container {
+    padding-top: 12px;
+  }
+
+  .welcome-section {
+    padding: 18px 22px;
+  }
+
+  .welcome-section h2 {
+    font-size: 21px;
+  }
+
+  .bottom-navigation {
+    min-height: 62px;
+  }
+}
+
+/* Prevent Horizontal Overflow */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better Touch Experience */
+
+a,
+button {
+  touch-action: manipulation;
+}
+
