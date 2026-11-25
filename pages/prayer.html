@@ -224,6 +224,71 @@
     <p>اوقات کا حساب: کراچی • حنفی</p>
     <p>اپنے علاقے کی مسجد کے اوقات کو بھی مدنظر رکھیں۔</p>
     <a href="home.html">SUKOON — ہوم پر واپس جائیں</a>
+    
+<!-- PRAYER NOTIFICATION SETTINGS -->
+<section class="prayer-panel notification-panel" id="notification-settings">
+
+  <div class="panel-heading">
+    <div>
+      <span class="section-eyebrow">PERSONAL REMINDERS</span>
+      <h2>اذان اور یاد دہانی</h2>
+      <p>اپنی پسند کے مطابق اطلاع منتخب کریں</p>
+    </div>
+    <span class="notification-icon">🔔</span>
+  </div>
+
+  <label class="notification-option">
+    <span>
+      <strong>مکمل اذان</strong>
+      <small>مکمل اذان کی آواز</small>
+    </span>
+    <input type="radio" name="adhan-sound" value="full">
+  </label>
+
+  <label class="notification-option">
+    <span>
+      <strong>مختصر اذان</strong>
+      <small>مختصر اذان کی آواز</small>
+    </span>
+    <input type="radio" name="adhan-sound" value="short">
+  </label>
+
+  <label class="notification-option">
+    <span>
+      <strong>نرم اسلامی یاد دہانی</strong>
+      <small>ایک مختصر یاد دہانی</small>
+    </span>
+    <input type="radio" name="adhan-sound" value="reminder">
+  </label>
+
+  <label class="notification-option">
+    <span>
+      <strong>خاموش نوٹیفکیشن</strong>
+      <small>صرف اطلاع، کوئی آواز نہیں</small>
+    </span>
+    <input type="radio" name="adhan-sound" value="silent">
+  </label>
+
+  <div class="reminder-before">
+    <label for="reminder-minutes">نماز سے کتنی دیر پہلے یاد دہانی ہو؟</label>
+    <select id="reminder-minutes">
+      <option value="0">یاد دہانی بند</option>
+      <option value="5">5 منٹ پہلے</option>
+      <option value="10" selected>10 منٹ پہلے</option>
+      <option value="15">15 منٹ پہلے</option>
+    </select>
+  </div>
+
+  <button type="button" class="notification-save" id="save-notification-settings">
+    سیٹنگز محفوظ کریں
+  </button>
+
+  <p id="notification-status" class="notification-status">
+    اپنی پسند کی سیٹنگز منتخب کریں
+  </p>
+
+</section>
+    
   </footer>
 
 </main>
