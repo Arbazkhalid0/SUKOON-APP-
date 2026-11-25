@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
@@ -11,627 +10,348 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/prayer.css">
-
-  <style>
-    .prayer-page {
-      max-width: 680px;
-      margin: auto;
-      padding: 18px 15px 45px;
-      color: #54192B;
-    }
-
-    .prayer-top {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-    }
-
-    .prayer-top a {
-      color:#76263B;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    .prayer-hero {
-      background:linear-gradient(135deg,#76263B,#54192B);
-      color:white;
-      padding:24px 20px;
-      border-radius:22px;
-      margin-bottom:18px;
-    }
-
-    .prayer-hero h2 {
-      font-size:25px;
-      margin:0 0 8px;
-    }
-
-    .prayer-hero p {
-      line-height:1.8;
-      margin:0;
-      opacity:.9;
-    }
-
-    .location-box, .current-box, .progress-box {
-      background:white;
-      border:1px solid #eee5da;
-      border-radius:18px;
-      padding:17px;
-      margin-bottom:16px;
-      box-shadow:0 4px 14px rgba(0,0,0,.035);
-    }
-
-    .location-box h3,
-    .current-box h3,
-    .progress-box h3 {
-      margin:0 0 12px;
-      font-size:17px;
-    }
-
-    .location-actions {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:9px;
-    }
-
-    .prayer-button {
-      background:#76263B;
-      color:white;
-      border:0;
-      border-radius:11px;
-      padding:12px 10px;
-      font-family:inherit;
-      font-size:14px;
-      cursor:pointer;
-    }
-
-    .prayer-button.secondary {
-      background:#f4ebdf;
-      color:#76263B;
-      border:1px solid #e7d8c6;
-    }
-
-    .city-row {
-      display:flex;
-      gap:8px;
-      margin-top:12px;
-    }
-
-    .city-row select {
-      min-width:0;
-      flex:1;
-      padding:11px;
-      border:1px solid #e4d9cb;
-      border-radius:10px;
-      background:#fff;
-      font-family:inherit;
-      color:#54192B;
-    }
-
-    .location-status {
-      font-size:12px;
-      color:#777;
-      margin-top:10px;
-      line-height:1.7;
-    }
-
-    .current-box {
-      background:#fffaf0;
-      border-color:#e8d5ac;
-    }
-
-    .current-label {
-      color:#8a7044;
-      font-size:13px;
-    }
-
-    .current-name {
-      font-size:25px;
-      font-weight:bold;
-      margin:7px 0;
-      color:#76263B;
-    }
-
-    .countdown {
-      font-size:21px;
-      font-weight:bold;
-      color:#9b7840;
-      direction:ltr;
-      text-align:right;
-      margin-top:8px;
-    }
-
-    .current-detail {
-      font-size:13px;
-      line-height:1.8;
-      color:#76644c;
-    }
-
-    .section-heading {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin:22px 2px 12px;
-    }
-
-    .section-heading h3 {
-      margin:0;
-      font-size:18px;
-    }
-
-    .section-heading span {
-      font-size:12px;
-      color:#987d55;
-    }
-
-    .times-list {
-      display:grid;
-      gap:9px;
-    }
-
-    .time-card {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:white;
-      border:1px solid #eee5da;
-      border-radius:14px;
-      padding:14px 16px;
-      cursor:pointer;
-    }
-
-    .time-card.active {
-      background:#fff7e9;
-      border:1px solid #c5a36a;
-    }
-
-    .time-name {
-      font-size:16px;
-      font-weight:bold;
-    }
-
-    .time-hint {
-      color:#999;
-      font-size:11px;
-      margin-top:4px;
-    }
-
-    .time-value {
-      font-weight:bold;
-      color:#76263B;
-      direction:ltr;
-      font-size:16px;
-    }
-
-    .time-detail {
-      display:none;
-      background:#f7f1e8;
-      padding:12px 15px;
-      border-radius:0 0 12px 12px;
-      margin-top:-10px;
-      margin-bottom:5px;
-      font-size:12px;
-      line-height:1.8;
-      color:#725b40;
-    }
-
-    .time-detail.show {
-      display:block;
-    }
-
-    .progress-heading {
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:10px;
-      font-weight:bold;
-    }
-
-    .progress-track {
-      height:9px;
-      background:#eee6dc;
-      border-radius:20px;
-      overflow:hidden;
-    }
-
-    .progress-fill {
-      height:100%;
-      width:0;
-      background:#b89554;
-      transition:width .3s;
-    }
-
-    .tracker-list {
-      display:grid;
-      gap:9px;
-    }
-
-    .tracker-item {
-      background:white;
-      border:1px solid #eee5da;
-      padding:14px;
-      border-radius:13px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .tracker-item.done {
-      background:#fffaf0;
-      border-color:#c5a36a;
-    }
-
-    .tracker-name {
-      font-weight:bold;
-    }
-
-    .tracker-status {
-      font-size:11px;
-      color:#999;
-      margin-top:4px;
-    }
-
-    .tracker-item input {
-      width:21px;
-      height:21px;
-      accent-color:#76263B;
-      cursor:pointer;
-    }
-
-    .friday-options {
-      display:grid;
-      gap:9px;
-      margin-top:10px;
-    }
-
-    .friday-option {
-      background:#fff;
-      border:1px solid #e8dfd3;
-      padding:12px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:8px;
-    }
-
-    .friday-option input {
-      accent-color:#76263B;
-      width:19px;
-      height:19px;
-    }
-
-    .friday-note {
-      font-size:12px;
-      color:#806c53;
-      line-height:1.8;
-      margin-top:10px;
-    }
-
-    .note-box {
-      background:#f4ecdf;
-      padding:15px;
-      border-radius:14px;
-      font-size:13px;
-      line-height:1.9;
-      margin-top:18px;
-      color:#725b40;
-    }
-
-    .reset-button {
-      display:block;
-      margin:18px auto 0;
-      border:1px solid #76263B;
-      color:#76263B;
-      background:transparent;
-      padding:10px 18px;
-      border-radius:11px;
-      font-family:inherit;
-      cursor:pointer;
-    }
-
-    .error-message {
-      color:#a13c3c;
-      font-size:13px;
-      line-height:1.7;
-      margin-top:10px;
-    }
-
-    .loading {
-      opacity:.65;
-      pointer-events:none;
-    }
-
-    @media(max-width:380px) {
-      .prayer-page {padding:13px 11px 35px;}
-      .location-actions {grid-template-columns:1fr;}
-      .prayer-hero h2 {font-size:22px;}
-    }
-  </style>
 </head>
 
 <body>
-
 <main class="prayer-page">
 
-  <header class="prayer-top">
-    <a href="home.html">← واپس ہوم</a>
-    <strong>SUKOON</strong>
+  <header class="prayer-header">
+    <div class="prayer-brand">
+      <div class="prayer-brand-mark">☾</div>
+      <div>
+        <div class="prayer-brand-name">SUKOON</div>
+        <span class="prayer-brand-subtitle">روح کا اطمینان</span>
+      </div>
+    </div>
+    <button class="prayer-header-action" id="refresh-button" type="button" aria-label="اوقات اپڈیٹ کریں">↻</button>
   </header>
 
   <section class="prayer-hero">
-    <h2>نماز اور اوقات</h2>
-    <p>اپنے مقامی وقت کے مطابق نمازوں کے اوقات معلوم کریں اور اپنی روزانہ کی عبادات کا ریکارڈ رکھیں۔</p>
-  </section>
+    <div class="prayer-hero-content">
+      <p class="prayer-hero-eyebrow">عبادت • وقت • سکون</p>
+      <div class="prayer-location">
+        <span>📍</span>
+        <span id="location-name">شہر منتخب نہیں</span>
+        <button id="change-location-button" type="button">تبدیل کریں</button>
+      </div>
 
-  <!-- LOCATION -->
-  <section class="location-box">
-    <h3>📍 آپ کی لوکیشن</h3>
+      <div class="prayer-clock" id="live-clock" dir="ltr">--:--:--</div>
+      <div class="prayer-date" id="live-date">مقامی تاریخ</div>
 
-    <div class="location-actions">
-      <button class="prayer-button" id="gps-button">
-        میری لوکیشن حاصل کریں
-      </button>
-
-      <button class="prayer-button secondary" id="refresh-button">
-        اوقات اپڈیٹ کریں
-      </button>
-    </div>
-
-    <div class="city-row">
-      <select id="city-select">
-        <option value="">اپنا شہر منتخب کریں</option>
-        <option value="Islamabad">اسلام آباد</option>
-        <option value="Rawalpindi">راولپنڈی</option>
-        <option value="Lahore">لاہور</option>
-        <option value="Karachi">کراچی</option>
-        <option value="Faisalabad">فیصل آباد</option>
-        <option value="Multan">ملتان</option>
-        <option value="Peshawar">پشاور</option>
-        <option value="Quetta">کوئٹہ</option>
-        <option value="Sialkot">سیالکوٹ</option>
-        <option value="Gujranwala">گوجرانوالہ</option>
-        <option value="Hyderabad">حیدرآباد</option>
-        <option value="Bahawalpur">بہاولپور</option>
-      </select>
-
-      <button class="prayer-button" id="city-button">
-        منتخب کریں
-      </button>
-    </div>
-
-    <p class="location-status" id="location-status">
-      نماز کے اوقات حاصل کرنے کے لیے اپنی لوکیشن یا شہر منتخب کریں۔
-    </p>
-  </section>
-
-  <!-- CURRENT PRAYER -->
-  <section class="current-box">
-    <div class="current-label" id="current-label">موجودہ نماز</div>
-    <div class="current-name" id="current-name">لوکیشن منتخب کریں</div>
-    <div class="current-detail" id="current-detail">
-      نمازوں کے اوقات حاصل ہونے کے بعد یہاں معلومات نظر آئیں گی۔
-    </div>
-    <div class="countdown" id="countdown">--:--:--</div>
-    <div class="current-detail" id="countdown-label">
-      اگلی نماز تک باقی وقت
+      <div class="prayer-hero-bottom">
+        <div>
+          <div class="prayer-hero-caption">آج کی عبادت</div>
+          <div class="prayer-hero-value" id="hero-progress">0 / 5 نمازیں</div>
+        </div>
+        <div style="text-align:left">
+          <div class="prayer-hero-caption">حساب کا طریقہ</div>
+          <div class="prayer-hero-value" style="font-size:14px">کراچی • حنفی</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PRAYER TIMES -->
-  <div class="section-heading">
-    <h3>آج کے نماز اوقات</h3>
-    <span id="today-label"></span>
+  <section class="prayer-active-grid">
+    <article class="prayer-info-card">
+      <div class="prayer-info-label" id="current-label">موجودہ نماز کا وقت</div>
+      <div class="prayer-info-name" id="current-name">اوقات درکار ہیں</div>
+      <div class="prayer-info-time" id="current-range">--:--</div>
+      <div class="prayer-info-detail" id="current-detail">اپنا شہر منتخب کریں یا GPS استعمال کریں۔</div>
+    </article>
+
+    <article class="prayer-info-card">
+      <div class="prayer-info-label">اگلی نماز تک باقی وقت</div>
+      <div class="prayer-info-name" id="next-name">اگلی نماز</div>
+      <div class="prayer-countdown" id="countdown" dir="ltr">--:--:--</div>
+      <div class="prayer-info-detail" id="next-time">وقت لوڈ ہونے کا انتظار ہے</div>
+    </article>
+  </section>
+
+  <section class="prayer-panel" id="location-panel">
+    <h3 class="prayer-panel-title">📍 نماز کے اوقات کے لیے مقام</h3>
+    <p class="prayer-info-detail" style="margin:0 0 13px">درست مقامی اوقات کے لیے اپنی موجودہ لوکیشن کی اجازت دیں یا شہر خود منتخب کریں۔</p>
+    <div class="prayer-content-grid">
+      <button class="prayer-btn" id="gps-button" type="button">میری موجودہ لوکیشن استعمال کریں</button>
+      <div class="prayer-field" style="margin:0">
+        <label for="city-select">پاکستان کا شہر منتخب کریں</label>
+        <select class="prayer-select" id="city-select">
+          <option value="">شہر منتخب کریں</option>
+          <option value="Sheikhupura">شیخوپورہ</option>
+          <option value="Lahore">لاہور</option>
+          <option value="Islamabad">اسلام آباد</option>
+          <option value="Rawalpindi">راولپنڈی</option>
+          <option value="Karachi">کراچی</option>
+          <option value="Faisalabad">فیصل آباد</option>
+          <option value="Multan">ملتان</option>
+          <option value="Peshawar">پشاور</option>
+          <option value="Quetta">کوئٹہ</option>
+          <option value="Sialkot">سیالکوٹ</option>
+          <option value="Gujranwala">گوجرانوالہ</option>
+          <option value="Hyderabad">حیدرآباد</option>
+          <option value="Bahawalpur">بہاولپور</option>
+        </select>
+      </div>
+      <button class="prayer-btn prayer-btn-outline" id="city-button" type="button">منتخب شہر کے اوقات دکھائیں</button>
+    </div>
+    <p class="prayer-info-detail" id="location-status" role="status" aria-live="polite">اوقات حاصل کرنے کے لیے مقام منتخب کریں۔</p>
+  </section>
+
+  <div class="prayer-section-heading">
+    <div>
+      <h3 class="prayer-section-title">آج کے نماز اوقات</h3>
+      <div class="prayer-section-subtitle" id="today-label">مقامی تاریخ کے مطابق</div>
+    </div>
+    <span class="prayer-status">پاکستان • کراچی طریقہ</span>
   </div>
 
-  <section class="times-list" id="times-list">
-    <p>نمازوں کے اوقات دیکھنے کے لیے پہلے لوکیشن منتخب کریں۔</p>
+  <section class="prayer-list" id="times-list">
+    <div class="prayer-empty">نمازوں کے اوقات دیکھنے کے لیے پہلے اپنا شہر منتخب کریں۔</div>
   </section>
 
-  <!-- TRACKER -->
-  <div class="section-heading">
-    <h3>آج کی نمازوں کا ریکارڈ</h3>
-    <span>Daily Tracker</span>
+  <section class="prayer-progress-card" id="progress-card" data-progress="0" style="margin-top:20px">
+    <div class="prayer-progress-head">
+      <div>
+        <h3 class="prayer-progress-title">آج کی نمازوں کی پیش رفت</h3>
+        <div class="prayer-progress-caption" id="progress-message">ہر نماز کا ریکارڈ یہاں محفوظ ہوگا۔</div>
+      </div>
+      <div class="prayer-progress-count" id="progress-count">0 / 5</div>
+    </div>
+    <div class="prayer-progress-track">
+      <div class="prayer-progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="prayer-progress-steps">
+      <span>آغاز</span><span>جاری رکھیں</span><span>ماشاءاللہ</span>
+    </div>
+  </section>
+
+  <div class="prayer-section-heading">
+    <div>
+      <h3 class="prayer-section-title">نمازوں کا روزانہ ریکارڈ</h3>
+      <div class="prayer-section-subtitle">نماز ادا کرنے کے بعد نشان لگائیں</div>
+    </div>
+    <span class="prayer-status" id="tracker-date">آج</span>
   </div>
 
-  <section class="progress-box">
-    <div class="progress-heading">
-      <span>روزانہ کی پیش رفت</span>
-      <span id="progress-count">0 / 5</span>
-    </div>
+  <section class="prayer-list" id="tracker-list">
+    <label class="prayer-item">
+      <input class="prayer-item-check" type="checkbox" data-prayer="fajr">
+      <span class="prayer-item-icon">☀</span>
+      <span class="prayer-item-main"><span class="prayer-item-name">فجر</span><span class="prayer-item-note">صبح کی نماز</span></span>
+      <span class="prayer-item-time" id="tracker-time-fajr">--:--</span>
+    </label>
+    <label class="prayer-item" id="midday-item">
+      <input class="prayer-item-check" type="checkbox" data-prayer="midday" id="midday-checkbox">
+      <span class="prayer-item-icon">◉</span>
+      <span class="prayer-item-main"><span class="prayer-item-name" id="midday-title">ظہر</span><span class="prayer-item-note" id="midday-note">دوپہر کی نماز</span></span>
+      <span class="prayer-item-time" id="tracker-time-dhuhr">--:--</span>
+    </label>
+    <label class="prayer-item">
+      <input class="prayer-item-check" type="checkbox" data-prayer="asr">
+      <span class="prayer-item-icon">◷</span>
+      <span class="prayer-item-main"><span class="prayer-item-name">عصر</span><span class="prayer-item-note">شام سے پہلے</span></span>
+      <span class="prayer-item-time" id="tracker-time-asr">--:--</span>
+    </label>
+    <label class="prayer-item">
+      <input class="prayer-item-check" type="checkbox" data-prayer="maghrib">
+      <span class="prayer-item-icon">☼</span>
+      <span class="prayer-item-main"><span class="prayer-item-name">مغرب</span><span class="prayer-item-note">غروبِ آفتاب</span></span>
+      <span class="prayer-item-time" id="tracker-time-maghrib">--:--</span>
+    </label>
+    <label class="prayer-item">
+      <input class="prayer-item-check" type="checkbox" data-prayer="isha">
+      <span class="prayer-item-icon">☾</span>
+      <span class="prayer-item-main"><span class="prayer-item-name">عشاء</span><span class="prayer-item-note">رات کی نماز</span></span>
+      <span class="prayer-item-time" id="tracker-time-isha">--:--</span>
+    </label>
+  </section>
 
-    <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
+  <section class="prayer-friday-card" id="friday-box" hidden>
+    <h3 class="prayer-friday-title">جمعہ کا خصوصی انتخاب</h3>
+    <div class="prayer-info-detail">جمعہ کے دن دوپہر کے فرض کے ریکارڈ کے لیے ایک ہی انتخاب کریں۔ جمعہ اور ظہر کو الگ الگ شمار نہیں کیا جائے گا۔</div>
+    <div class="prayer-friday-options">
+      <label><input type="radio" name="friday-choice" value="jummah"> جمعہ ادا کیا</label>
+      <label><input type="radio" name="friday-choice" value="zuhr"> ظہر ادا کی</label>
     </div>
   </section>
 
-  <section class="tracker-list" id="tracker-list">
-
-    <label class="tracker-item">
-      <div>
-        <div class="tracker-name">فجر</div>
-        <div class="tracker-status">ابھی نشان نہیں لگایا</div>
-      </div>
-      <input type="checkbox" data-prayer="fajr">
-    </label>
-
-    <label class="tracker-item" id="midday-tracker">
-      <div>
-        <div class="tracker-name" id="midday-title">ظہر</div>
-        <div class="tracker-status">ابھی نشان نہیں لگایا</div>
-      </div>
-      <input type="checkbox" data-prayer="midday">
-    </label>
-
-    <label class="tracker-item">
-      <div>
-        <div class="tracker-name">عصر</div>
-        <div class="tracker-status">ابھی نشان نہیں لگایا</div>
-      </div>
-      <input type="checkbox" data-prayer="asr">
-    </label>
-
-    <label class="tracker-item">
-      <div>
-        <div class="tracker-name">مغرب</div>
-        <div class="tracker-status">ابھی نشان نہیں لگایا</div>
-      </div>
-      <input type="checkbox" data-prayer="maghrib">
-    </label>
-
-    <label class="tracker-item">
-      <div>
-        <div class="tracker-name">عشاء</div>
-        <div class="tracker-status">ابھی نشان نہیں لگایا</div>
-      </div>
-      <input type="checkbox" data-prayer="isha">
-    </label>
-
-  </section>
-
-  <section id="friday-box" style="display:none; margin-top:14px;">
-    <div class="section-heading">
-      <h3>جمعہ کا خصوصی انتخاب</h3>
-      <span>Friday</span>
+  <div class="prayer-section-heading">
+    <div>
+      <h3 class="prayer-section-title">عبادت کا خلاصہ</h3>
+      <div class="prayer-section-subtitle">روزانہ اور گزشتہ سات دن کا الگ ریکارڈ</div>
     </div>
-
-    <div class="friday-options">
-
-      <label class="friday-option">
-        <span>جمعہ ادا کیا</span>
-        <input type="radio" name="friday-choice" value="jummah">
-      </label>
-
-      <label class="friday-option">
-        <span>ظہر ادا کی</span>
-        <input type="radio" name="friday-choice" value="zuhr">
-      </label>
-
-    </div>
-
-    <p class="friday-note">
-      جمعہ کے دن دوپہر کے وقت کے لیے ان میں سے ایک آپشن منتخب کریں۔ یہ دونوں الگ الگ نمازوں کی گنتی نہیں ہیں۔
-    </p>
-  </section>
-
-  <div class="note-box">
-    نماز کے اوقات حسابی طریقے کے مطابق حاصل کیے جاتے ہیں۔ اپنے علاقے کی مسجد یا مستند مقامی اعلان سے فرق ہو تو مقامی جماعت کے اوقات کو ترجیح دیں۔
   </div>
 
-  <button class="reset-button" id="reset-button">
-    آج کا ریکارڈ ری سیٹ کریں
-  </button>
+  <div class="prayer-tabs" role="tablist" aria-label="ریکارڈ کی مدت">
+    <button class="prayer-tab active" id="daily-tab" type="button" role="tab" aria-selected="true">روزانہ</button>
+    <button class="prayer-tab" id="weekly-tab" type="button" role="tab" aria-selected="false">ہفتہ وار</button>
+  </div>
+
+  <section class="prayer-report" id="report-panel" aria-live="polite">
+    <div id="daily-report">
+      <div class="prayer-report-grid">
+        <div class="prayer-report-stat"><div class="prayer-report-number" id="daily-done">0 / 5</div><div class="prayer-report-label">آج مکمل نمازیں</div></div>
+        <div class="prayer-report-stat"><div class="prayer-report-number" id="daily-percent">0%</div><div class="prayer-report-label">آج کی پیش رفت</div></div>
+      </div>
+      <p class="prayer-info-detail" id="daily-report-note">آج کا ریکارڈ اسی دن کے ساتھ محفوظ رہے گا۔</p>
+    </div>
+    <div id="weekly-report" hidden>
+      <div class="prayer-report-grid">
+        <div class="prayer-report-stat"><div class="prayer-report-number" id="weekly-done">0 / 35</div><div class="prayer-report-label">سات دن میں مکمل نمازیں</div></div>
+        <div class="prayer-report-stat"><div class="prayer-report-number" id="weekly-percent">0%</div><div class="prayer-report-label">ہفتہ وار پیش رفت</div></div>
+      </div>
+      <div id="weekly-days" style="margin-top:12px"></div>
+      <p class="prayer-info-detail">یہ خلاصہ آج سمیت گزشتہ سات دن کے الگ محفوظ شدہ روزانہ ریکارڈ سے بنتا ہے۔</p>
+    </div>
+  </section>
+
+  <div class="prayer-note-box" style="display:none"></div>
+  <div class="prayer-panel" style="margin-top:16px">
+    <h3 class="prayer-panel-title">اہم وضاحت</h3>
+    <p class="prayer-info-detail">اوقات University of Islamic Sciences, Karachi کے حسابی طریقے اور حنفی عصر کے انتخاب کے مطابق آن لائن حاصل کیے جاتے ہیں۔ حسابی وقت اور مقامی مسجد کے اعلان میں فرق ہو تو اپنی مقامی مسجد کے اوقات کو بھی دیکھیں۔</p>
+    <button class="prayer-btn prayer-btn-outline" id="reset-button" type="button" style="margin-top:12px">آج کا ریکارڈ ری سیٹ کریں</button>
+  </div>
 
 </main>
 
 <script src="../js/storage.js"></script>
-
 <script>
-(function () {
+(() => {
+  "use strict";
 
   const METHOD = 1;
   const SCHOOL = 1;
-  const CITY_COUNTRY = "Pakistan";
-
-  const prayerNames = {
-    Fajr: "فجر",
-    Dhuhr: "ظہر",
-    Asr: "عصر",
-    Maghrib: "مغرب",
-    Isha: "عشاء"
+  const COUNTRY = "Pakistan";
+  const PRAYER_KEYS = ["fajr", "midday", "asr", "maghrib", "isha"];
+  const PRAYER_LABELS = { Fajr: "فجر", Dhuhr: "ظہر", Asr: "عصر", Maghrib: "مغرب", Isha: "عشاء" };
+  const CITY_URDU = {
+    Sheikhupura: "شیخوپورہ", Lahore: "لاہور", Islamabad: "اسلام آباد",
+    Rawalpindi: "راولپنڈی", Karachi: "کراچی", Faisalabad: "فیصل آباد",
+    Multan: "ملتان", Peshawar: "پشاور", Quetta: "کوئٹہ",
+    Sialkot: "سیالکوٹ", Gujranwala: "گوجرانوالہ", Hyderabad: "حیدرآباد",
+    Bahawalpur: "بہاولپور"
   };
 
-  const prayerKeys = [
-    "fajr", "midday", "asr", "maghrib", "isha"
-  ];
-
-  let locationConfig = SukoonStorage.get("location", null);
+  const $ = id => document.getElementById(id);
+  let locationConfig = window.SukoonStorage ? SukoonStorage.get("location", null) : null;
   let todayData = null;
   let tomorrowData = null;
-  let timerInterval = null;
+  let clockTimer = null;
+  let lastDateKey = localDateKey(new Date());
   let tracker = {};
+  let activeReport = "daily";
 
-  const $ = (id) => document.getElementById(id);
-
-  function dateString(date) {
-    const d = String(date.getDate()).padStart(2, "0");
-    const m = String(date.getMonth() + 1).padStart(2, "0");
+  function localDateKey(date) {
     const y = date.getFullYear();
-    return `${d}-${m}-${y}`;
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function dateForApi(date) {
+    return `${String(date.getDate()).padStart(2, "0")}-${String(date.getMonth() + 1).padStart(2, "0")}-${date.getFullYear()}`;
+  }
+
+  function safeStorageSet(key, value) {
+    if (window.SukoonStorage) return SukoonStorage.set(key, value);
+    try { localStorage.setItem("sukoon_" + key, JSON.stringify(value)); return true; }
+    catch (e) { console.warn("Storage unavailable", e); return false; }
+  }
+
+  function safeStorageGet(key, fallback) {
+    if (window.SukoonStorage) return SukoonStorage.get(key, fallback);
+    try {
+      const raw = localStorage.getItem("sukoon_" + key);
+      return raw === null ? fallback : JSON.parse(raw);
+    } catch (e) { return fallback; }
   }
 
   function cleanTime(value) {
-    return String(value).replace(/\s*\([^)]*\)/g, "").trim().slice(0, 5);
+    const match = String(value || "").match(/(\d{1,2}):(\d{2})/);
+    if (!match) throw new Error("نماز کے وقت کا فارمیٹ درست نہیں۔");
+    return `${String(Number(match[1])).padStart(2, "0")}:${match[2]}`;
   }
 
-  function timeToDate(time, dayOffset = 0) {
-    const parts = cleanTime(time).split(":");
+  function dateAtTime(value, dayOffset = 0) {
+    const [h, m] = cleanTime(value).split(":").map(Number);
     const date = new Date();
     date.setDate(date.getDate() + dayOffset);
-    date.setHours(Number(parts[0]), Number(parts[1]), 0, 0);
+    date.setHours(h, m, 0, 0);
     return date;
   }
 
-  function formatTime(time) {
-    const parts = cleanTime(time).split(":");
-    let h = Number(parts[0]);
-    const m = parts[1];
-    const suffix = h >= 12 ? "PM" : "AM";
-    h = h % 12 || 12;
-    return `${String(h).padStart(2, "0")}:${m} ${suffix}`;
+  function displayTime(value) {
+    const [hour, minute] = cleanTime(value).split(":").map(Number);
+    const suffix = hour >= 12 ? "PM" : "AM";
+    const twelveHour = hour % 12 || 12;
+    return `${String(twelveHour).padStart(2, "0")}:${String(minute).padStart(2, "0")} ${suffix}`;
   }
 
-  function todayKey() {
-    return new Date().toLocaleDateString("en-CA");
-  }
-
-  function showStatus(message, isError = false) {
+  function showStatus(message, error = false) {
     $("location-status").textContent = message;
-    $("location-status").className =
-      isError ? "location-status error-message" : "location-status";
+    $("location-status").style.color = error ? "#A13C3C" : "";
+  }
+
+  function setLocationName(name) {
+    $("location-name").textContent = name || "مقام معلوم نہیں";
+  }
+
+  function updateLiveClock() {
+    const now = new Date();
+    $("live-clock").textContent = new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true
+    }).format(now);
+    $("live-date").textContent = new Intl.DateTimeFormat("ur-PK", {
+      weekday: "long", day: "numeric", month: "long", year: "numeric"
+    }).format(now);
+  }
+
+  async function reverseGeocode(latitude, longitude) {
+    try {
+      const url = new URL("https://api.bigdatacloud.net/data/reverse-geocode-client");
+      url.search = new URLSearchParams({
+        latitude: String(latitude),
+        longitude: String(longitude),
+        localityLanguage: "ur"
+      }).toString();
+      const response = await fetch(url.toString());
+      if (!response.ok) throw new Error("Reverse geocoding failed");
+      const data = await response.json();
+      return data.city || data.locality || data.principalSubdivision || data.localityInfo?.administrative?.[0]?.name || "";
+    } catch (error) {
+      console.warn("City name lookup failed", error);
+      return "";
+    }
   }
 
   async function requestTimings(config, date) {
-    const datePart = dateString(date);
-    let url;
+    const datePart = dateForApi(date);
+    let endpoint;
+    const params = new URLSearchParams({ method: String(METHOD), school: String(SCHOOL) });
 
     if (config.type === "gps") {
-      const params = new URLSearchParams({
-        latitude: config.latitude,
-        longitude: config.longitude,
-        method: METHOD,
-        school: SCHOOL
-      });
-
-      url = `https://api.aladhan.com/v1/timings/${datePart}?${params}`;
-
+      params.set("latitude", String(config.latitude));
+      params.set("longitude", String(config.longitude));
+      endpoint = `https://api.aladhan.com/v1/timings/${datePart}?${params}`;
     } else {
-      const params = new URLSearchParams({
-        city: config.city,
-        country: CITY_COUNTRY,
-        method: METHOD,
-        school: SCHOOL
-      });
-
-      url = `https://api.aladhan.com/v1/timingsByCity/${datePart}?${params}`;
+      params.set("city", config.city);
+      params.set("country", COUNTRY);
+      endpoint = `https://api.aladhan.com/v1/timingsByCity/${datePart}?${params}`;
     }
 
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error("Prayer time service is unavailable.");
-    }
-
+    const response = await fetch(endpoint);
+    if (!response.ok) throw new Error("نمازوں کے اوقات کی سروس سے رابطہ نہیں ہو سکا۔");
     const result = await response.json();
-
-    if (result.code !== 200 || !result.data?.timings) {
-      throw new Error("Prayer timings could not be loaded.");
+    if (result.code !== 200 || !result.data || !result.data.timings) {
+      throw new Error("نمازوں کے اوقات موصول نہیں ہوئے۔");
     }
-
     return result.data;
   }
 
   async function loadTimings(config) {
+    if (!config) return;
     $("refresh-button").disabled = true;
+    $("gps-button").disabled = true;
+    $("city-button").disabled = true;
     showStatus("نمازوں کے اوقات حاصل کیے جا رہے ہیں...");
 
     try {
@@ -639,271 +359,217 @@
       const tomorrow = new Date(now);
       tomorrow.setDate(tomorrow.getDate() + 1);
 
-      const results = await Promise.all([
+      const [todayResult, tomorrowResult] = await Promise.all([
         requestTimings(config, now),
         requestTimings(config, tomorrow)
       ]);
 
-      todayData = results[0];
-      tomorrowData = results[1];
-      locationConfig = config;
+      todayData = todayResult;
+      tomorrowData = tomorrowResult;
+      locationConfig = { ...config };
 
-      SukoonStorage.set("location", config);
+      let locationName = config.name || "";
+      if (config.type === "city") locationName = CITY_URDU[config.city] || config.city;
+      if (config.type === "gps" && !locationName) {
+        showStatus("اوقات مل گئے ہیں؛ شہر کا نام معلوم کیا جا رہا ہے...");
+        locationName = await reverseGeocode(config.latitude, config.longitude);
+      }
+      locationConfig.name = locationName || "آپ کی موجودہ لوکیشن";
+      setLocationName(locationConfig.name);
+      safeStorageSet("location", locationConfig);
 
-      const cityName = config.type === "city"
-        ? config.city
-        : "آپ کی موجودہ لوکیشن";
-
-      showStatus(`${cityName} کے نماز اوقات اپڈیٹ ہو گئے ہیں۔`);
-      $("today-label").textContent =
-        new Intl.DateTimeFormat("ur-PK", {
-          day: "numeric",
-          month: "long"
-        }).format(now);
-
-      renderTimes();
-      startClock();
-
+      const apiDate = todayResult.date && todayResult.date.readable ? todayResult.date.readable : "";
+      $("today-label").textContent = apiDate ? `مقامی تاریخ: ${apiDate}` : $("live-date").textContent;
+      showStatus(`${locationConfig.name} کے نماز اوقات اپڈیٹ ہو گئے ہیں۔`);
+      renderPrayerTimes();
+      updateTrackerTimes();
+      updatePrayerState();
     } catch (error) {
       console.error(error);
-      showStatus(
-        "اوقات حاصل نہیں ہو سکے۔ انٹرنیٹ چیک کریں یا دوبارہ کوشش کریں۔",
-        true
-      );
+      showStatus(error.message || "اوقات حاصل نہیں ہو سکے۔ انٹرنیٹ چیک کریں اور دوبارہ کوشش کریں۔", true);
+      if (!todayData) {
+        $("times-list").innerHTML = '<div class="prayer-empty">اوقات لوڈ نہیں ہو سکے۔ انٹرنیٹ چیک کرکے دوبارہ کوشش کریں۔</div>';
+      }
     } finally {
       $("refresh-button").disabled = false;
+      $("gps-button").disabled = false;
+      $("city-button").disabled = false;
     }
   }
 
-  function getPrayerTimes(data) {
+  function getPrayerRows(data) {
     const t = data.timings;
-
     return [
-      { key:"Fajr", name:"فجر", time:t.Fajr, end:t.Sunrise },
-      { key:"Dhuhr", name:"ظہر", time:t.Dhuhr, end:t.Asr },
-      { key:"Asr", name:"عصر", time:t.Asr, end:t.Maghrib },
-      { key:"Maghrib", name:"مغرب", time:t.Maghrib, end:t.Isha },
-      { key:"Isha", name:"عشاء", time:t.Isha, end:"اگلی فجر" }
+      { key: "Fajr", name: "فجر", time: t.Fajr, end: t.Sunrise, note: "صبح صادق سے طلوعِ آفتاب تک" },
+      { key: "Dhuhr", name: "ظہر", time: t.Dhuhr, end: t.Asr, note: "دوپہر کے وقت سے عصر کے آغاز تک" },
+      { key: "Asr", name: "عصر", time: t.Asr, end: t.Maghrib, note: "عصر کے آغاز سے غروبِ آفتاب تک" },
+      { key: "Maghrib", name: "مغرب", time: t.Maghrib, end: t.Isha, note: "غروبِ آفتاب سے عشاء کے آغاز تک" },
+      { key: "Isha", name: "عشاء", time: t.Isha, end: tomorrowData ? tomorrowData.timings.Fajr : "", note: "عشاء کا وقت؛ اختتامی وقت فقہی تفصیل کے مطابق مختلف بیان کیا جاتا ہے" }
     ];
   }
 
-  function renderTimes() {
+  function renderPrayerTimes() {
     if (!todayData) return;
-
     const list = $("times-list");
     list.innerHTML = "";
 
-    const prayers = getPrayerTimes(todayData);
-    const now = new Date();
-
-    prayers.forEach((prayer) => {
-      const card = document.createElement("div");
-      card.className = "time-card";
-      card.dataset.key = prayer.key;
-
-      card.innerHTML = `
-        <div>
-          <div class="time-name">${prayer.name}</div>
-          <div class="time-hint">مزید تفصیل کے لیے دبائیں</div>
-        </div>
-        <div class="time-value">${formatTime(prayer.time)}</div>
-      `;
-
+    getPrayerRows(todayData).forEach(prayer => {
+      const item = document.createElement("div");
+      item.className = "prayer-item prayer-time-entry";
+      item.dataset.key = prayer.key;
+      item.setAttribute("role", "button");
+      item.setAttribute("tabindex", "0");
+      item.innerHTML = `
+        <span class="prayer-item-icon">${({Fajr:"☀",Dhuhr:"◉",Asr:"◷",Maghrib:"☼",Isha:"☾"})[prayer.key]}</span>
+        <span class="prayer-item-main">
+          <span class="prayer-item-name">${prayer.name}</span>
+          <span class="prayer-item-note">تفصیل دیکھنے کے لیے دبائیں</span>
+        </span>
+        <span class="prayer-item-time">${displayTime(prayer.time)}</span>
+        <span class="prayer-item-details" aria-hidden="true">＋</span>`;
       const detail = document.createElement("div");
-      detail.className = "time-detail";
-      detail.textContent =
-        prayer.key === "Isha"
-          ? "عشاء کے وقت کی تفصیل: اگلی فجر تک کا وقت۔"
-          : `${prayer.name} کا آغاز: ${formatTime(prayer.time)}۔ اگلی حد: ${formatTime(prayer.end)}۔`;
+      detail.className = "prayer-time-detail";
+      detail.hidden = true;
+      detail.style.cssText = "padding:10px 15px 14px;margin:-5px 8px 4px;background:#F7F1E8;border-radius:0 0 13px 13px;color:#725B40;font-size:12px;line-height:1.8";
+      detail.textContent = prayer.key === "Isha"
+        ? `${prayer.note} آغاز: ${displayTime(prayer.time)}۔`
+        : `${prayer.note}۔ آغاز: ${displayTime(prayer.time)}، اگلا وقت: ${displayTime(prayer.end)}۔`;
 
-      card.addEventListener("click", () => {
-        detail.classList.toggle("show");
+      const toggle = () => {
+        detail.hidden = !detail.hidden;
+        item.querySelector(".prayer-item-details").textContent = detail.hidden ? "＋" : "−";
+      };
+      item.addEventListener("click", toggle);
+      item.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); toggle(); }
       });
-
-      list.appendChild(card);
-      list.appendChild(detail);
+      list.append(item, detail);
     });
-
-    updateActivePrayer();
+    updatePrayerState();
   }
 
   function getNextPrayer() {
-    const prayers = getPrayerTimes(todayData);
     const now = new Date();
-
+    const prayers = getPrayerRows(todayData);
     for (const prayer of prayers) {
-      const prayerDate = timeToDate(prayer.time);
-
-      if (prayerDate > now) {
-        return {
-          name: prayer.name,
-          date: prayerDate,
-          key: prayer.key
-        };
-      }
+      const at = dateAtTime(prayer.time);
+      if (at > now) return { name: prayer.name, time: prayer.time, date: at, key: prayer.key };
     }
-
-    return {
-      name: "فجر",
-      date: timeToDate(tomorrowData.timings.Fajr, 1),
-      key: "Fajr"
-    };
+    const fajr = tomorrowData.timings.Fajr;
+    return { name: "فجر", time: fajr, date: dateAtTime(fajr, 1), key: "Fajr" };
   }
 
   function getActivePrayer() {
     const now = new Date();
     const t = todayData.timings;
-
     const intervals = [
-      {
-        name:"فجر",
-        start:timeToDate(t.Fajr),
-        end:timeToDate(t.Sunrise)
-      },
-      {
-        name:"ظہر",
-        start:timeToDate(t.Dhuhr),
-        end:timeToDate(t.Asr)
-      },
-      {
-        name:"عصر",
-        start:timeToDate(t.Asr),
-        end:timeToDate(t.Maghrib)
-      },
-      {
-        name:"مغرب",
-        start:timeToDate(t.Maghrib),
-        end:timeToDate(t.Isha)
-      },
-      {
-        name:"عشاء",
-        start:timeToDate(t.Isha),
-        end:timeToDate(tomorrowData.timings.Fajr, 1)
-      }
+      { name: "فجر", start: dateAtTime(t.Fajr), end: dateAtTime(t.Sunrise), startText: t.Fajr, endText: t.Sunrise },
+      { name: "ظہر", start: dateAtTime(t.Dhuhr), end: dateAtTime(t.Asr), startText: t.Dhuhr, endText: t.Asr },
+      { name: "عصر", start: dateAtTime(t.Asr), end: dateAtTime(t.Maghrib), startText: t.Asr, endText: t.Maghrib },
+      { name: "مغرب", start: dateAtTime(t.Maghrib), end: dateAtTime(t.Isha), startText: t.Maghrib, endText: t.Isha },
+      { name: "عشاء", start: dateAtTime(t.Isha), end: dateAtTime(tomorrowData.timings.Fajr, 1), startText: t.Isha, endText: tomorrowData.timings.Fajr }
     ];
-
-    return intervals.find(p => now >= p.start && now < p.end) || null;
+    return intervals.find(period => now >= period.start && now < period.end) || null;
   }
 
-  function updateActivePrayer() {
+  function updatePrayerState() {
     if (!todayData || !tomorrowData) return;
-
-    const now = new Date();
     const active = getActivePrayer();
     const next = getNextPrayer();
 
     if (active) {
-      $("current-label").textContent = "اس وقت نماز کا وقت جاری ہے";
+      $("current-label").textContent = "نماز کا وقت جاری ہے";
       $("current-name").textContent = active.name;
-
-      $("current-detail").textContent =
-        `وقت شروع: ${formatTime(active.start.getHours().toString().padStart(2,"0") + ":" + active.start.getMinutes().toString().padStart(2,"0"))} — اختتام: ${formatTime(active.end.getHours().toString().padStart(2,"0") + ":" + active.end.getMinutes().toString().padStart(2,"0"))}`;
+      $("current-range").textContent = `${displayTime(active.startText)} – ${displayTime(active.endText)}`;
+      $("current-detail").textContent = "اس نماز کا وقت جاری ہے۔";
     } else {
-      $("current-label").textContent = "اس وقت نماز کا مخصوص وقت نہیں";
-      $("current-name").textContent = `اگلی نماز: ${next.name}`;
-      $("current-detail").textContent = "اگلی نماز مقررہ وقت پر شروع ہوگی۔";
+      $("current-label").textContent = "اس وقت نماز کا مخصوص وقت جاری نہیں";
+      $("current-name").textContent = "درمیانی وقت";
+      $("current-range").textContent = "—";
+      $("current-detail").textContent = `اگلی نماز ${next.name} ہے۔`;
     }
 
-    $("countdown-label").textContent =
-      `${next.name} تک باقی وقت`;
+    $("next-name").textContent = next.name;
+    $("next-time").textContent = `وقت: ${displayTime(next.time)}`;
 
-    const remaining = Math.max(0, next.date - now);
+    const remaining = Math.max(0, next.date.getTime() - Date.now());
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    $("countdown").textContent = [h, m, s].map(n => String(n).padStart(2, "0")).join(":");
 
-    const hours = Math.floor(remaining / 3600000);
-    const minutes = Math.floor((remaining % 3600000) / 60000);
-    const seconds = Math.floor((remaining % 60000) / 1000);
-
-    $("countdown").textContent =
-      [hours, minutes, seconds]
-        .map(n => String(n).padStart(2, "0"))
-        .join(":");
-
-    document.querySelectorAll(".time-card").forEach(card => {
-      card.classList.toggle(
-        "active",
-        active && card.dataset.key ===
-          ({
-            "فجر":"Fajr",
-            "ظہر":"Dhuhr",
-            "عصر":"Asr",
-            "مغرب":"Maghrib",
-            "عشاء":"Isha"
-          }[active.name])
-      );
+    document.querySelectorAll(".prayer-time-entry").forEach(item => {
+      item.classList.toggle("is-active", !!active && item.dataset.key === active.key);
     });
   }
 
-  function startClock() {
-    if (timerInterval) clearInterval(timerInterval);
-
-    updateActivePrayer();
-
-    timerInterval = setInterval(() => {
-      updateActivePrayer();
-
-      if (todayKey() !== lastLoadedDate) {
-        lastLoadedDate = todayKey();
-        loadTimings(locationConfig);
-      }
-    }, 1000);
+  function currentTrackerKey() {
+    return "prayer_record_" + localDateKey(new Date());
   }
-
-  let lastLoadedDate = todayKey();
-
-  // PRAYER TRACKER
 
   function loadTracker() {
-    tracker = SukoonStorage.get("prayer_record_" + todayKey(), {});
-
-    document.querySelectorAll("[data-prayer]").forEach(input => {
-      input.checked = tracker[input.dataset.prayer] === true;
-    });
+    tracker = safeStorageGet(currentTrackerKey(), {});
+    if (!tracker || typeof tracker !== "object") tracker = {};
 
     const isFriday = new Date().getDay() === 5;
-
-    $("friday-box").style.display = isFriday ? "block" : "none";
-
+    $("friday-box").hidden = !isFriday;
     $("midday-title").textContent = isFriday ? "جمعہ / ظہر" : "ظہر";
+    $("midday-note").textContent = isFriday ? "جمعہ یا ظہر میں سے ایک" : "دوپہر کی نماز";
 
-    if (isFriday) {
-      const choice = tracker.middayChoice || "";
+    document.querySelectorAll("[data-prayer]").forEach(input => {
+      if (input.dataset.prayer === "midday" && isFriday) {
+        input.checked = !!tracker.midday;
+        input.disabled = true;
+      } else {
+        input.checked = tracker[input.dataset.prayer] === true;
+        input.disabled = false;
+      }
+    });
 
-      document.querySelectorAll("[name='friday-choice']").forEach(radio => {
-        radio.checked = radio.value === choice;
-      });
+    document.querySelectorAll("[name='friday-choice']").forEach(radio => {
+      radio.checked = radio.value === (tracker.middayChoice || "");
+    });
 
-      tracker.midday = !!choice;
-    }
-
-    updateTracker();
+    $("tracker-date").textContent = new Intl.DateTimeFormat("ur-PK", { day: "numeric", month: "short" }).format(new Date());
+    updateTrackerUI();
   }
 
   function saveTracker() {
-    SukoonStorage.set("prayer_record_" + todayKey(), tracker);
+    safeStorageSet(currentTrackerKey(), tracker);
   }
 
-  function updateTracker() {
-    const completed = prayerKeys.filter(key => tracker[key] === true).length;
+  function completedCount(record) {
+    return PRAYER_KEYS.filter(key => record && record[key] === true).length;
+  }
 
+  function updateTrackerUI() {
+    const completed = completedCount(tracker);
     $("progress-count").textContent = `${completed} / 5`;
-    $("progress-fill").style.width = `${completed / 5 * 100}%`;
+    $("hero-progress").textContent = `${completed} / 5 نمازیں`;
+    $("progress-fill").style.width = `${completed * 20}%`;
+    $("progress-card").dataset.progress = String(completed);
+    $("progress-message").textContent = completed === 5
+      ? "ماشاءاللہ! آج کی پانچوں نمازوں کا ریکارڈ مکمل ہے۔"
+      : completed === 0 ? "آغاز کریں، ہر نماز اہم ہے۔" : `${completed} نمازوں کا ریکارڈ محفوظ ہے۔`;
 
     document.querySelectorAll("[data-prayer]").forEach(input => {
-      const item = input.closest(".tracker-item");
-      const status = item.querySelector(".tracker-status");
-      const done = input.checked;
-
-      item.classList.toggle("done", done);
-      status.textContent = done ? "ریکارڈ محفوظ ہو گیا ✓" : "ابھی نشان نہیں لگایا";
+      const item = input.closest(".prayer-item");
+      const done = input.dataset.prayer === "midday" && new Date().getDay() === 5
+        ? !!tracker.midday : input.checked;
+      item.classList.toggle("is-done", done);
     });
 
+    $("daily-done").textContent = `${completed} / 5`;
+    $("daily-percent").textContent = `${completed * 20}%`;
     saveTracker();
+    renderWeeklyReport();
   }
 
   document.querySelectorAll("[data-prayer]").forEach(input => {
     input.addEventListener("change", () => {
+      if (input.dataset.prayer === "midday" && new Date().getDay() === 5) return;
       tracker[input.dataset.prayer] = input.checked;
-      updateTracker();
+      updateTrackerUI();
     });
   });
 
@@ -911,94 +577,136 @@
     radio.addEventListener("change", () => {
       tracker.middayChoice = radio.value;
       tracker.midday = true;
-
-      const middayCheckbox = document.querySelector('[data-prayer="midday"]');
-      middayCheckbox.checked = true;
-
-      updateTracker();
+      $("midday-checkbox").checked = true;
+      updateTrackerUI();
     });
   });
 
-  $("reset-button").addEventListener("click", () => {
-    if (!confirm("کیا آپ آج کا نماز ریکارڈ ری سیٹ کرنا چاہتے ہیں؟")) {
-      return;
+  function renderWeeklyReport() {
+    const today = new Date();
+    let total = 0;
+    const rows = [];
+
+    for (let offset = 6; offset >= 0; offset--) {
+      const day = new Date(today);
+      day.setDate(today.getDate() - offset);
+      const key = "prayer_record_" + localDateKey(day);
+      const record = safeStorageGet(key, {});
+      const count = completedCount(record);
+      total += count;
+      const dayName = new Intl.DateTimeFormat("ur-PK", { weekday: "short", day: "numeric", month: "short" }).format(day);
+      rows.push({ dayName, count });
     }
 
-    tracker = {};
-    loadTracker();
-    saveTracker();
-  });
+    $("weekly-done").textContent = `${total} / 35`;
+    $("weekly-percent").textContent = `${Math.round(total / 35 * 100)}%`;
+    $("weekly-days").innerHTML = rows.map(row => `
+      <div class="prayer-week-row">
+        <span>${row.dayName}</span>
+        <strong>${row.count} / 5</strong>
+      </div>`).join("");
+  }
 
-  // GPS LOCATION
+  function setReportTab(tab) {
+    activeReport = tab;
+    const daily = tab === "daily";
+    $("daily-report").hidden = !daily;
+    $("weekly-report").hidden = daily;
+    $("daily-tab").classList.toggle("active", daily);
+    $("weekly-tab").classList.toggle("active", !daily);
+    $("daily-tab").setAttribute("aria-selected", String(daily));
+    $("weekly-tab").setAttribute("aria-selected", String(!daily));
+    if (!daily) renderWeeklyReport();
+  }
+
+  $("daily-tab").addEventListener("click", () => setReportTab("daily"));
+  $("weekly-tab").addEventListener("click", () => setReportTab("weekly"));
+
+  function updateTrackerTimes() {
+    if (!todayData) return;
+    const t = todayData.timings;
+    $("tracker-time-fajr").textContent = displayTime(t.Fajr);
+    $("tracker-time-dhuhr").textContent = displayTime(t.Dhuhr);
+    $("tracker-time-asr").textContent = displayTime(t.Asr);
+    $("tracker-time-maghrib").textContent = displayTime(t.Maghrib);
+    $("tracker-time-isha").textContent = displayTime(t.Isha);
+  }
 
   $("gps-button").addEventListener("click", () => {
     if (!navigator.geolocation) {
-      showStatus("آپ کے براؤزر میں GPS کی سہولت دستیاب نہیں۔", true);
+      showStatus("اس براؤزر میں GPS دستیاب نہیں۔ شہر خود منتخب کریں۔", true);
       return;
     }
-
-    showStatus("آپ کی اجازت کا انتظار ہے...");
-
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const config = {
-          type:"gps",
-          latitude:position.coords.latitude,
-          longitude:position.coords.longitude
-        };
-
-        loadTimings(config);
-      },
-      error => {
-        showStatus(
-          "لوکیشن حاصل نہیں ہو سکی۔ اجازت دیں یا دستی شہر منتخب کریں۔",
-          true
-        );
-      },
-      {
-        enableHighAccuracy:true,
-        timeout:15000,
-        maximumAge:300000
-      }
-    );
+    showStatus("لوکیشن کی اجازت کا انتظار ہے...");
+    navigator.geolocation.getCurrentPosition(async position => {
+      const config = {
+        type: "gps",
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        name: ""
+      };
+      await loadTimings(config);
+    }, error => {
+      const message = error.code === 1
+        ? "لوکیشن کی اجازت نہیں ملی۔ براہِ کرم اجازت دیں یا شہر منتخب کریں۔"
+        : "لوکیشن حاصل نہیں ہو سکی۔ دوبارہ کوشش کریں یا شہر منتخب کریں۔";
+      showStatus(message, true);
+    }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 300000 });
   });
-
-  // MANUAL CITY
 
   $("city-button").addEventListener("click", () => {
     const city = $("city-select").value;
-
     if (!city) {
-      showStatus("براہ کرم پہلے اپنا شہر منتخب کریں۔", true);
+      showStatus("براہِ کرم پہلے اپنا شہر منتخب کریں۔", true);
       return;
     }
-
-    loadTimings({
-      type:"city",
-      city:city
-    });
+    loadTimings({ type: "city", city, name: CITY_URDU[city] || city });
   });
 
   $("refresh-button").addEventListener("click", () => {
     if (!locationConfig) {
-      showStatus("پہلے لوکیشن یا شہر منتخب کریں۔", true);
+      showStatus("پہلے اپنی لوکیشن یا شہر منتخب کریں۔", true);
+      $("location-panel").scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-
     loadTimings(locationConfig);
   });
 
-  // INITIALIZE
+  $("change-location-button").addEventListener("click", () => {
+    $("location-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 
-  loadTracker();
+  $("reset-button").addEventListener("click", () => {
+    if (!confirm("کیا آپ صرف آج کا نماز ریکارڈ ری سیٹ کرنا چاہتے ہیں؟")) return;
+    tracker = {};
+    loadTracker();
+    showStatus("آج کا ریکارڈ ری سیٹ کر دیا گیا ہے۔");
+  });
 
-  if (locationConfig) {
-    loadTimings(locationConfig);
+  function handleDateChange() {
+    const currentKey = localDateKey(new Date());
+    if (currentKey !== lastDateKey) {
+      lastDateKey = currentKey;
+      todayData = null;
+      tomorrowData = null;
+      loadTracker();
+      if (locationConfig) loadTimings(locationConfig);
+    }
   }
 
+  updateLiveClock();
+  loadTracker();
+  clockTimer = setInterval(() => {
+    updateLiveClock();
+    updatePrayerState();
+    handleDateChange();
+  }, 1000);
+
+  if (locationConfig) {
+    setLocationName(locationConfig.name || (locationConfig.type === "city" ? CITY_URDU[locationConfig.city] : "محفوظ شدہ لوکیشن"));
+    loadTimings(locationConfig);
+  }
 })();
 </script>
-
 </body>
 </html>
-
