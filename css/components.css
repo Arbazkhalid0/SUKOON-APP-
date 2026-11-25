@@ -1,1 +1,221 @@
 
+/* =====================================
+   SUKOON - INTERACTIVE COMPONENTS
+   3D Flip Cards & Premium UI
+===================================== */
+
+/* Common Cards */
+
+.date-card,
+.reflection-card,
+.feature-card,
+.reminder-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Date Card */
+
+.date-card {
+  background: linear-gradient(135deg, #FFFFFF, #FCF8F0);
+  border-color: #E9DFD3;
+}
+
+.date-symbol {
+  border: 1px solid rgba(184,149,84,0.18);
+}
+
+/* Reflection Card */
+
+.reflection-card {
+  background: linear-gradient(135deg, #FFFDF8, #F7EDDE);
+  border-color: #E8D9BD;
+}
+
+.reflection-card::after {
+  content: "✦";
+  position: absolute;
+  left: 15px;
+  bottom: 5px;
+  font-size: 55px;
+  color: rgba(184,149,84,0.09);
+  pointer-events: none;
+}
+
+.reflection-card h2,
+.reflection-card p,
+.reflection-card .section-heading {
+  position: relative;
+  z-index: 1;
+}
+
+/* Feature Cards */
+
+.feature-card {
+  border: 1px solid #EAE0D5;
+  background: #FFFFFF;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.feature-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55px;
+  height: 3px;
+  background: #B89554;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.feature-icon {
+  border: 1px solid rgba(118,38,59,0.05);
+  transition: transform 0.25s ease;
+}
+
+.feature-card h3 {
+  line-height: 1.7;
+}
+
+.feature-card p {
+  line-height: 1.8;
+}
+
+/* 3D FLIP ANIMATION */
+
+.feature-card.is-flipping {
+  pointer-events: none;
+  animation: sukoonCardFlip 0.55s ease-in forwards;
+}
+
+@keyframes sukoonCardFlip {
+  0% {
+    transform: perspective(800px)
+               rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+
+  45% {
+    transform: perspective(800px)
+               rotateY(90deg) scale(0.96);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: perspective(800px)
+               rotateY(180deg) scale(0.92);
+    opacity: 0.35;
+  }
+}
+
+/* Desktop Hover */
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:not(.is-flipping):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(75,35,43,0.10);
+    border-color: #D8BD82;
+  }
+
+  .feature-card:hover::after {
+    opacity: 1;
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.07);
+  }
+
+  .date-card:hover,
+  .reflection-card:hover {
+    box-shadow: 0 12px 25px rgba(75,35,43,0.09);
+  }
+}
+
+/* Reminder Card */
+
+.reminder-card {
+  background: linear-gradient(120deg, #76263B, #54192B);
+  border: 1px solid rgba(216,189,130,0.25);
+}
+
+.reminder-icon {
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(216,189,130,0.12);
+  border-radius: 10px;
+}
+
+/* Profile Button */
+
+.profile-button {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.profile-button:active {
+  transform: scale(0.94);
+  background: #F2EBDD;
+}
+
+/* Bottom Navigation */
+
+.bottom-navigation {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-item {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item:active {
+  transform: scale(0.94);
+}
+
+.nav-item.active {
+  color: #76263B;
+}
+
+.nav-item.active span {
+  color: #76263B;
+}
+
+/* Touch & Accessibility */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #B89554;
+  outline-offset: 4px;
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card.is-flipping {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
