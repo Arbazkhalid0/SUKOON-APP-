@@ -356,6 +356,20 @@
     );
 
     const next = getNextPrayer();
+     // Send next prayer information to notification system
+window.dispatchEvent(
+  new CustomEvent("sukoon:prayer-update", {
+    detail: {
+      nextPrayer: next
+        ? {
+            key: next.key,
+            name: next.name,
+            time: next.time.toISOString()
+          }
+        : null
+    }
+  })
+);
 
     // Live clock and date
     setText("current-clock", clockFormat(now));
