@@ -852,3 +852,37 @@ body {
   font-size: 11px;
   text-align: center;
 }
+
+/* =====================================
+   SUKOON — NOTIFICATION PERMISSION BUTTON
+===================================== */
+
+.notification-permission {
+  width: 100%;
+  margin-top: 11px;
+  padding: 14px 16px;
+
+  color: #54192B;
+  background: linear-gradient(135deg, #F7EBD5, #E8CE98);
+
+  border: 1px solid #B89554;
+  border-radius: 13px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(84, 25, 43, 0.08);
+}
+
+.notification-permission:active {
+  transform: scale(0.98);
+}
+
+.notification-permission:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
