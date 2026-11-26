@@ -1,20 +1,22 @@
 
-/* =========================================
-   SUKOON — CREATIVE FUSION HOME
-   Visual identity: Editorial x Spiritual
-========================================= */
+/* ==========================================
+   SUKOON — ROYAL LUXURY ISLAMIC UI
+   Bright • Rich • Ornamental • App Style
+========================================== */
 
 :root {
-  --fusion-green: #123F38;
-  --fusion-deep: #0B2926;
-  --fusion-emerald: #1D6658;
-  --fusion-mint: #B8D8C8;
-  --fusion-cream: #F7F2E8;
-  --fusion-paper: #FFFDF8;
-  --fusion-coral: #E77D65;
-  --fusion-gold: #D8B875;
-  --fusion-ink: #1C302B;
-  --fusion-muted: #78847B;
+  --royal-blue: #123F87;
+  --blue-light: #2867C7;
+  --turquoise: #00A99D;
+  --turquoise-light: #D7F5EE;
+  --gold: #F2B544;
+  --gold-light: #FFE4A3;
+  --coral: #F26B55;
+  --violet: #713C8F;
+  --ivory: #FFF9ED;
+  --paper: #FFFFFF;
+  --ink: #192B49;
+  --muted: #718096;
 }
 
 * {
@@ -27,16 +29,16 @@ html {
 
 body.sukoon-home {
   margin: 0;
-  background: var(--fusion-cream);
-  color: var(--fusion-ink);
+  background: #F3F6FC;
+  color: var(--ink);
   font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq",
     "Noto Sans Arabic", sans-serif;
-  padding-bottom: 92px;
+  padding-bottom: 88px;
 }
 
 .sukoon-home a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 .fusion-home {
@@ -44,44 +46,58 @@ body.sukoon-home {
   max-width: 1000px;
   margin: auto;
   overflow: hidden;
-  background: var(--fusion-cream);
+  background: #F3F6FC;
 }
 
-/* =============== HERO =============== */
+/* ==========================================
+   HERO — ROYAL ISLAMIC EXPERIENCE
+========================================== */
 
 .fusion-hero {
   position: relative;
-  min-height: 550px;
-  padding: 25px 6% 20px;
-  color: #fffaf0;
-  background:
-    radial-gradient(ellipse at 78% 60%, rgba(53, 125, 103, .42), transparent 40%),
-    radial-gradient(ellipse at 5% 5%, rgba(216, 184, 117, .13), transparent 35%),
-    linear-gradient(135deg, #0B2926 0%, #123F38 58%, #1C574A 100%);
+  min-height: 520px;
+  padding: 23px 6% 20px;
+  color: white;
+  overflow: hidden;
   isolation: isolate;
+
+  background:
+    radial-gradient(ellipse at 80% 25%, rgba(0,169,157,.48), transparent 36%),
+    radial-gradient(ellipse at 10% 90%, rgba(242,181,68,.30), transparent 35%),
+    linear-gradient(125deg, #102F70 0%, #164D9C 48%, #087F89 100%);
 }
 
+/* Islamic geometric inspired background */
 .fusion-hero::before {
   content: "";
   position: absolute;
-  width: 310px;
-  height: 310px;
-  border: 1px solid rgba(216, 184, 117, .17);
-  border-radius: 50%;
-  top: 130px;
-  right: -155px;
+  inset: 0;
   z-index: -1;
+  opacity: .16;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 24px,
+      rgba(255,255,255,.32) 25px,
+      transparent 26px 48px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 24px,
+      rgba(255,255,255,.24) 25px,
+      transparent 26px 48px
+    );
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
 }
 
+/* Decorative golden frame */
 .fusion-hero::after {
   content: "";
   position: absolute;
-  width: 230px;
-  height: 230px;
-  border: 1px solid rgba(216, 184, 117, .13);
-  border-radius: 50%;
-  bottom: -150px;
-  left: -100px;
+  inset: 10px;
+  border: 1px solid rgba(255,220,145,.25);
+  border-radius: 25px 25px 65px 25px;
+  pointer-events: none;
   z-index: -1;
 }
 
@@ -101,62 +117,65 @@ body.sukoon-home {
 }
 
 .brand-symbol {
-  width: 45px;
-  height: 45px;
-  border: 1px solid var(--fusion-gold);
-  color: var(--fusion-gold);
-  border-radius: 50%;
+  width: 47px;
+  height: 47px;
   display: grid;
   place-items: center;
-  font-size: 27px;
+  color: var(--gold-light);
+  font-size: 28px;
+  border: 2px solid var(--gold);
+  border-radius: 15px 15px 50% 50%;
+  background: rgba(255,255,255,.10);
+  box-shadow: 0 0 20px rgba(242,181,68,.22);
 }
 
 .brand-name {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .brand-name strong {
-  font-family: Georgia, serif;
+  font: 600 18px Georgia, serif;
   letter-spacing: 3px;
-  font-size: 17px;
-  font-weight: 500;
+  color: white;
 }
 
 .brand-name small {
-  color: #c9d7cc;
   font-size: 11px;
+  color: #FFE9B6;
   direction: rtl;
   text-align: left;
   margin-top: 3px;
 }
 
 .settings-link {
-  width: 39px;
-  height: 39px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 50%;
-  color: var(--fusion-gold) !important;
-  font-size: 22px;
+  border-radius: 14px;
+  color: #FFF4D8 !important;
+  font-size: 23px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(8px);
 }
 
-/* Hero composition */
+/* Hero layout */
 
 .hero-content {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   align-items: center;
-  min-height: 405px;
+  min-height: 390px;
   direction: ltr;
 }
 
 .hero-copy {
   direction: rtl;
   text-align: right;
-  padding: 35px 0 30px;
+  padding: 30px 0;
   position: relative;
   z-index: 2;
 }
@@ -164,64 +183,64 @@ body.sukoon-home {
 .hero-eyebrow,
 .section-kicker {
   display: block;
-  font-family: Arial, sans-serif;
+  font: 700 9px Arial, sans-serif;
   letter-spacing: 2px;
-  font-size: 9px;
-  font-weight: 700;
 }
 
 .hero-eyebrow {
-  color: var(--fusion-gold);
-  margin-bottom: 17px;
+  color: var(--gold-light);
+  margin-bottom: 15px;
 }
 
 .hero-copy h1 {
-  font-size: clamp(38px, 7vw, 65px);
-  line-height: 1.65;
-  font-weight: 700;
   margin: 0;
-  color: #fffaf0;
+  color: #FFFFFF;
+  font-size: clamp(36px, 7vw, 61px);
+  line-height: 1.65;
+  text-shadow: 0 4px 18px rgba(0,0,0,.15);
 }
 
 .hero-copy h1 em {
-  color: var(--fusion-gold);
+  color: #FFD77F;
   font-style: normal;
 }
 
 .hero-copy p {
   max-width: 300px;
-  color: #c6d5cc;
-  font-size: 14px;
+  color: #E5F6FF;
+  font-size: 13px;
   line-height: 2.2;
-  margin: 13px 0 22px;
+  margin: 12px 0 21px;
 }
 
 .hero-link {
   display: inline-flex;
   align-items: center;
-  gap: 13px;
-  color: var(--fusion-deep) !important;
-  background: var(--fusion-gold);
+  gap: 12px;
+  padding: 10px 19px;
+  color: #173A72 !important;
+  background: linear-gradient(135deg, #FFE8AE, #F2B544);
   border-radius: 30px;
-  padding: 9px 20px;
   font-size: 13px;
-  transition: .25s ease;
-}
-
-.hero-link span {
-  font-size: 19px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0,0,0,.16);
+  transition: .2s ease;
 }
 
 .hero-link:active {
   transform: scale(.96);
 }
 
-/* Original abstract artwork */
+.hero-link span {
+  font-size: 19px;
+}
+
+/* Islamic arch artwork */
 
 .hero-art {
-  height: 330px;
-  width: 100%;
   position: relative;
+  width: 100%;
+  height: 330px;
   display: grid;
   place-items: center;
   direction: ltr;
@@ -229,163 +248,190 @@ body.sukoon-home {
 
 .art-orbit {
   position: absolute;
-  border: 1px solid rgba(216,184,117,.34);
+  border: 1px solid rgba(255,223,153,.52);
   border-radius: 50%;
-  transform: rotate(-28deg);
 }
 
 .orbit-one {
-  width: 265px;
-  height: 115px;
+  width: 260px;
+  height: 125px;
+  transform: rotate(-35deg);
 }
 
 .orbit-two {
-  width: 230px;
+  width: 220px;
   height: 290px;
   transform: rotate(35deg);
-  border-color: rgba(184,216,200,.27);
+  border-color: rgba(255,255,255,.32);
 }
 
 .art-sun {
-  width: 115px;
-  height: 115px;
-  background: linear-gradient(145deg, #F0D79D, #C38F50);
-  border-radius: 50%;
   position: absolute;
-  top: 49px;
-  right: 48px;
-  box-shadow: 0 0 65px rgba(216,184,117,.22);
+  top: 38px;
+  right: 35px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFF0B9, #F2B544 70%);
+  box-shadow:
+    0 0 0 12px rgba(255,226,160,.10),
+    0 0 55px rgba(255,204,100,.45);
 }
 
+/* Arch frame */
 .art-arch {
   position: absolute;
-  width: 175px;
-  height: 230px;
-  bottom: 8px;
+  bottom: 3px;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid rgba(244,224,174,.8);
-  border-radius: 90px 90px 4px 4px;
-  background: linear-gradient(180deg, rgba(216,184,117,.18), rgba(255,255,255,.02));
+  width: 178px;
+  height: 225px;
+  border: 2px solid #FFD98C;
+  border-radius: 90px 90px 8px 8px;
+  background:
+    linear-gradient(180deg, rgba(255,218,140,.23), rgba(255,255,255,.06));
+  box-shadow:
+    inset 0 0 0 7px rgba(255,255,255,.06),
+    0 0 30px rgba(0,0,0,.12);
   overflow: hidden;
 }
 
 .art-inner-arch {
   position: absolute;
-  width: 130px;
-  height: 190px;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid rgba(244,224,174,.45);
-  border-radius: 70px 70px 0 0;
+  inset: 13px 13px 0;
+  border: 1px solid rgba(255,229,174,.65);
+  border-radius: 75px 75px 0 0;
+}
+
+.art-arch::before {
+  content: "✧  ✦  ✧";
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  text-align: center;
+  color: #FFE5A8;
+  font-size: 18px;
+  letter-spacing: 7px;
 }
 
 .art-arch::after {
   content: "";
   position: absolute;
-  width: 80px;
-  height: 80px;
-  background: rgba(231,125,101,.2);
-  border-radius: 50%;
-  bottom: 24px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  filter: blur(4px);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(242,181,68,.23);
+  filter: blur(12px);
 }
 
 .art-urdu {
   position: absolute;
-  bottom: 70px;
+  bottom: 69px;
   left: 50%;
   transform: translateX(-50%);
-  color: #f8e8c4;
-  font-size: 42px;
-  z-index: 2;
-  text-shadow: 0 5px 20px rgba(0,0,0,.2);
+  color: #FFF0C8;
+  font-size: 41px;
+  z-index: 3;
+  text-shadow: 0 4px 15px rgba(0,0,0,.25);
 }
 
 .art-star {
   position: absolute;
-  color: var(--fusion-gold);
+  color: #FFE1A0;
 }
 
 .star-one {
-  top: 45px;
-  left: 28px;
-  font-size: 23px;
+  top: 35px;
+  left: 25px;
+  font-size: 26px;
 }
 
 .star-two {
-  bottom: 45px;
-  right: 20px;
-  font-size: 28px;
+  bottom: 42px;
+  right: 15px;
+  font-size: 30px;
 }
 
 .star-three {
-  top: 125px;
-  left: 10px;
-  font-size: 40px;
+  top: 130px;
+  left: 12px;
+  font-size: 38px;
 }
 
 .hero-bottom-line {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 13px;
+  align-items: center;
+  gap: 12px;
   direction: ltr;
-  color: #b7c9bd;
+  color: #E4EDFF;
   font: 8px Arial, sans-serif;
   letter-spacing: 2px;
 }
 
 .hero-bottom-line .line {
-  width: 30px;
+  width: 28px;
   height: 1px;
-  background: rgba(216,184,117,.55);
+  background: var(--gold);
 }
 
-/* =============== TODAY =============== */
+/* ==========================================
+   TODAY — BRIGHT WHITE LUXURY PANEL
+========================================== */
 
 .today-section {
-  padding: 38px 6% 35px;
   position: relative;
-  background: var(--fusion-cream);
+  margin: -1px 0 0;
+  padding: 32px 6%;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,169,157,.08), transparent 32%),
+    #FFFFFF;
+  border-radius: 25px 25px 0 0;
 }
 
 .today-heading,
 .explore-heading {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .section-kicker {
-  color: #9D7950;
+  color: #C08A28;
   margin-bottom: 7px;
 }
 
 .today-heading h2,
 .explore-heading h2 {
-  font-size: 26px;
   margin: 0;
-  font-weight: 700;
-  color: var(--fusion-ink);
+  color: #173D77;
+  font-size: 25px;
 }
 
 .today-sun {
-  font-size: 35px;
-  color: var(--fusion-coral);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #E49A25;
+  font-size: 28px;
+  background: #FFF1D0;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px #F8DDA5;
 }
 
 .today-information {
-  margin-top: 23px;
-  padding: 20px 0;
-  border-top: 1px solid #e5ddcd;
-  border-bottom: 1px solid #e5ddcd;
   display: grid;
   grid-template-columns: 1.4fr .8fr;
-  gap: 15px;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 17px;
+  background: linear-gradient(120deg, #E8F8F5, #FFF5DE);
+  border: 1px solid #E1EAE2;
 }
 
 .today-date-block,
@@ -398,109 +444,113 @@ body.sukoon-home {
 .today-time-block {
   direction: ltr;
   text-align: left;
-  border-right: 1px solid #ded5c4;
-  padding-right: 20px;
+  border-right: 1px solid rgba(18,63,135,.15);
+  padding-right: 15px;
 }
 
 .info-label {
+  color: #728397;
   font-size: 11px;
-  color: var(--fusion-muted);
 }
 
 .today-date-block strong {
-  font-size: 16px;
+  color: #193D73;
+  font-size: 15px;
   line-height: 2;
 }
 
 .today-date-block small,
 .today-time-block small {
-  color: var(--fusion-muted);
+  color: #718096;
   font-size: 11px;
 }
 
 .today-time-block strong {
-  font-family: Georgia, serif;
-  font-size: 29px;
-  letter-spacing: 1px;
-  color: var(--fusion-emerald);
+  color: #009A8D;
+  font: 700 28px Georgia, serif;
 }
 
 .location-line {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 17px;
+  color: #1B6F78 !important;
   font-size: 12px;
-  color: var(--fusion-emerald) !important;
 }
 
 .location-line > span:first-child {
-  color: var(--fusion-coral);
-  font-size: 19px;
+  color: #F26B55;
+  font-size: 20px;
 }
 
 .location-edit {
   margin-right: auto;
-  color: #9D7950;
+  color: #D18B2C;
   font-size: 11px;
 }
 
-/* =============== REFLECTION =============== */
+/* ==========================================
+   REFLECTION — ROYAL FEATURE PANEL
+========================================== */
 
 .reflection-section {
-  margin: 0 6% 48px;
-  min-height: 245px;
+  margin: 12px 5% 38px;
+  min-height: 235px;
   display: grid;
   grid-template-columns: .8fr 1.2fr;
   direction: ltr;
-  background: #E8E2D3;
+  border-radius: 22px;
   overflow: hidden;
+  background: #FFF1D8;
+  box-shadow: 0 10px 30px rgba(26,61,106,.09);
+  border: 1px solid #F3DFB8;
 }
 
 .reflection-art {
   position: relative;
-  min-height: 245px;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(231,125,101,.32), transparent 34%),
-    linear-gradient(145deg, #244E43, #102E29);
+  min-height: 235px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(242,181,68,.65), transparent 35%),
+    linear-gradient(145deg, #713C8F, #38276D);
 }
 
-.reflection-art::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px solid rgba(216,184,117,.4);
-  border-radius: 50%;
-}
-
+.reflection-art::before,
 .reflection-art::after {
   content: "";
   position: absolute;
-  width: 140px;
-  height: 140px;
-  border: 1px solid rgba(216,184,117,.25);
-  border-radius: 50%;
+  border: 1px solid rgba(255,230,171,.4);
+  transform: rotate(45deg);
+}
+
+.reflection-art::before {
+  width: 175px;
+  height: 175px;
+}
+
+.reflection-art::after {
+  width: 125px;
+  height: 125px;
 }
 
 .reflection-number {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 13px;
+  left: 14px;
+  color: #FFE0A0;
   font: 11px Georgia, serif;
-  color: var(--fusion-gold);
 }
 
 .reflection-moon {
-  width: 77px;
-  height: 77px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  background: var(--fusion-gold);
-  box-shadow: 0 0 40px rgba(216,184,117,.2);
+  background: #FFD16B;
+  box-shadow: 0 0 40px rgba(255,213,113,.38);
   position: relative;
   z-index: 1;
 }
@@ -508,55 +558,55 @@ body.sukoon-home {
 .reflection-moon::after {
   content: "";
   position: absolute;
-  width: 72px;
-  height: 72px;
-  background: #244E43;
+  width: 70px;
+  height: 70px;
+  top: -11px;
+  right: -20px;
   border-radius: 50%;
-  top: -12px;
-  right: -21px;
+  background: #573276;
 }
 
 .reflection-art-text {
   position: absolute;
-  bottom: 23px;
-  color: #f5e7c8;
-  font-size: 19px;
+  bottom: 19px;
   z-index: 2;
+  color: #FFF2CF;
+  font-size: 18px;
 }
 
 .reflection-decoration {
   position: absolute;
-  top: 38px;
-  right: 35px;
-  color: var(--fusion-coral);
-  font-size: 22px;
+  top: 28px;
+  right: 25px;
+  color: #FFD16B;
+  font-size: 24px;
 }
 
 .reflection-content {
   direction: rtl;
   text-align: right;
-  padding: 25px 22px;
+  padding: 22px 19px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .reflection-content h2 {
-  font-size: 27px;
+  color: #243B75;
+  font-size: 25px;
   line-height: 1.8;
   margin: 5px 0 8px;
-  color: var(--fusion-ink);
 }
 
 .reflection-content p {
-  font-size: 12px;
-  line-height: 2;
-  color: #68746B;
+  color: #69758A;
+  font-size: 11px;
+  line-height: 2.1;
   margin: 0 0 13px;
 }
 
 .text-arrow {
-  color: #A36F42 !important;
+  color: #C07A22 !important;
   font-size: 12px;
   font-weight: 700;
 }
@@ -566,238 +616,321 @@ body.sukoon-home {
   margin-right: 5px;
 }
 
-/* =============== EXPLORE =============== */
+/* ==========================================
+   EXPLORE — COLORFUL APP FEATURE GRID
+========================================== */
 
 .explore-section {
-  padding: 0 6% 42px;
+  padding: 30px 5% 40px;
+  background:
+    radial-gradient(circle at 0% 70%, rgba(0,169,157,.07), transparent 30%),
+    #F3F6FC;
+}
+
+.explore-heading {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #DDE5F0;
+}
+
+.explore-heading h2 {
+  color: #173D77;
 }
 
 .explore-mark {
+  color: #D49A35;
   font: 11px Georgia, serif;
-  color: #A58D69;
   direction: ltr;
 }
 
+/* Two rows, three columns */
 .fusion-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 25px;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, 126px) !important;
+  gap: 11px !important;
+  margin-top: 20px !important;
   direction: rtl;
 }
 
 .fusion-item {
-  min-height: 125px;
-  padding: 17px 15px;
   position: relative;
-  display: flex;
+  min-width: 0;
+  height: 126px !important;
+  min-height: 126px !important;
+  margin: 0 !important;
+  padding: 13px 6px !important;
+  display: flex !important;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center !important;
+  text-align: center;
   overflow: hidden;
-  border: none;
-  border-radius: 0;
-  transition: transform .25s ease, filter .25s ease;
+  border: 1px solid rgba(255,255,255,.8) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 7px 18px rgba(25,52,91,.10);
+  transition: transform .2s ease, box-shadow .2s ease;
+  isolation: isolate;
 }
 
 .fusion-item:active {
-  transform: scale(.97);
+  transform: scale(.96);
+  box-shadow: 0 3px 9px rgba(25,52,91,.12);
+}
+
+/* Decorative Islamic geometry */
+.fusion-item::before {
+  content: "";
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  top: -33px;
+  right: -26px;
+  border: 1px solid currentColor;
+  opacity: .22;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.fusion-item::after {
+  content: "✧";
+  position: absolute;
+  left: 9px;
+  bottom: 6px;
+  font-size: 15px;
+  opacity: .55;
 }
 
 .item-index {
   position: absolute;
-  top: 12px;
-  left: 13px;
+  top: 8px !important;
+  left: 9px !important;
   font: 10px Georgia, serif;
   opacity: .65;
 }
 
 .item-icon {
-  font-size: 30px;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 7px !important;
+  border-radius: 14px;
+  font-size: 25px !important;
   line-height: 1;
-  margin-bottom: 14px;
+  background: rgba(255,255,255,.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.45);
 }
 
 .item-copy {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 3px !important;
 }
 
 .item-copy strong {
-  font-size: 16px;
+  font-size: 13px !important;
+  line-height: 1.7;
   font-weight: 700;
 }
 
 .item-copy small {
-  font-size: 10px;
-  opacity: .8;
+  font-size: 9px !important;
+  line-height: 1.5;
+  opacity: .85;
 }
 
 .item-arrow {
-  position: absolute;
-  left: 14px;
-  bottom: 13px;
-  font-size: 17px;
-  opacity: .7;
+  display: none;
 }
 
-/* Distinct visual personalities */
+/* Individual luxury color identities */
 
 .item-prayer {
-  background: var(--fusion-green);
-  color: #fff8e9;
-  min-height: 158px;
+  color: #FFFFFF !important;
+  background: linear-gradient(145deg, #174EAA, #2879D7) !important;
 }
 
 .item-prayer .item-icon {
-  color: var(--fusion-gold);
-  font-size: 36px;
+  color: #FFE09A !important;
+  background: rgba(255,255,255,.16);
 }
 
 .item-tasbeeh {
-  background: #D9E7D9;
-  color: #214A3E;
-  margin-top: 22px;
+  color: #075E59 !important;
+  background: linear-gradient(145deg, #BDF3E7, #68D8C4) !important;
 }
 
 .item-tasbeeh .item-icon {
-  color: #43816C;
+  color: #008F80 !important;
 }
 
 .item-calendar {
-  background: #E9B9A9;
-  color: #603B34;
-  min-height: 145px;
+  color: #693B25 !important;
+  background: linear-gradient(145deg, #FFE4A8, #F7B95B) !important;
 }
 
 .item-calendar .item-icon {
-  color: #8F5145;
+  color: #C47B20 !important;
 }
 
 .item-deeds {
-  background: #E8DFC8;
-  color: #665338;
-  margin-top: 17px;
-  min-height: 165px;
+  color: #FFFFFF !important;
+  background: linear-gradient(145deg, #F47A63, #D94C65) !important;
 }
 
 .item-deeds .item-icon {
-  color: #B28A49;
+  color: #FFF1D0 !important;
+  background: rgba(255,255,255,.17);
 }
 
 .item-reflection {
-  background: #244D43;
-  color: #FFF8E9;
-  min-height: 155px;
-  margin-top: -8px;
+  color: #FFFFFF !important;
+  background: linear-gradient(145deg, #8251A5, #63358B) !important;
 }
 
 .item-reflection .item-icon {
-  color: var(--fusion-gold);
+  color: #FFE0A0 !important;
+  background: rgba(255,255,255,.15);
 }
 
 .item-fasting {
-  background: #D8E2E8;
-  color: #294B59;
-  min-height: 135px;
-  margin-top: 18px;
+  color: #FFFFFF !important;
+  background: linear-gradient(145deg, #087D91, #12B6AC) !important;
 }
 
 .item-fasting .item-icon {
-  color: #557E91;
+  color: #FFF0B9 !important;
+  background: rgba(255,255,255,.17);
 }
 
-/* =============== CLOSING =============== */
+/* ==========================================
+   CLOSING — WARM ORNAMENTAL SECTION
+========================================== */
 
 .closing-section {
-  text-align: center;
-  padding: 42px 20px 38px;
-  background: #E9E1D1;
   position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 37px 18px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(242,181,68,.25), transparent 50%),
+    linear-gradient(135deg, #FFF0D1, #FFF9ED);
+  border-top: 1px solid #F3DCA9;
+  border-bottom: 1px solid #F3DCA9;
+}
+
+.closing-section::before,
+.closing-section::after {
+  content: "✧";
+  position: absolute;
+  color: rgba(190,135,48,.35);
+  font-size: 45px;
+}
+
+.closing-section::before {
+  top: 12px;
+  right: 22px;
+}
+
+.closing-section::after {
+  bottom: 10px;
+  left: 22px;
 }
 
 .closing-star {
   display: block;
-  color: #B18A50;
+  color: #D69C36;
   font-size: 25px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .closing-section p {
-  color: #947A59;
+  color: #A47734;
   font-size: 13px;
-  margin: 0 0 7px;
+  margin: 0 0 6px;
 }
 
 .closing-section h2 {
-  color: var(--fusion-green);
-  font-size: 23px;
-  margin: 0 0 14px;
+  color: #173F7D;
+  font-size: 22px;
+  margin: 0 0 12px;
 }
 
 .closing-english {
-  color: #988D79;
+  display: block;
+  color: #9A886B;
   font: 8px Arial, sans-serif;
   letter-spacing: 2px;
   direction: ltr;
-  display: block;
 }
 
-/* =============== FOOTER =============== */
+/* ==========================================
+   FOOTER
+========================================== */
 
 .fusion-footer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  padding: 24px 15px;
-  background: var(--fusion-deep);
-  color: #c6d3c9;
+  padding: 23px 15px;
+  background: linear-gradient(100deg, #123F87, #087D91);
+  color: #FFFFFF;
   font-size: 11px;
 }
 
 .footer-logo {
+  color: #FFE1A0;
   font: 13px Georgia, serif;
   letter-spacing: 3px;
-  color: var(--fusion-gold);
   direction: ltr;
 }
 
-/* =============== BOTTOM NAV =============== */
+/* ==========================================
+   BOTTOM NAVIGATION — APP STYLE
+========================================== */
 
 .home-bottom-navigation {
   position: fixed;
   z-index: 1000;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
-  min-height: 70px;
-  padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
-  background: rgba(255,253,248,.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(18,63,56,.1);
+  min-height: 72px;
+  padding: 8px 9px calc(8px + env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
   justify-content: space-around;
   direction: rtl;
+
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid #E0E7F0;
+  box-shadow: 0 -5px 25px rgba(24,51,91,.08);
 }
 
 .nav-item {
-  min-width: 48px;
+  min-width: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3px;
-  color: #89938A !important;
+  color: #8A98AA !important;
   transition: .2s ease;
 }
 
 .nav-item > span {
-  font-size: 22px;
-  line-height: 1.2;
+  width: 33px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  border-radius: 10px;
 }
 
 .nav-item small {
@@ -805,28 +938,33 @@ body.sukoon-home {
 }
 
 .nav-item.active {
-  color: var(--fusion-green) !important;
+  color: #14539D !important;
+  font-weight: 700;
 }
 
 .nav-item.active > span {
-  color: var(--fusion-coral);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #1766B7, #00A99D);
+  box-shadow: 0 4px 12px rgba(0,145,153,.24);
 }
 
-/* =============== TABLET / DESKTOP =============== */
+/* ==========================================
+   TABLET / DESKTOP
+========================================== */
 
 @media (min-width: 700px) {
   .fusion-hero {
-    min-height: 590px;
+    min-height: 570px;
     padding-left: 8%;
     padding-right: 8%;
   }
 
   .hero-content {
-    min-height: 450px;
+    min-height: 430px;
   }
 
   .hero-art {
-    transform: scale(1.12);
+    transform: scale(1.1);
   }
 
   .today-section {
@@ -837,6 +975,19 @@ body.sukoon-home {
   .reflection-section {
     margin-left: 8%;
     margin-right: 8%;
+    min-height: 275px;
+  }
+
+  .reflection-art {
+    min-height: 275px;
+  }
+
+  .reflection-content {
+    padding: 30px;
+  }
+
+  .reflection-content h2 {
+    font-size: 32px;
   }
 
   .explore-section {
@@ -845,34 +996,24 @@ body.sukoon-home {
   }
 
   .fusion-menu {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-rows: repeat(2, 150px) !important;
+    gap: 16px !important;
   }
 
   .fusion-item {
-    min-height: 170px;
-    margin-top: 0;
+    height: 150px !important;
+    min-height: 150px !important;
+    border-radius: 21px !important;
   }
 
-  .item-prayer,
-  .item-deeds {
-    min-height: 195px;
+  .item-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 31px !important;
   }
 
-  .reflection-section {
-    min-height: 290px;
-  }
-
-  .reflection-art {
-    min-height: 290px;
-  }
-
-  .reflection-content {
-    padding: 35px;
-  }
-
-  .reflection-content h2 {
-    font-size: 34px;
+  .item-copy strong {
+    font-size: 16px !important;
   }
 
   .home-bottom-navigation {
@@ -883,36 +1024,32 @@ body.sukoon-home {
   }
 }
 
-/* =============== MOBILE =============== */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 480px) {
   .fusion-hero {
-    min-height: 480px;
-    padding: 19px 6% 17px;
+    min-height: 465px;
+    padding: 18px 6% 17px;
   }
 
   .hero-content {
-    min-height: 355px;
+    min-height: 345px;
     grid-template-columns: 1fr .85fr;
   }
 
-  .hero-copy {
-    padding: 20px 0;
-  }
-
   .hero-copy h1 {
-    font-size: clamp(31px, 8vw, 43px);
-    line-height: 1.8;
+    font-size: clamp(30px, 8vw, 43px);
   }
 
   .hero-copy p {
     font-size: 11px;
-    line-height: 2;
   }
 
   .hero-art {
     height: 270px;
-    transform: scale(.83);
+    transform: scale(.82);
     transform-origin: center;
     margin-right: -20px;
   }
@@ -923,19 +1060,17 @@ body.sukoon-home {
   }
 
   .art-sun {
-    width: 90px;
-    height: 90px;
-    top: 42px;
-    right: 25px;
+    width: 88px;
+    height: 88px;
   }
 
   .art-urdu {
     font-size: 34px;
-    bottom: 63px;
+    bottom: 62px;
   }
 
   .orbit-one {
-    width: 220px;
+    width: 215px;
   }
 
   .orbit-two {
@@ -948,42 +1083,46 @@ body.sukoon-home {
   }
 
   .hero-bottom-line .line {
-    width: 18px;
+    width: 17px;
   }
 
   .today-section {
-    padding-top: 30px;
-    padding-bottom: 28px;
+    padding: 27px 5%;
   }
 
   .today-heading h2,
   .explore-heading h2 {
-    font-size: 23px;
+    font-size: 22px;
+  }
+
+  .today-information {
+    padding: 14px;
+    gap: 9px;
   }
 
   .today-date-block strong {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .today-time-block {
-    padding-right: 12px;
+    padding-right: 10px;
   }
 
   .today-time-block strong {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .reflection-section {
     grid-template-columns: .78fr 1.22fr;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .reflection-content {
-    padding: 17px 14px;
+    padding: 15px 12px;
   }
 
   .reflection-content h2 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .reflection-content p {
@@ -991,29 +1130,35 @@ body.sukoon-home {
   }
 
   .reflection-art {
-    min-height: 235px;
+    min-height: 220px;
+  }
+
+  .fusion-menu {
+    grid-template-rows: repeat(2, 116px) !important;
+    gap: 9px !important;
   }
 
   .fusion-item {
-    min-height: 125px;
-    padding: 14px 12px;
-  }
-
-  .item-prayer,
-  .item-deeds {
-    min-height: 150px;
-  }
-
-  .item-copy strong {
-    font-size: 14px;
-  }
-
-  .item-copy small {
-    font-size: 9px;
+    height: 116px !important;
+    min-height: 116px !important;
+    padding: 10px 4px !important;
+    border-radius: 14px !important;
   }
 
   .item-icon {
-    font-size: 27px;
+    width: 37px;
+    height: 37px;
+    font-size: 22px !important;
+    margin-bottom: 6px !important;
+    border-radius: 12px;
+  }
+
+  .item-copy strong {
+    font-size: 12px !important;
+  }
+
+  .item-copy small {
+    font-size: 8px !important;
   }
 
   .closing-section h2 {
@@ -1027,265 +1172,29 @@ body.sukoon-home {
   }
 
   .hero-copy h1 {
-    font-size: 29px;
+    font-size: 28px;
   }
 
   .hero-art {
-    transform: scale(.72);
-    margin-right: -35px;
+    transform: scale(.70);
+    margin-right: -32px;
   }
 
   .fusion-menu {
-    gap: 8px;
+    grid-template-rows: repeat(2, 108px) !important;
+    gap: 7px !important;
+  }
+
+  .fusion-item {
+    height: 108px !important;
+    min-height: 108px !important;
+  }
+
+  .item-copy strong {
+    font-size: 11px !important;
   }
 
   .reflection-content h2 {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
-
-/* =====================================
-   SUKOON — ORNAMENTAL APP REDESIGN
-   Compact 3 x 2 feature layout
-===================================== */
-
-/* Feature section */
-.explore-section {
-  padding: 35px 5% 40px;
-  background:
-    radial-gradient(circle at 5% 10%, rgba(216,184,117,.12), transparent 25%),
-    var(--fusion-cream);
-}
-
-.explore-heading {
-  position: relative;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(157,121,80,.25);
-}
-
-.explore-heading::after {
-  content: "✦";
-  position: absolute;
-  bottom: -9px;
-  right: 0;
-  padding: 0 8px;
-  color: #C49A59;
-  background: var(--fusion-cream);
-}
-
-/* Exactly 3 columns and 2 rows */
-.fusion-menu {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  grid-template-rows: repeat(2, 122px) !important;
-  gap: 10px !important;
-  margin-top: 22px !important;
-}
-
-/* Compact decorative tiles */
-.fusion-item {
-  min-width: 0;
-  min-height: 122px !important;
-  height: 122px !important;
-  margin: 0 !important;
-  padding: 13px 8px 12px !important;
-  border-radius: 15px !important;
-  border: 1px solid rgba(255,255,255,.42) !important;
-  box-shadow:
-    0 5px 14px rgba(32,53,43,.08),
-    inset 0 0 0 1px rgba(255,255,255,.12);
-  display: flex !important;
-  align-items: center;
-  justify-content: center !important;
-  text-align: center;
-  position: relative;
-  isolation: isolate;
-}
-
-/* Decorative corner geometry */
-.fusion-item::before {
-  content: "";
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  top: -28px;
-  right: -25px;
-  border: 1px solid currentColor;
-  opacity: .16;
-  transform: rotate(45deg);
-  z-index: -1;
-}
-
-.fusion-item::after {
-  content: "✧";
-  position: absolute;
-  left: 9px;
-  bottom: 7px;
-  font-size: 15px;
-  opacity: .42;
-}
-
-/* Clear and consistent typography */
-.item-index {
-  top: 8px !important;
-  left: 9px !important;
-  font-size: 9px !important;
-  opacity: .65;
-}
-
-.item-icon {
-  font-size: 27px !important;
-  margin: 0 0 9px !important;
-  line-height: 1 !important;
-  position: relative;
-  z-index: 2;
-}
-
-.item-copy {
-  align-items: center;
-  gap: 4px !important;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.item-copy strong {
-  font-size: 13px !important;
-  line-height: 1.7;
-  font-weight: 700;
-  white-space: normal;
-}
-
-.item-copy small {
-  font-size: 9px !important;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.item-arrow {
-  display: none;
-}
-
-/* Strong readable contrast */
-.item-prayer,
-.item-reflection {
-  color: #FFF9EA !important;
-}
-
-.item-prayer *,
-.item-reflection * {
-  color: inherit !important;
-}
-
-.item-prayer .item-icon,
-.item-reflection .item-icon {
-  color: #E7C889 !important;
-}
-
-.item-tasbeeh {
-  color: #214A3E !important;
-}
-
-.item-calendar {
-  color: #603B34 !important;
-}
-
-.item-deeds {
-  color: #665338 !important;
-}
-
-.item-fasting {
-  color: #294B59 !important;
-}
-
-/* More refined tile colors */
-.item-prayer {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.07), transparent 55%),
-    #17483F !important;
-}
-
-.item-tasbeeh {
-  background:
-    linear-gradient(145deg, #E7F0E5, #C9DFD0) !important;
-}
-
-.item-calendar {
-  background:
-    linear-gradient(145deg, #F2D0C2, #E5AE9D) !important;
-}
-
-.item-deeds {
-  background:
-    linear-gradient(145deg, #F0E8D2, #DED2B3) !important;
-}
-
-.item-reflection {
-  background:
-    linear-gradient(145deg, #28594D, #153D35) !important;
-}
-
-.item-fasting {
-  background:
-    linear-gradient(145deg, #E7EFF1, #CADCE2) !important;
-}
-
-/* Ornamental borders around the section */
-.fusion-menu {
-  position: relative;
-}
-
-.fusion-item:active {
-  transform: scale(.96);
-  filter: brightness(.96);
-}
-
-/* Mobile adjustments */
-@media (max-width: 380px) {
-  .fusion-menu {
-    grid-template-rows: repeat(2, 112px) !important;
-    gap: 8px !important;
-  }
-
-  .fusion-item {
-    height: 112px !important;
-    min-height: 112px !important;
-    padding: 10px 5px !important;
-  }
-
-  .item-copy strong {
-    font-size: 12px !important;
-  }
-
-  .item-copy small {
-    font-size: 8px !important;
-  }
-
-  .item-icon {
-    font-size: 24px !important;
-  }
-}
-
-/* Tablet and desktop */
-@media (min-width: 700px) {
-  .fusion-menu {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-template-rows: repeat(2, 155px) !important;
-    gap: 16px !important;
-  }
-
-  .fusion-item {
-    height: 155px !important;
-    min-height: 155px !important;
-    border-radius: 20px !important;
-  }
-
-  .item-copy strong {
-    font-size: 17px !important;
-  }
-
-  .item-icon {
-    font-size: 34px !important;
-  }
-}
-
