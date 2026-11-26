@@ -1,1 +1,381 @@
 
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#54192B">
+  <title>SUKOON | Settings</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 20px 16px 40px;
+      background: #F5F0E7;
+      color: #321522;
+      font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+    }
+
+    .settings-wrap {
+      width: 100%;
+      max-width: 620px;
+      margin: auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .topbar a {
+      color: #76263B;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand {
+      color: #76263B;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .heading {
+      margin-bottom: 22px;
+    }
+
+    .heading small {
+      color: #A27C4A;
+      letter-spacing: 2px;
+      font-family: Arial, sans-serif;
+    }
+
+    .heading h1 {
+      font-size: 27px;
+      margin: 8px 0;
+    }
+
+    .heading p {
+      color: #796A68;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .panel {
+      background: #FFFFFF;
+      border: 1px solid #E9DCCB;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 17px;
+      box-shadow: 0 8px 25px #3215220D;
+    }
+
+    .panel h2 {
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+
+    .muted {
+      color: #837575;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .current-location {
+      background: #F5EAE7;
+      border: 1px solid #E9D2D0;
+      padding: 15px;
+      border-radius: 14px;
+      margin-top: 14px;
+      line-height: 1.9;
+    }
+
+    .current-location strong {
+      display: block;
+      color: #76263B;
+      font-size: 17px;
+    }
+
+    .current-location span {
+      color: #796A68;
+      font-size: 12px;
+      direction: ltr;
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #DCCDBD;
+      border-radius: 12px;
+      background: #FFFCF8;
+      font-size: 15px;
+      outline: none;
+      margin-top: 13px;
+    }
+
+    input:focus {
+      border-color: #9C6B43;
+      box-shadow: 0 0 0 3px #B8955420;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 12px;
+      background: #76263B;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #E9DFD1;
+      color: #54192B;
+    }
+
+    button:disabled {
+      opacity: .55;
+      cursor: wait;
+    }
+
+    #search-results {
+      display: grid;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .place-result {
+      background: #F8F4EE;
+      border: 1px solid #E8DDCF;
+      border-radius: 12px;
+      padding: 13px;
+      text-align: right;
+      color: #321522;
+      line-height: 1.8;
+    }
+
+    .place-result strong {
+      display: block;
+    }
+
+    .place-result span {
+      font-size: 12px;
+      color: #837575;
+      font-weight: normal;
+    }
+
+    #location-status {
+      margin-top: 13px;
+      font-size: 13px;
+      color: #76263B;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .note {
+      border-right: 3px solid #B89554;
+      padding: 10px 12px;
+      background: #F8F1E5;
+      border-radius: 8px;
+      color: #776347;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="settings-wrap">
+
+    <header class="topbar">
+      <a href="home.html">← ہوم پیج</a>
+      <span class="brand">SUKOON</span>
+    </header>
+
+    <section class="heading">
+      <small>GLOBAL APP SETTINGS</small>
+      <h1>ایپ کی ترتیبات</h1>
+      <p>اپنی بنیادی ترتیبات یہاں منتخب کریں۔ آپ کی منتخب کردہ لوکیشن پوری ایپ میں استعمال ہوگی۔</p>
+    </section>
+
+    <section class="panel">
+      <h2>⌖ آپ کی موجودہ لوکیشن</h2>
+      <p class="muted">یہ مقام نماز، قبلہ اور دیگر متعلقہ فیچرز کے لیے مشترکہ ہوگا۔</p>
+
+      <div class="current-location">
+        <strong id="current-place">ابھی کوئی مقام منتخب نہیں</strong>
+        <span id="current-coordinates">Location not selected</span>
+      </div>
+
+      <button id="gps-button">◎ GPS سے میری لوکیشن معلوم کریں</button>
+    </section>
+
+    <section class="panel">
+      <h2>دنیا بھر میں شہر تلاش کریں</h2>
+      <p class="muted">شہر، قصبے یا علاقے کا نام لکھیں۔ بہتر نتائج کے لیے ملک کا نام بھی لکھ سکتے ہیں۔</p>
+
+      <input
+        id="place-search"
+        type="search"
+        placeholder="مثلاً Lahore, Pakistan"
+        autocomplete="off"
+      >
+
+      <button id="search-button">مقام تلاش کریں</button>
+
+      <div id="search-results"></div>
+      <div id="location-status" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="note">
+      GPS استعمال کرنے کے لیے آپ کی اجازت ضروری ہے۔ شہر تلاش کرنے اور نئی لوکیشن معلوم کرنے کے لیے انٹرنیٹ درکار ہے۔ منتخب مقام اس ڈیوائس میں محفوظ ہوگا۔
+    </div>
+
+  </main>
+
+  <script src="../js/core/location.js"></script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const locationAPI = window.SukoonLocation;
+
+      const currentPlace = document.getElementById("current-place");
+      const currentCoordinates = document.getElementById("current-coordinates");
+      const gpsButton = document.getElementById("gps-button");
+      const searchButton = document.getElementById("search-button");
+      const searchInput = document.getElementById("place-search");
+      const results = document.getElementById("search-results");
+      const status = document.getElementById("location-status");
+
+      function showStatus(message) {
+        status.textContent = message;
+      }
+
+      function displayCurrentLocation() {
+        const place = locationAPI.getLocation();
+
+        if (!place) {
+          currentPlace.textContent = "ابھی کوئی مقام منتخب نہیں";
+          currentCoordinates.textContent = "Location not selected";
+          return;
+        }
+
+        currentPlace.textContent = [
+          place.city || place.name,
+          place.region,
+          place.country
+        ].filter(Boolean).join(", ");
+
+        currentCoordinates.textContent =
+          `${place.latitude}, ${place.longitude}`;
+      }
+
+      function selectPlace(place) {
+        try {
+          locationAPI.selectLocation(place);
+          displayCurrentLocation();
+          results.replaceChildren();
+          showStatus("آپ کی لوکیشن کامیابی سے محفوظ ہوگئی۔");
+        } catch (error) {
+          showStatus(error.message);
+        }
+      }
+
+      function renderResults(places) {
+        results.replaceChildren();
+
+        if (!places.length) {
+          showStatus("کوئی مقام نہیں ملا۔ نام یا ملک دوبارہ چیک کریں۔");
+          return;
+        }
+
+        places.forEach(place => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "place-result";
+
+          const name = document.createElement("strong");
+          name.textContent = place.name;
+
+          const details = document.createElement("span");
+          details.textContent = [
+            place.region,
+            place.country
+          ].filter(Boolean).join(", ");
+
+          button.append(name, details);
+          button.addEventListener("click", () => selectPlace(place));
+
+          results.appendChild(button);
+        });
+
+        showStatus("اپنا مطلوبہ مقام منتخب کریں۔");
+      }
+
+      async function searchLocations() {
+        const query = searchInput.value.trim();
+
+        if (query.length < 2) {
+          showStatus("کم از کم دو حروف لکھیں۔");
+          return;
+        }
+
+        searchButton.disabled = true;
+        showStatus("مقامات تلاش کیے جا رہے ہیں...");
+        results.replaceChildren();
+
+        try {
+          const places = await locationAPI.searchPlaces(query, {
+            count: 15
+          });
+
+          renderResults(places);
+        } catch (error) {
+          showStatus("تلاش مکمل نہیں ہوسکی: " + error.message);
+        } finally {
+          searchButton.disabled = false;
+        }
+      }
+
+      async function detectGPS() {
+        gpsButton.disabled = true;
+        showStatus("GPS سے آپ کا مقام معلوم کیا جا رہا ہے...");
+
+        try {
+          await locationAPI.useGPS();
+          displayCurrentLocation();
+          showStatus("GPS لوکیشن محفوظ ہوگئی۔");
+        } catch (error) {
+          showStatus(error.message);
+        } finally {
+          gpsButton.disabled = false;
+        }
+      }
+
+      searchButton.addEventListener("click", searchLocations);
+      gpsButton.addEventListener("click", detectGPS);
+
+      searchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          searchLocations();
+        }
+      });
+
+      displayCurrentLocation();
+
+    })();
+  </script>
+</body>
+</html>
+
