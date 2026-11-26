@@ -825,3 +825,47 @@
 .prayer-dashboard-body .pd-time-row.is-active .pd-time-icon {
   box-shadow: 0 3px 10px rgba(77, 23, 41, .18);
 }
+
+/* =========================================
+   SUKOON — CURRENT PRAYER SPOTLIGHT
+========================================= */
+
+.prayer-dashboard-body .pd-time-row.is-active {
+  position: relative;
+  background: linear-gradient(
+    105deg,
+    #76263b,
+    #542033
+  ) !important;
+  border-right: 4px solid #d5b16f;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.035);
+  border-radius: 0;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f4d69e;
+  border: 1px solid rgba(244, 214, 158, 0.4);
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-name {
+  color: #fff8ed;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-value {
+  color: #ffe0a8;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-state {
+  color: #f4d69e;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+/* Smooth transition */
+.prayer-dashboard-body .pd-time-row {
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
