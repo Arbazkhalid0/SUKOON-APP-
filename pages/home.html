@@ -4,295 +4,301 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#174B43">
+  <meta name="theme-color" content="#123F38">
   <meta name="description" content="SUKOON - Your Islamic lifestyle companion">
 
   <title>SUKOON | روح کا اطمینان</title>
 
-  <!-- Existing styles -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
-
-  <!-- New Home Screen Design -->
   <link rel="stylesheet" href="../css/home.css">
 </head>
 
 <body class="home-page">
 
-  <!-- HEADER -->
-  <header class="home-header">
+  <main class="home-shell">
 
-    <button class="home-menu-button" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <!-- TOP BRAND BAR -->
+    <header class="home-topbar">
 
-    <a href="home.html" class="home-brand">
-      <div class="home-brand-symbol">س</div>
+      <a href="home.html" class="brand-lockup">
+        <span class="brand-monogram">س</span>
+        <span class="brand-wordmark">
+          <strong>SUKOON</strong>
+          <small>روح کا اطمینان</small>
+        </span>
+      </a>
 
-      <div class="home-brand-text">
-        <h1>SUKOON</h1>
-        <span>روح کا اطمینان</span>
-      </div>
-    </a>
-
-    <a href="settings.html" class="home-settings-button" aria-label="Settings">
-      ⚙
-    </a>
-
-  </header>
-
-
-  <main class="home-main">
-
-    <!-- WELCOME / HERO -->
-    <section class="home-hero">
-
-      <div class="hero-ornament hero-ornament-one"></div>
-      <div class="hero-ornament hero-ornament-two"></div>
-
-      <div class="hero-topline">
-        <span class="hero-eyebrow">A MOMENT OF PEACE</span>
-        <span class="hero-star">✦</span>
-      </div>
-
-      <div class="hero-content">
-        <p class="hero-greeting">السلام علیکم!</p>
-
-        <h2>
-          اپنے دل کو سکون دیں،
-          <span>اپنے دن کو معنی دیں۔</span>
-        </h2>
-
-        <p class="hero-description">
-          عبادت، اچھی عادتوں اور مثبت سوچ کے ساتھ
-          زندگی کا ہر دن بہتر بنائیں۔
-        </p>
-
-        <a href="daily-reflection.html" class="hero-action">
-          آج کی رہنمائی
-          <span>←</span>
+      <div class="topbar-actions">
+        <a href="settings.html" class="topbar-action" aria-label="Settings">
+          <span>⚙</span>
         </a>
       </div>
 
-      <div class="hero-bottom-decoration">
-        <span>✧</span>
-        <span></span>
-        <span>✧</span>
+    </header>
+
+
+    <!-- WELCOME INTRO -->
+    <section class="welcome-intro">
+
+      <div class="welcome-copy">
+        <span class="welcome-overline">YOUR DAILY COMPANION</span>
+
+        <p class="welcome-salam">السلام علیکم!</p>
+
+        <h1>
+          زندگی میں سکون،
+          <span>ہر دن ایک نئی روشنی۔</span>
+        </h1>
+
+        <p class="welcome-support">
+          اپنے وقت، عبادت اور روزمرہ زندگی کو
+          بہتر انداز میں ترتیب دیں۔
+        </p>
+      </div>
+
+      <div class="welcome-art" aria-hidden="true">
+        <div class="arch-outer">
+          <div class="arch-inner">
+            <div class="arch-center">
+              <span class="arch-star">۞</span>
+              <span class="arch-moon">☾</span>
+              <span class="arch-caption">سُکون</span>
+            </div>
+          </div>
+        </div>
+
+        <span class="art-spark spark-one">✦</span>
+        <span class="art-spark spark-two">✧</span>
+        <span class="art-orbit"></span>
+      </div>
+
+      <div class="welcome-bottom">
+        <span>FAITH</span>
+        <i></i>
+        <span>WELLBEING</span>
+        <i></i>
+        <span>EVERYDAY LIFE</span>
       </div>
 
     </section>
 
 
-    <!-- DATE / TIME / LOCATION -->
-    <section class="home-info-section">
+    <!-- DATE AND TIME STRIP -->
+    <section class="today-strip">
 
-      <div class="home-date-block">
-        <span class="info-label">آج کی تاریخ</span>
-        <h3 id="today-date">تاریخ لوڈ ہو رہی ہے</h3>
-        <p id="today-hijri">ہجری تاریخ</p>
+      <div class="today-date">
+        <span class="strip-label">آج کا دن</span>
+        <strong id="today-date">تاریخ لوڈ ہو رہی ہے</strong>
+        <small id="today-hijri">ہجری تاریخ</small>
       </div>
 
-      <div class="home-info-divider"></div>
+      <div class="strip-separator"></div>
 
-      <div class="home-time-block">
-        <span class="info-label">مقامی وقت</span>
-        <h3 id="home-clock">--:--</h3>
-        <p id="home-weekday">آج کا دن</p>
+      <div class="today-clock">
+        <span class="strip-label">مقامی وقت</span>
+        <strong id="home-clock">--:--</strong>
+        <small id="home-weekday">آج کا دن</small>
       </div>
 
-      <a href="settings.html" class="home-location">
-        <span class="location-pin">⌖</span>
+      <a href="settings.html" class="today-location">
+        <span class="location-icon">⌖</span>
         <span id="home-location-name">مقام منتخب کریں</span>
-        <span class="location-arrow">←</span>
+        <span class="location-chevron">←</span>
       </a>
 
     </section>
 
 
-    <!-- DAILY INSPIRATION -->
-    <section class="home-inspiration">
+    <!-- DAILY REFLECTION FEATURE -->
+    <section class="reflection-feature">
 
-      <div class="inspiration-heading">
-        <div>
-          <span class="section-kicker">DAILY INSPIRATION</span>
-          <h2>آج کی خوبصورت سوچ</h2>
-        </div>
-
-        <span class="inspiration-symbol">✧</span>
+      <div class="reflection-visual">
+        <span class="reflection-visual-top">A THOUGHT TO KEEP</span>
+        <span class="reflection-visual-symbol">۞</span>
+        <span class="reflection-visual-bottom">تدبر • شکر • سکون</span>
       </div>
 
-      <div class="inspiration-content">
+      <div class="reflection-copy">
+        <span class="content-eyebrow">DAILY REFLECTION</span>
 
-        <div class="inspiration-quote-mark">“</div>
-
-        <h3>
-          دل کا اطمینان شکر، صبر
-          اور اچھی نیت میں تلاش کریں۔
-        </h3>
+        <h2>اپنے دل کے لیے بھی کچھ وقت نکالیں۔</h2>
 
         <p>
-          چھوٹے چھوٹے اچھے اعمال بھی زندگی میں
-          خوبصورتی پیدا کرتے ہیں۔
+          چند لمحے رکیں، اپنے دن پر غور کریں
+          اور ایک اچھی نیت کے ساتھ آگے بڑھیں۔
         </p>
 
-        <a href="daily-reflection.html" class="inspiration-link">
-          مزید پڑھیے
+        <a href="daily-reflection.html" class="text-action">
+          آج کی سوچ پڑھیے
           <span>←</span>
         </a>
-
       </div>
 
     </section>
 
 
-    <!-- FEATURE SECTION -->
-    <section class="home-features-section">
+    <!-- FEATURE INTRO -->
+    <section class="explore-heading">
 
-      <div class="home-section-heading">
-        <div>
-          <span class="section-kicker">EXPLORE SUKOON</span>
-          <h2>آپ کی زندگی کے لیے</h2>
+      <div>
+        <span class="content-eyebrow">DISCOVER YOUR SPACE</span>
+        <h2>آپ کا سکون، آپ کے ساتھ</h2>
+      </div>
+
+      <span class="explore-mark">06 / FEATURES</span>
+
+    </section>
+
+
+    <!-- BENTO FEATURE LAYOUT -->
+    <section class="bento-grid">
+
+      <!-- PRAYER - LARGE FEATURE -->
+      <a href="prayer.html" class="feature-card bento-prayer">
+
+        <div class="bento-top">
+          <span class="bento-icon">☾</span>
+          <span class="bento-index">01</span>
         </div>
 
-        <span class="section-subtitle">روزمرہ کے اہم فیچرز</span>
-      </div>
+        <div class="bento-copy">
+          <span class="bento-kicker">YOUR IBADAH</span>
+          <h3>نماز</h3>
+          <p>اپنی نمازوں کا اہتمام اور روزانہ کا ریکارڈ</p>
+          <span class="bento-open">کھولیے <b>↗</b></span>
+        </div>
+
+        <span class="prayer-watermark">۞</span>
+
+      </a>
 
 
-      <div class="home-feature-grid">
+      <!-- TASBEEH -->
+      <a href="tasbeeh.html" class="feature-card bento-tasbeeh">
 
-        <!-- PRAYER -->
-        <a href="prayer.html" class="feature-card home-feature-card prayer-feature">
+        <div class="bento-top">
+          <span class="bento-icon">◎</span>
+          <span class="bento-index">02</span>
+        </div>
 
-          <div class="feature-card-top">
-            <span class="home-feature-icon">☾</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
+        <div class="bento-copy">
+          <span class="bento-kicker">REMEMBRANCE</span>
+          <h3>ڈیجیٹل تسبیح</h3>
+          <p>ذکر و اذکار</p>
+        </div>
 
-          <div class="feature-card-bottom">
-            <span class="feature-overline">IBADAH</span>
-            <h3>نماز</h3>
-            <p>اپنی نمازوں کا اہتمام اور ریکارڈ</p>
-          </div>
+        <span class="bento-corner">✧</span>
 
-        </a>
-
-
-        <!-- TASBEEH -->
-        <a href="tasbeeh.html" class="feature-card home-feature-card tasbeeh-feature">
-
-          <div class="feature-card-top">
-            <span class="home-feature-icon">◎</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
-
-          <div class="feature-card-bottom">
-            <span class="feature-overline">REMEMBRANCE</span>
-            <h3>ڈیجیٹل تسبیح</h3>
-            <p>ذکر و اذکار کو آسان بنائیں</p>
-          </div>
-
-        </a>
+      </a>
 
 
-        <!-- DAILY REFLECTION -->
-        <a href="daily-reflection.html" class="feature-card home-feature-card reflection-feature">
+      <!-- ISLAMIC CALENDAR -->
+      <a href="islamic-calendar.html" class="feature-card bento-calendar">
 
-          <div class="feature-card-top">
-            <span class="home-feature-icon">✧</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
+        <div class="bento-top">
+          <span class="bento-icon">▦</span>
+          <span class="bento-index">03</span>
+        </div>
 
-          <div class="feature-card-bottom">
-            <span class="feature-overline">REFLECTION</span>
-            <h3>روزانہ کی سوچ</h3>
-            <p>سوچ، اصلاح اور مثبت رہنمائی</p>
-          </div>
+        <div class="bento-copy">
+          <span class="bento-kicker">ISLAMIC DATES</span>
+          <h3>اسلامی کیلنڈر</h3>
+          <p>تاریخیں اور اہم ایام</p>
+        </div>
 
-        </a>
-
-
-        <!-- ISLAMIC CALENDAR -->
-        <a href="islamic-calendar.html" class="feature-card home-feature-card calendar-feature">
-
-          <div class="feature-card-top">
-            <span class="home-feature-icon">▦</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
-
-          <div class="feature-card-bottom">
-            <span class="feature-overline">ISLAMIC DATES</span>
-            <h3>اسلامی کیلنڈر</h3>
-            <p>اسلامی تاریخیں اور اہم ایام</p>
-          </div>
-
-        </a>
+      </a>
 
 
-        <!-- GOOD DEEDS -->
-        <a href="good-deeds.html" class="feature-card home-feature-card deeds-feature">
+      <!-- GOOD DEEDS -->
+      <a href="good-deeds.html" class="feature-card bento-deeds">
 
-          <div class="feature-card-top">
-            <span class="home-feature-icon">♡</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
+        <div class="bento-top">
+          <span class="bento-icon">♡</span>
+          <span class="bento-index">04</span>
+        </div>
 
-          <div class="feature-card-bottom">
-            <span class="feature-overline">GOOD HABITS</span>
-            <h3>نیک اعمال</h3>
-            <p>اپنے اچھے کاموں کا جائزہ</p>
-          </div>
+        <div class="bento-copy">
+          <span class="bento-kicker">GOOD HABITS</span>
+          <h3>نیک اعمال</h3>
+          <p>اپنی اچھی عادتوں کا جائزہ</p>
+        </div>
 
-        </a>
-
-
-        <!-- FASTING -->
-        <a href="fasting.html" class="feature-card home-feature-card fasting-feature">
-
-          <div class="feature-card-top">
-            <span class="home-feature-icon">☪</span>
-            <span class="feature-card-arrow">↗</span>
-          </div>
-
-          <div class="feature-card-bottom">
-            <span class="feature-overline">FASTING</span>
-            <h3>روزہ</h3>
-            <p>روزوں کا ریکارڈ اور منصوبہ</p>
-          </div>
-
-        </a>
-
-      </div>
-
-    </section>
+      </a>
 
 
-    <!-- DAILY ACTION -->
-    <section class="home-daily-action">
+      <!-- DAILY REFLECTION -->
+      <a href="daily-reflection.html" class="feature-card bento-reflection">
 
-      <div class="daily-action-decoration">✦</div>
+        <div class="bento-top">
+          <span class="bento-icon">✧</span>
+          <span class="bento-index">05</span>
+        </div>
 
-      <div class="daily-action-content">
-        <span class="section-kicker">A SMALL STEP TODAY</span>
-        <h2>آج کسی کے لیے آسانی پیدا کریں۔</h2>
-        <p>ایک نرم لفظ، ایک چھوٹی مدد یا ایک اچھا رویہ بھی اہم ہے۔</p>
-      </div>
+        <div class="bento-copy">
+          <span class="bento-kicker">INNER GROWTH</span>
+          <h3>روزانہ کی سوچ</h3>
+          <p>غور و فکر اور رہنمائی</p>
+        </div>
 
-      <a href="good-deeds.html" class="daily-action-link">
-        <span>←</span>
+      </a>
+
+
+      <!-- FASTING -->
+      <a href="fasting.html" class="feature-card bento-fasting">
+
+        <div class="bento-top">
+          <span class="bento-icon">☪</span>
+          <span class="bento-index">06</span>
+        </div>
+
+        <div class="bento-copy">
+          <span class="bento-kicker">FASTING</span>
+          <h3>روزہ</h3>
+          <p>روزوں کا ریکارڈ اور منصوبہ</p>
+        </div>
+
       </a>
 
     </section>
 
 
-    <!-- FOOTER BRAND -->
+    <!-- DAILY GOOD DEED -->
+    <section class="daily-purpose">
+
+      <div class="purpose-emblem">
+        <span>✦</span>
+      </div>
+
+      <div class="purpose-copy">
+        <span class="content-eyebrow">A LITTLE GOODNESS</span>
+        <h2>آج کسی کے لیے آسانی پیدا کریں۔</h2>
+        <p>ایک چھوٹی سی نیکی بھی کسی کے دن کو بہتر بنا سکتی ہے۔</p>
+      </div>
+
+      <a href="good-deeds.html" class="purpose-link" aria-label="Good deeds">
+        ←
+      </a>
+
+    </section>
+
+
+    <!-- BRAND FOOTER -->
     <footer class="home-footer">
-      <div class="footer-symbol">س</div>
-      <p>SUKOON</p>
-      <span>روح کا اطمینان</span>
+
+      <span class="footer-line"></span>
+
+      <div class="footer-brand">
+        <span class="footer-monogram">س</span>
+        <strong>SUKOON</strong>
+      </div>
+
+      <p>روح کا اطمینان</p>
+      <small>FAITH · PEACE · PURPOSE</small>
+
+      <span class="footer-line"></span>
+
     </footer>
 
   </main>
@@ -324,7 +330,7 @@
   </nav>
 
 
-  <!-- EXISTING SCRIPTS -->
+  <!-- EXISTING APP SCRIPTS -->
   <script src="../js/storage.js"></script>
   <script src="../js/navigation.js"></script>
   <script src="../js/app.js"></script>
