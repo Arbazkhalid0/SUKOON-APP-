@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F4F1E9">
+  <meta name="theme-color" content="#F4EFE5">
+  <meta name="description" content="SUKOON — ایمان، زندگی اور ذہنی سکون کا ساتھی">
 
-  <title>SUKOON — روح کا اطمینان</title>
+  <title>SUKOON | سکون</title>
 
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css">
@@ -14,230 +15,192 @@
   <link rel="stylesheet" href="../css/home.css">
 </head>
 
-<body class="sukoon-home modern-sukoon">
+<body class="sukoon-home-v2">
 
-  <main class="modern-home">
+  <main class="sukoon-v2-shell">
 
-    <!-- APP HEADER -->
-    <header class="modern-header">
-      <a href="home.html" class="modern-brand">
-        <span class="modern-brand-mark">س</span>
-        <span class="modern-brand-copy">
+    <!-- TOP IDENTITY -->
+    <header class="sukoon-v2-header">
+
+      <a href="home.html" class="sukoon-v2-brand" aria-label="SUKOON Home">
+        <span class="sukoon-v2-brand-symbol">س</span>
+
+        <span class="sukoon-v2-brand-name">
           <strong>SUKOON</strong>
           <small>روح کا اطمینان</small>
         </span>
       </a>
 
-      <div class="header-actions">
-        <span class="header-status">YOUR PEACE SPACE</span>
-        <a href="settings.html" class="modern-settings" aria-label="Settings">
-          <span>⚙</span>
+      <div class="sukoon-v2-header-side">
+        <span class="sukoon-v2-header-caption">YOUR PERSONAL SANCTUARY</span>
+
+        <a href="settings.html"
+           class="sukoon-v2-settings"
+           aria-label="سیٹنگز">
+          <span aria-hidden="true">⚙</span>
         </a>
       </div>
+
     </header>
 
 
-    <!-- MAIN HERO -->
-    <section class="modern-hero">
+    <!-- DAY STRIP -->
+    <section class="sukoon-v2-dayline" aria-label="آج کی معلومات">
 
-      <div class="hero-topline">
-        <span class="hero-label">A LITTLE SPACE FOR YOU</span>
-        <span class="hero-spark">✳</span>
+      <div class="sukoon-v2-day-date">
+        <span class="sukoon-v2-overline">آج کا دن</span>
+        <strong id="today-date">تاریخ لوڈ ہو رہی ہے...</strong>
       </div>
 
-      <div class="modern-hero-layout">
+      <span class="sukoon-v2-day-divider"></span>
 
-        <div class="modern-hero-copy">
-          <span class="hero-welcome">السلام علیکم</span>
-
-          <h1>
-            خود سے ملو،<br>
-            <span>رب سے جڑو۔</span>
-          </h1>
-
-          <p>
-            زندگی کی مصروفیت میں اپنے دل کے لیے
-            چند لمحے نکالیے۔
-          </p>
-
-          <a href="daily-reflection.html" class="modern-hero-button">
-            آج کا پیغام
-            <span>←</span>
-          </a>
-        </div>
-
-        <div class="modern-hero-art" aria-hidden="true">
-          <div class="hero-art-ring ring-a"></div>
-          <div class="hero-art-ring ring-b"></div>
-          <div class="hero-art-disc"></div>
-          <div class="hero-art-shape">
-            <div class="hero-art-cutout"></div>
-          </div>
-          <div class="hero-art-star star-a">✦</div>
-          <div class="hero-art-star star-b">✧</div>
-          <div class="hero-art-dot"></div>
-          <span class="hero-art-word">سکون</span>
-        </div>
-
+      <div class="sukoon-v2-day-hijri">
+        <span class="sukoon-v2-overline">ہجری تاریخ</span>
+        <strong id="today-hijri">اسلامی تاریخ</strong>
       </div>
 
-      <div class="hero-bottom">
-        <span>FAITH</span>
-        <i></i>
-        <span>MINDFULNESS</span>
-        <i></i>
-        <span>WELLBEING</span>
-      </div>
-
-      <span class="hero-background-number">01</span>
-    </section>
-
-
-    <!-- TODAY DASHBOARD -->
-    <section class="modern-today">
-
-      <div class="today-top">
-        <div>
-          <span class="modern-eyebrow">YOUR DAY AT A GLANCE</span>
-          <h2>آج کا دن</h2>
-        </div>
-
-        <a href="settings.html" class="today-location-shortcut">
-          <span>⌖</span>
-          <span id="home-location-name">اپنا شہر منتخب کریں</span>
-          <span class="location-chevron">←</span>
-        </a>
-      </div>
-
-      <div class="today-dashboard">
-
-        <div class="dashboard-date">
-          <span class="dashboard-icon">☾</span>
-          <div class="dashboard-info">
-            <small>آج کی تاریخ</small>
-            <strong id="today-date">تاریخ لوڈ ہو رہی ہے...</strong>
-            <span id="today-hijri">اسلامی تاریخ</span>
-          </div>
-        </div>
-
-        <div class="dashboard-divider"></div>
-
-        <div class="dashboard-time">
-          <span class="dashboard-icon">◷</span>
-          <div class="dashboard-info">
-            <small>مقامی وقت</small>
-            <strong id="home-clock">--:--</strong>
-            <span id="home-weekday">خوشگوار دن</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="today-bottom-note">
-        <span class="note-pulse"></span>
-        <span>اپنے دن کو اچھے ارادے سے شروع کریں۔</span>
+      <div class="sukoon-v2-day-clock">
+        <span class="sukoon-v2-clock-icon" aria-hidden="true">◷</span>
+        <strong id="home-clock">--:--</strong>
+        <small id="home-weekday">---</small>
       </div>
 
     </section>
 
 
-    <!-- DAILY REFLECTION FEATURE -->
-    <section class="modern-reflection">
+    <!-- EDITORIAL WELCOME -->
+    <section class="sukoon-v2-welcome">
 
-      <div class="reflection-visual">
-        <span class="visual-caption">A MOMENT TO REFLECT</span>
+      <div class="sukoon-v2-welcome-copy">
 
-        <div class="visual-orbit orbit-one"></div>
-        <div class="visual-orbit orbit-two"></div>
-        <div class="visual-sun"></div>
-        <div class="visual-crescent"></div>
+        <span class="sukoon-v2-welcome-kicker">
+          A MOMENT FOR YOUR SOUL
+        </span>
 
-        <span class="visual-star visual-star-one">✦</span>
-        <span class="visual-star visual-star-two">✧</span>
-        <span class="visual-number">01</span>
-        <span class="visual-calligraphy">طمأنینت</span>
-      </div>
+        <p class="sukoon-v2-salam">السلام علیکم</p>
 
-      <div class="reflection-details">
-        <span class="modern-eyebrow">A THOUGHT TO KEEP</span>
+        <h1>
+          زندگی کی رفتار میں
+          <span>اپنے دل کو نہ بھولیے۔</span>
+        </h1>
 
-        <h2>دل کو بھی<br>آرام چاہیے۔</h2>
-
-        <p>
-          ہر دن صرف کاموں کے لیے نہیں،
-          اپنے رب کو یاد کرنے اور خود کو
-          سمجھنے کے لیے بھی ہوتا ہے۔
+        <p class="sukoon-v2-welcome-text">
+          ایمان سے تعلق، اچھے اعمال اور اپنے لیے چند پُرسکون لمحے۔
+          یہ جگہ آپ ہی کے لیے ہے۔
         </p>
 
-        <a href="daily-reflection.html" class="reflection-action">
-          آج کی عکاسی پڑھیں
-          <span>←</span>
+        <a href="daily-reflection.html" class="sukoon-v2-discover">
+          آج کا پیغام پڑھیے
+          <span aria-hidden="true">←</span>
         </a>
+
       </div>
+
+      <div class="sukoon-v2-art" aria-hidden="true">
+        <div class="sukoon-v2-art-orbit orbit-one"></div>
+        <div class="sukoon-v2-art-orbit orbit-two"></div>
+        <div class="sukoon-v2-art-arch">
+          <div class="sukoon-v2-art-inner"></div>
+        </div>
+        <span class="sukoon-v2-art-moon">☾</span>
+        <span class="sukoon-v2-art-star star-one">✦</span>
+        <span class="sukoon-v2-art-star star-two">✧</span>
+        <span class="sukoon-v2-art-word">سکون</span>
+      </div>
+
+      <span class="sukoon-v2-welcome-index" aria-hidden="true">01</span>
 
     </section>
 
 
-    <!-- FEATURE EXPLORER -->
-    <section class="modern-explore">
+    <!-- LOCATION LINE -->
+    <a href="settings.html" class="sukoon-v2-location">
 
-      <div class="explore-top">
+      <span class="sukoon-v2-location-symbol" aria-hidden="true">⌖</span>
+
+      <span class="sukoon-v2-location-copy">
+        <small>آپ کا منتخب کردہ مقام</small>
+        <strong id="home-location-name">اپنا شہر منتخب کریں</strong>
+      </span>
+
+      <span class="sukoon-v2-location-action">مقام منتخب کریں ←</span>
+
+    </a>
+
+
+    <!-- FEATURE DIRECTORY -->
+    <section class="sukoon-v2-paths">
+
+      <div class="sukoon-v2-section-heading">
         <div>
-          <span class="modern-eyebrow">DISCOVER YOUR PEACE</span>
-          <h2>آپ کا سکون، آپ کے راستے</h2>
+          <span class="sukoon-v2-overline">EXPLORE SUKOON</span>
+          <h2>آپ کے لیے چھ راستے</h2>
         </div>
 
-        <span class="explore-count">06</span>
+        <span class="sukoon-v2-section-count">06 / 06</span>
       </div>
 
-      <div class="modern-feature-grid">
 
-        <a href="prayer.html" class="modern-feature feature-prayer">
-          <span class="feature-number">01</span>
-          <span class="feature-icon">◷</span>
-          <strong>نماز</strong>
-          <small>اپنے رب سے ملاقات</small>
-          <span class="feature-go">↖</span>
+      <div class="sukoon-v2-path-list">
+
+        <a href="prayer.html" class="sukoon-v2-path path-prayer">
+          <span class="sukoon-v2-path-number">01</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">۞</span>
+          <span class="sukoon-v2-path-label">
+            <strong>نماز</strong>
+            <small>اپنے رب سے تعلق</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
-        <a href="tasbeeh.html" class="modern-feature feature-tasbeeh">
-          <span class="feature-number">02</span>
-          <span class="feature-icon">۞</span>
-          <strong>تسبیح</strong>
-          <small>ذکر سے دل کا اطمینان</small>
-          <span class="feature-go">↖</span>
+        <a href="tasbeeh.html" class="sukoon-v2-path path-tasbeeh">
+          <span class="sukoon-v2-path-number">02</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">◉</span>
+          <span class="sukoon-v2-path-label">
+            <strong>تسبیح</strong>
+            <small>ذکر و اذکار</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
-        <a href="islamic-calendar.html" class="modern-feature feature-calendar">
-          <span class="feature-number">03</span>
-          <span class="feature-icon">☾</span>
-          <strong>اسلامی کیلنڈر</strong>
-          <small>اپنی تاریخوں سے جڑیں</small>
-          <span class="feature-go">↖</span>
+        <a href="islamic-calendar.html" class="sukoon-v2-path path-calendar">
+          <span class="sukoon-v2-path-number">03</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">☾</span>
+          <span class="sukoon-v2-path-label">
+            <strong>اسلامی کیلنڈر</strong>
+            <small>اسلامی تاریخیں</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
-        <a href="good-deeds.html" class="modern-feature feature-deeds">
-          <span class="feature-number">04</span>
-          <span class="feature-icon">✳</span>
-          <strong>نیک اعمال</strong>
-          <small>ہر دن ایک اچھی کوشش</small>
-          <span class="feature-go">↖</span>
+        <a href="good-deeds.html" class="sukoon-v2-path path-deeds">
+          <span class="sukoon-v2-path-number">04</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">✳</span>
+          <span class="sukoon-v2-path-label">
+            <strong>نیک اعمال</strong>
+            <small>ہر دن ایک نیکی</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
-        <a href="daily-reflection.html" class="modern-feature feature-reflection">
-          <span class="feature-number">05</span>
-          <span class="feature-icon">❋</span>
-          <strong>روزانہ عکاسی</strong>
-          <small>سوچیں، سمجھیں، سنوریں</small>
-          <span class="feature-go">↖</span>
+        <a href="daily-reflection.html" class="sukoon-v2-path path-reflection">
+          <span class="sukoon-v2-path-number">05</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">❋</span>
+          <span class="sukoon-v2-path-label">
+            <strong>روزانہ عکاسی</strong>
+            <small>سوچ اور خود شناسی</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
-        <a href="fasting.html" class="modern-feature feature-fasting">
-          <span class="feature-number">06</span>
-          <span class="feature-icon">☽</span>
-          <strong>روزہ</strong>
-          <small>صبر اور روحانی تربیت</small>
-          <span class="feature-go">↖</span>
+        <a href="fasting.html" class="sukoon-v2-path path-fasting">
+          <span class="sukoon-v2-path-number">06</span>
+          <span class="sukoon-v2-path-symbol" aria-hidden="true">☽</span>
+          <span class="sukoon-v2-path-label">
+            <strong>روزہ</strong>
+            <small>صبر اور تربیت</small>
+          </span>
+          <span class="sukoon-v2-path-arrow" aria-hidden="true">↖</span>
         </a>
 
       </div>
@@ -245,65 +208,69 @@
     </section>
 
 
-    <!-- CLOSING WELLBEING BANNER -->
-    <section class="modern-closing">
+    <!-- DAILY THOUGHT -->
+    <section class="sukoon-v2-thought">
 
-      <div class="closing-decoration">
-        <span>✳</span>
-        <span>✦</span>
-        <span>✧</span>
+      <div class="sukoon-v2-thought-mark" aria-hidden="true">“</div>
+
+      <div class="sukoon-v2-thought-content">
+        <span class="sukoon-v2-overline">A THOUGHT TO CARRY</span>
+
+        <h2>دل کو بھی آرام چاہیے۔</h2>
+
+        <p>
+          ہر دن صرف منزل تک پہنچنے کے لیے نہیں،
+          کبھی خود کو سمجھنے اور اپنے رب کو یاد کرنے کے لیے بھی ہوتا ہے۔
+        </p>
+
+        <a href="daily-reflection.html">
+          مزید پڑھیے
+          <span aria-hidden="true">←</span>
+        </a>
       </div>
 
-      <div class="closing-content">
-        <span class="modern-eyebrow">TAKE A BREATH</span>
-        <p>ذرا ٹھہریے...</p>
-        <h2>ہر لمحہ ایک نئی شروعات ہے۔</h2>
-        <span class="closing-english">
-          BREATHE • REMEMBER • BEGIN AGAIN
-        </span>
-      </div>
-
-      <div class="closing-side-mark">س</div>
+      <span class="sukoon-v2-thought-decoration" aria-hidden="true">✧</span>
 
     </section>
 
 
-    <!-- FOOTER -->
-    <footer class="modern-footer">
-      <span class="footer-brand">SUKOON</span>
-      <span class="footer-divider"></span>
-      <span>روح کا اطمینان</span>
+    <!-- CLOSING LINE -->
+    <footer class="sukoon-v2-footer">
+      <span class="sukoon-v2-footer-mark">س</span>
+      <span>SUKOON</span>
+      <i></i>
+      <small>ہر دن ایک نئی شروعات</small>
     </footer>
 
   </main>
 
 
-  <!-- FLOATING APP NAVIGATION -->
-  <nav class="modern-bottom-nav">
+  <!-- APP NAVIGATION -->
+  <nav class="sukoon-v2-nav" aria-label="مرکزی نیویگیشن">
 
-    <a href="home.html" class="modern-nav-item active">
-      <span class="nav-symbol">⌂</span>
+    <a href="home.html" class="sukoon-v2-nav-item active" aria-current="page">
+      <span aria-hidden="true">⌂</span>
       <small>ہوم</small>
     </a>
 
-    <a href="prayer.html" class="modern-nav-item">
-      <span class="nav-symbol">◷</span>
+    <a href="prayer.html" class="sukoon-v2-nav-item">
+      <span aria-hidden="true">۞</span>
       <small>نماز</small>
     </a>
 
-    <a href="tasbeeh.html" class="modern-nav-item">
-      <span class="nav-symbol">۞</span>
+    <a href="tasbeeh.html" class="sukoon-v2-nav-item">
+      <span aria-hidden="true">◉</span>
       <small>تسبیح</small>
     </a>
 
-    <a href="daily-reflection.html" class="modern-nav-item">
-      <span class="nav-symbol">❋</span>
+    <a href="daily-reflection.html" class="sukoon-v2-nav-item">
+      <span aria-hidden="true">❋</span>
       <small>عکاسی</small>
     </a>
 
-    <a href="settings.html" class="modern-nav-item">
-      <span class="nav-symbol">⚙</span>
-      <small>سیٹنگ</small>
+    <a href="settings.html" class="sukoon-v2-nav-item">
+      <span aria-hidden="true">⚙</span>
+      <small>سیٹنگز</small>
     </a>
 
   </nav>
