@@ -869,3 +869,41 @@
 .prayer-dashboard-body .pd-time-row {
   transition: background 0.25s ease, box-shadow 0.25s ease;
 }
+
+/* CURRENT PRAYER — START & END TIME SPOTLIGHT */
+
+.prayer-dashboard-body .pd-current-times {
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.prayer-dashboard-body .pd-current-times > div {
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 88px;
+  padding: 13px 8px;
+  border: 1px solid rgba(235, 201, 145, 0.42);
+  border-radius: 17px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(255, 255, 255, 0.055)
+  );
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.prayer-dashboard-body .pd-current-times span {
+  color: #e9c994;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.prayer-dashboard-body .pd-current-times strong {
+  color: #ffe0a8;
+  font-size: 19px;
+  font-weight: 600;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 8px rgba(255, 224, 168, 0.15);
+}
