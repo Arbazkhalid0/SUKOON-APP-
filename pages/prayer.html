@@ -5,301 +5,345 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#54192B">
+  <meta name="description" content="SUKOON Prayer Dashboard">
   <title>SUKOON | نماز</title>
 
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
-  <link rel="stylesheet" href="../css/prayer.css">
+  <link rel="stylesheet" href="../css/prayer-dashboard.css">
 </head>
 
-<body>
-<main class="prayer-page">
+<body class="prayer-dashboard-body">
 
-  <header class="prayer-header">
-    <a href="home.html" class="prayer-back">← واپس</a>
-    <div class="prayer-brand">
-      <span class="prayer-brand-mark">☾</span>
+<main class="pd-page">
+
+  <!-- HEADER -->
+  <header class="pd-header">
+    <a href="home.html" class="pd-back">
+      <span>→</span>
+      <span>واپس</span>
+    </a>
+
+    <div class="pd-brand">
+      <span class="pd-brand-icon">☾</span>
       <div>
         <strong>SUKOON</strong>
-        <small>روح کا اطمینان</small>
+        <small>نماز • بندگی • سکون</small>
       </div>
     </div>
-    <button class="prayer-menu" type="button" aria-label="Menu">☰</button>
+
+    <a href="settings.html" class="pd-header-settings" aria-label="App Settings">
+      ⚙
+    </a>
   </header>
 
-  <section class="prayer-hero">
-    <div class="prayer-hero-top">
-      <span class="prayer-eyebrow">عبادت • وقت • سکون</span>
-      <span class="prayer-date" id="gregorian-date">تاریخ حاصل ہو رہی ہے</span>
+
+  <!-- INTRO -->
+  <section class="pd-intro">
+    <div class="pd-intro-decoration">۞</div>
+    <span class="pd-eyebrow">عبادت کا خوبصورت سفر</span>
+    <h1>نماز کا مرکز</h1>
+    <p>اپنی نماز، اپنے وقت اور اپنی عبادت کا مکمل خیال رکھیں۔</p>
+
+    <div class="pd-date-row">
+      <span id="pd-gregorian-date">تاریخ حاصل ہو رہی ہے</span>
+      <span class="pd-date-separator">✦</span>
+      <span id="pd-hijri-date">اسلامی تاریخ</span>
     </div>
 
-    <div class="prayer-clock" id="current-clock">--:--:--</div>
-
-    <div class="prayer-location">
-      <span>📍</span>
-      <strong id="current-city">شہر منتخب کریں</strong>
-      <button type="button" id="gps-button" class="location-icon" aria-label="موجودہ لوکیشن">◎</button>
-    </div>
-
-    <div class="prayer-hero-footer">
-      <span>آج کی عبادت</span>
-      <span id="today-completed">0</span>
-      <span>/</span>
-      <span id="today-total">5</span>
+    <div class="pd-location">
+      <span>⌖</span>
+      <span id="pd-location-name">Settings میں منتخب کردہ مقام</span>
     </div>
   </section>
 
-  <section class="prayer-active-grid">
-    <article class="prayer-info-card active-prayer-card">
-      <span class="card-kicker" id="active-prayer-label">موجودہ نماز</span>
-      <h2 id="active-prayer-name">اوقات کا انتظار ہے</h2>
 
-      <div class="active-time-label">نماز کا وقت شروع</div>
-      <strong id="active-prayer-start">--:--</strong>
+  <!-- CURRENT PRAYER -->
+  <section class="pd-current-card" id="pd-current-card">
 
-      <div class="active-time-label">نماز کا وقت ختم</div>
-      <strong id="active-prayer-end">--:--</strong>
+    <div class="pd-card-topline">
+      <span>● موجودہ نماز</span>
+      <span id="pd-current-status">اوقات حاصل کیے جا رہے ہیں</span>
+    </div>
 
-      <div class="remaining-label">وقت ختم ہونے میں باقی</div>
-      <div class="remaining-time" id="active-prayer-remaining">--:--:--</div>
-    </article>
+    <div class="pd-current-main">
+      <div>
+        <span class="pd-small-label">اس وقت نماز</span>
+        <h2 id="pd-current-name">---</h2>
+        <span class="pd-current-period" id="pd-current-period">
+          نماز کے وقت کی تفصیل
+        </span>
+      </div>
 
-    <article class="prayer-info-card next-prayer-card">
-      <span class="card-kicker">اگلی نماز</span>
-      <h3 id="next-prayer-name">--</h3>
-      <strong id="next-prayer-time">--:--</strong>
-      <p>اگلی نماز کے آغاز کا وقت</p>
-    </article>
+      <div class="pd-current-symbol">☾</div>
+    </div>
+
+    <div class="pd-countdown-panel">
+      <span>موجودہ نماز کا وقت ختم ہونے میں باقی</span>
+      <strong id="pd-current-countdown" dir="ltr">--:--:--</strong>
+    </div>
+
+    <div class="pd-current-times">
+      <div>
+        <span>آغاز</span>
+        <strong id="pd-current-start">--:--</strong>
+      </div>
+      <div>
+        <span>اختتام</span>
+        <strong id="pd-current-end">--:--</strong>
+      </div>
+    </div>
+
   </section>
 
-  <section class="prayer-panel">
-    <div class="section-heading">
-      <div>
-        <span class="section-kicker">TODAY'S SCHEDULE</span>
-        <h2>آج کے نماز اوقات</h2>
+
+  <!-- NEXT PRAYER -->
+  <section class="pd-next-card">
+
+    <div class="pd-next-icon">✧</div>
+
+    <div class="pd-next-content">
+      <span class="pd-next-label">اگلی نماز</span>
+      <h2 id="pd-next-name">---</h2>
+      <div class="pd-next-time">
+        آغاز: <strong id="pd-next-start">--:--</strong>
+        <span> | </span>
+        اختتام: <strong id="pd-next-end">--:--</strong>
       </div>
-      <button type="button" id="refresh-button" class="prayer-btn">↻ اپڈیٹ</button>
     </div>
 
-    <div class="prayer-list" id="prayer-times-list">
-      <div class="prayer-empty">نمازوں کے اوقات حاصل کیے جا رہے ہیں۔</div>
+    <div class="pd-next-count">
+      <span>شروع ہونے میں باقی</span>
+      <strong id="pd-next-countdown" dir="ltr">--:--:--</strong>
     </div>
+
   </section>
 
-  <section class="prayer-progress-card" id="today-progress-card" data-progress="0">
-    <div class="section-heading">
+
+  <!-- TODAY'S PRAYER TIMES -->
+  <section class="pd-schedule-section">
+
+    <div class="pd-section-heading">
       <div>
-        <span class="section-kicker">DAILY WORSHIP</span>
-        <h2>آج کی عبادت</h2>
+        <span class="pd-section-kicker">DAILY SCHEDULE</span>
+        <h2>آج کے نماز کے اوقات</h2>
       </div>
-      <strong><span id="today-completed-copy">0</span> / 5</strong>
-    </div>
 
-    <div class="prayer-progress-track">
-      <div class="prayer-progress-fill" id="today-progress-fill"></div>
-    </div>
-
-    <div class="prayer-tracker-list" id="tracker-list">
-
-      <label class="prayer-item">
-        <span class="prayer-item-icon">☀</span>
-        <span class="prayer-item-name">فجر</span>
-        <input type="checkbox" data-track="fajr">
-      </label>
-
-      <label class="prayer-item">
-        <span class="prayer-item-icon">◉</span>
-        <span class="prayer-item-name" id="midday-prayer-name">ظہر</span>
-        <input type="checkbox" data-track="midday">
-      </label>
-
-      <label class="prayer-item">
-        <span class="prayer-item-icon">☼</span>
-        <span class="prayer-item-name">عصر</span>
-        <input type="checkbox" data-track="asr">
-      </label>
-
-      <label class="prayer-item">
-        <span class="prayer-item-icon">◒</span>
-        <span class="prayer-item-name">مغرب</span>
-        <input type="checkbox" data-track="maghrib">
-      </label>
-
-      <label class="prayer-item">
-        <span class="prayer-item-icon">☾</span>
-        <span class="prayer-item-name">عشاء</span>
-        <input type="checkbox" data-track="isha">
-      </label>
-
-    </div>
-
-    <div class="prayer-friday-card" id="friday-choice-wrap" hidden>
-      <h3>جمعہ کا انتخاب</h3>
-      <label>
-        <span>جمعہ ادا کیا</span>
-        <input type="radio" name="friday-choice" value="jummah">
-      </label>
-      <label>
-        <span>ظہر ادا کی</span>
-        <input type="radio" name="friday-choice" value="zuhr">
-      </label>
-      <p>جمعہ کے دن دوپہر کے ریکارڈ کے لیے صرف ایک انتخاب کریں۔</p>
-    </div>
-  </section>
-
-  <section class="prayer-report">
-    <div class="section-heading">
-      <div>
-        <span class="section-kicker">LAST 7 DAYS</span>
-        <h2>ہفتہ وار ریکارڈ</h2>
-      </div>
-      <span class="report-symbol">▥</span>
-    </div>
-
-    <div class="weekly-summary">
-      <div>
-        <strong id="weekly-completed">0</strong>
-        <span>ادا شدہ نمازیں</span>
-      </div>
-      <div class="weekly-total">
-        <strong id="weekly-total">35</strong>
-        <span>کل نمازیں</span>
-      </div>
-    </div>
-
-    <div class="prayer-progress-track">
-      <div class="prayer-progress-fill" id="weekly-progress-fill"></div>
-    </div>
-
-    <p class="weekly-caption">گزشتہ سات دنوں کا محفوظ شدہ ریکارڈ</p>
-  </section>
-
-  <section class="prayer-panel">
-    <div class="section-heading">
-      <div>
-        <span class="section-kicker">YOUR LOCATION</span>
-        <h2>نماز کے اوقات کا مقام</h2>
-      </div>
-      <span>📍</span>
-    </div>
-
-    <p class="location-description">
-      درست اوقات کے لیے اپنی موجودہ لوکیشن استعمال کریں یا دستی طور پر شہر منتخب کریں۔
-    </p>
-
-    <div class="location-controls">
-      <select id="city-select" class="prayer-select">
-        <option value="">اپنا شہر منتخب کریں</option>
-        <option value="Sheikhupura">شیخوپورہ</option>
-        <option value="Lahore">لاہور</option>
-        <option value="Islamabad">اسلام آباد</option>
-        <option value="Rawalpindi">راولپنڈی</option>
-        <option value="Karachi">کراچی</option>
-        <option value="Faisalabad">فیصل آباد</option>
-        <option value="Multan">ملتان</option>
-        <option value="Peshawar">پشاور</option>
-        <option value="Quetta">کوئٹہ</option>
-        <option value="Sialkot">سیالکوٹ</option>
-        <option value="Gujranwala">گوجرانوالہ</option>
-        <option value="Hyderabad">حیدرآباد</option>
-        <option value="Bahawalpur">بہاولپور</option>
-      </select>
-
-      <button type="button" id="city-button" class="prayer-btn">
-        شہر منتخب کریں
-      </button>
-
-      <button type="button" id="gps-button-secondary" class="prayer-btn prayer-btn-light">
-        موجودہ لوکیشن استعمال کریں
+      <button type="button" id="pd-refresh" class="pd-refresh">
+        ↻
       </button>
     </div>
 
-    <p class="prayer-status" id="location-status">
-      نماز کے اوقات حاصل کرنے کے لیے اپنا شہر منتخب کریں۔
+    <div class="pd-schedule-card" id="pd-prayer-times">
+
+      <div class="pd-time-row" data-prayer="fajr">
+        <span class="pd-time-icon">☀</span>
+        <span class="pd-time-name">فجر</span>
+        <span class="pd-time-value" id="pd-time-fajr">--:--</span>
+        <span class="pd-time-state"></span>
+      </div>
+
+      <div class="pd-time-row" data-prayer="dhuhr">
+        <span class="pd-time-icon">◉</span>
+        <span class="pd-time-name">ظہر</span>
+        <span class="pd-time-value" id="pd-time-dhuhr">--:--</span>
+        <span class="pd-time-state"></span>
+      </div>
+
+      <div class="pd-time-row" data-prayer="asr">
+        <span class="pd-time-icon">◈</span>
+        <span class="pd-time-name">عصر</span>
+        <span class="pd-time-value" id="pd-time-asr">--:--</span>
+        <span class="pd-time-state"></span>
+      </div>
+
+      <div class="pd-time-row" data-prayer="maghrib">
+        <span class="pd-time-icon">◒</span>
+        <span class="pd-time-name">مغرب</span>
+        <span class="pd-time-value" id="pd-time-maghrib">--:--</span>
+        <span class="pd-time-state"></span>
+      </div>
+
+      <div class="pd-time-row" data-prayer="isha">
+        <span class="pd-time-icon">☾</span>
+        <span class="pd-time-name">عشاء</span>
+        <span class="pd-time-value" id="pd-time-isha">--:--</span>
+        <span class="pd-time-state"></span>
+      </div>
+
+    </div>
+
+    <p class="pd-schedule-note" id="pd-schedule-status">
+      نماز کے اوقات لوڈ ہو رہے ہیں۔
     </p>
+
   </section>
 
-  <footer class="prayer-footer">
-    <p>اوقات کا حساب: کراچی • حنفی</p>
-    <p>اپنے علاقے کی مسجد کے اوقات کو بھی مدنظر رکھیں۔</p>
-    <a href="home.html">SUKOON — ہوم پر واپس جائیں</a>
-    
-<!-- PRAYER NOTIFICATION SETTINGS -->
-<section class="prayer-panel notification-panel" id="notification-settings">
 
-  <div class="panel-heading">
-    <div>
-      <span class="section-eyebrow">PERSONAL REMINDERS</span>
-      <h2>اذان اور یاد دہانی</h2>
-      <p>اپنی پسند کے مطابق اطلاع منتخب کریں</p>
+  <!-- FEATURES -->
+  <section class="pd-features-section">
+
+    <div class="pd-section-heading">
+      <div>
+        <span class="pd-section-kicker">YOUR WORSHIP SPACE</span>
+        <h2>نماز کے مزید فیچرز</h2>
+        <p>اپنی عبادت کے ہر پہلو کو الگ سے منظم کریں۔</p>
+      </div>
     </div>
-    <span class="notification-icon">🔔</span>
-  </div>
-
-  <label class="notification-option">
-    <span>
-      <strong>مکمل اذان</strong>
-      <small>مکمل اذان کی آواز</small>
-    </span>
-    <input type="radio" name="adhan-sound" value="full">
-  </label>
-
-  <label class="notification-option">
-    <span>
-      <strong>مختصر اذان</strong>
-      <small>مختصر اذان کی آواز</small>
-    </span>
-    <input type="radio" name="adhan-sound" value="short">
-  </label>
-
-  <label class="notification-option">
-    <span>
-      <strong>نرم اسلامی یاد دہانی</strong>
-      <small>ایک مختصر یاد دہانی</small>
-    </span>
-    <input type="radio" name="adhan-sound" value="reminder">
-  </label>
-
-  <label class="notification-option">
-    <span>
-      <strong>خاموش نوٹیفکیشن</strong>
-      <small>صرف اطلاع، کوئی آواز نہیں</small>
-    </span>
-    <input type="radio" name="adhan-sound" value="silent">
-  </label>
-
-  <div class="reminder-before">
-    <label for="reminder-minutes">نماز سے کتنی دیر پہلے یاد دہانی ہو؟</label>
-    <select id="reminder-minutes">
-      <option value="0">یاد دہانی بند</option>
-      <option value="5">5 منٹ پہلے</option>
-      <option value="10" selected>10 منٹ پہلے</option>
-      <option value="15">15 منٹ پہلے</option>
-    </select>
-  </div>
-
-  <button type="button" class="notification-save" id="save-notification-settings">
-    سیٹنگز محفوظ کریں
-  </button>
-  
-<button type="button" class="notification-permission" id="enable-notifications">
-  🔔 نوٹیفکیشن کی اجازت دیں
-</button>
 
 
-  <p id="notification-status" class="notification-status">
-    اپنی پسند کی سیٹنگز منتخب کریں
-  </p>
+    <div class="pd-feature-grid">
 
-</section>
-    
+      <!-- DAILY TRACKER -->
+      <a href="prayer/daily-tracker.html"
+         class="pd-feature-card pd-feature-emerald"
+         data-prayer-feature="tracker">
+        <span class="pd-feature-icon">✓</span>
+        <span class="pd-feature-number">01</span>
+        <strong>روزانہ نماز کا ریکارڈ</strong>
+        <small>پانچ نمازوں کی روزانہ ٹریکنگ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- REPORTS -->
+      <a href="prayer/reports.html"
+         class="pd-feature-card pd-feature-blue"
+         data-prayer-feature="reports">
+        <span class="pd-feature-icon">▥</span>
+        <span class="pd-feature-number">02</span>
+        <strong>کارکردگی رپورٹس</strong>
+        <small>روزانہ، ہفتہ وار اور ماہانہ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- HISTORY -->
+      <a href="prayer/history.html"
+         class="pd-feature-card pd-feature-purple"
+         data-prayer-feature="history">
+        <span class="pd-feature-icon">◷</span>
+        <span class="pd-feature-number">03</span>
+        <strong>سابقہ ریکارڈ</strong>
+        <small>گزشتہ دنوں کی عبادت کا ریکارڈ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- JUMMAH -->
+      <a href="prayer/jummah.html"
+         class="pd-feature-card pd-feature-gold"
+         data-prayer-feature="jummah">
+        <span class="pd-feature-icon">☼</span>
+        <span class="pd-feature-number">04</span>
+        <strong>جمعہ کی نماز</strong>
+        <small>جمعہ اور ظہر کا خصوصی ریکارڈ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- QAZA -->
+      <a href="prayer/qaza.html"
+         class="pd-feature-card pd-feature-rose"
+         data-prayer-feature="qaza">
+        <span class="pd-feature-icon">↻</span>
+        <span class="pd-feature-number">05</span>
+        <strong>قضا نمازیں</strong>
+        <small>ذاتی قضا نمازوں کی ٹریکنگ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- SUNNAH -->
+      <a href="prayer/sunnah-nafl.html"
+         class="pd-feature-card pd-feature-teal"
+         data-prayer-feature="sunnah">
+        <span class="pd-feature-icon">✧</span>
+        <span class="pd-feature-number">06</span>
+        <strong>سنت اور نفل</strong>
+        <small>اضافی عبادات کا ریکارڈ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- MOSQUE -->
+      <a href="prayer/mosque.html"
+         class="pd-feature-card pd-feature-indigo"
+         data-prayer-feature="mosque">
+        <span class="pd-feature-icon">⌂</span>
+        <span class="pd-feature-number">07</span>
+        <strong>مسجد کے اوقات</strong>
+        <small>مقامی مسجد کے نماز اوقات</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- GUIDANCE -->
+      <a href="prayer/guidance.html"
+         class="pd-feature-card pd-feature-copper"
+         data-prayer-feature="guidance">
+        <span class="pd-feature-icon">۞</span>
+        <span class="pd-feature-number">08</span>
+        <strong>نماز کی رہنمائی</strong>
+        <small>طریقہ، مسائل اور معلومات</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- QIBLA -->
+      <a href="prayer/qibla.html"
+         class="pd-feature-card pd-feature-sky"
+         data-prayer-feature="qibla">
+        <span class="pd-feature-icon">◎</span>
+        <span class="pd-feature-number">09</span>
+        <strong>قبلہ کی سمت</strong>
+        <small>قبلہ معلوم کرنے کا نظام</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- ADHAN -->
+      <a href="prayer/adhan.html"
+         class="pd-feature-card pd-feature-maroon"
+         data-prayer-feature="adhan">
+        <span class="pd-feature-icon">♫</span>
+        <span class="pd-feature-number">10</span>
+        <strong>اذان اور یاددہانی</strong>
+        <small>اذان، الرٹس اور نوٹیفکیشن</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+
+      <!-- SETTINGS -->
+      <a href="prayer/settings.html"
+         class="pd-feature-card pd-feature-settings"
+         data-prayer-feature="settings">
+        <span class="pd-feature-icon">⚙</span>
+        <span class="pd-feature-number">11</span>
+        <strong>نماز کی سیٹنگز</strong>
+        <small>اوقات میں تبدیلی اور حساب کا طریقہ</small>
+        <span class="pd-feature-arrow">←</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="pd-footer">
+    <div class="pd-footer-symbol">۞</div>
+    <p>نماز صرف فرض نہیں، رب سے ملاقات ہے۔</p>
+    <span>SUKOON • روح کا اطمینان</span>
   </footer>
 
 </main>
 
+
 <script src="../js/storage.js"></script>
-<script src="../js/features/prayer.js"></script>
-  <script src="../js/features/notifications.js"></script>
+<script src="../js/core/location.js"></script>
+<script src="../js/features/prayer-dashboard.js"></script>
+
 </body>
 </html>
