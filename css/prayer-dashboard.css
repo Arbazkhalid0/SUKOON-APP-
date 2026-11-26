@@ -13,7 +13,7 @@
   --pd-text: #38252b;
   --pd-muted: #89777a;
   --pd-border: rgba(118, 38, 59, 0.10);
-
+جی
   margin: 0;
   min-height: 100vh;
   background:
@@ -747,4 +747,81 @@
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
   }
+}
+
+/* =========================================
+   SUKOON — PRAYER TIME VISUAL PRIORITY
+========================================= */
+
+.prayer-dashboard-body .pd-schedule-card {
+  background: #fffaf2;
+  border: 1px solid rgba(189, 150, 85, 0.24);
+  box-shadow: 0 8px 24px rgba(77, 23, 41, 0.07);
+}
+
+.prayer-dashboard-body .pd-time-row {
+  min-height: 70px;
+  padding: 12px 17px;
+  position: relative;
+  transition: background .25s ease, border-color .25s ease;
+}
+
+.prayer-dashboard-body .pd-time-icon {
+  background: #f2e9dd;
+  color: #76263b;
+  transition: background .25s ease, color .25s ease;
+}
+
+.prayer-dashboard-body .pd-time-name {
+  color: #49353a;
+  font-weight: 500;
+}
+
+.prayer-dashboard-body .pd-time-value {
+  color: #76263b;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+
+/* Current prayer highlight */
+
+.prayer-dashboard-body .pd-time-row.is-active {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(118, 38, 59, .13),
+      rgba(189, 150, 85, .13)
+    );
+  border-right: 3px solid #a77d40;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-icon {
+  background: #76263b;
+  color: #fff8ed;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-name {
+  color: #76263b;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-value {
+  color: #4d1729;
+}
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-state {
+  color: #986c32;
+  font-weight: 700;
+}
+
+/* Next prayer subtle indicator */
+
+.prayer-dashboard-body .pd-time-row:not(.is-active) .pd-time-state {
+  color: #a17d4d;
+}
+
+/* Smooth visual focus */
+
+.prayer-dashboard-body .pd-time-row.is-active .pd-time-icon {
+  box-shadow: 0 3px 10px rgba(77, 23, 41, .18);
 }
