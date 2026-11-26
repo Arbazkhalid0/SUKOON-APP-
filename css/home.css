@@ -793,3 +793,318 @@ body.sukoon-home-v2::before {
   }
 
 }
+
+
+/* ==========================================
+   SUKOON — PREMIUM HOME POLISH
+   Sticky identity • Textured welcome • Six feature tiles
+========================================== */
+
+/* Header remains visible as the page scrolls */
+.sukoon-v2-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  margin: 0 -17px;
+  padding: 10px 19px 11px;
+  background:
+    linear-gradient(115deg, rgba(251,248,241,.97), rgba(244,239,229,.94));
+  border-bottom: 1px solid rgba(184,149,88,.38);
+  box-shadow: 0 7px 22px rgba(65,30,43,.075);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sukoon-v2-brand-symbol {
+  background:
+    radial-gradient(circle at 32% 25%, #96516a 0, #70283F 44%, #421729 100%);
+  border: 1px solid #C6A36A;
+  box-shadow:
+    inset 0 0 0 3px rgba(66,23,41,.85),
+    inset 0 0 0 4px rgba(232,201,145,.72),
+    0 4px 12px rgba(65,30,43,.18);
+}
+
+.sukoon-v2-settings {
+  background: linear-gradient(145deg, #fffdf8, #eadfc9);
+  border-color: rgba(184,149,88,.48);
+  box-shadow: 0 3px 10px rgba(65,30,43,.07);
+}
+
+/* Give the date strip a quiet, readable surface over the artwork */
+.sukoon-v2-dayline {
+  margin-top: 5px;
+  padding: 14px 12px;
+  border: 1px solid rgba(184,149,88,.24);
+  border-radius: 0 0 17px 17px;
+  background: linear-gradient(115deg, rgba(255,253,248,.78), rgba(247,240,226,.72));
+  box-shadow: 0 5px 18px rgba(65,30,43,.045);
+}
+
+/* Richer burgundy welcome panel with subtle Islamic-inspired geometry */
+.sukoon-v2-welcome {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(224,190,125,.22), transparent 28%),
+    radial-gradient(circle at 12% 88%, rgba(225,190,130,.13), transparent 34%),
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(239,211,157,.035) 19px 20px, transparent 21px 38px),
+    repeating-linear-gradient(-45deg, transparent 0 18px, rgba(239,211,157,.025) 19px 20px, transparent 21px 38px),
+    linear-gradient(125deg, #3E1428 0%, #70283F 58%, #4A1A30 100%);
+  border: 1px solid rgba(204,169,105,.65);
+  box-shadow: 0 17px 35px rgba(65,30,43,.19), inset 0 1px 0 rgba(255,245,220,.12);
+}
+
+.sukoon-v2-welcome::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 17px;
+  border: 1px solid rgba(226,194,135,.13);
+  border-radius: 1px 27px 1px 27px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(232,201,145,.09) 0 1px, transparent 2px),
+    radial-gradient(circle at 20% 75%, rgba(232,201,145,.08) 0 1px, transparent 2px);
+  background-size: 19px 19px, 23px 23px;
+  pointer-events: none;
+}
+
+.sukoon-v2-welcome-copy {
+  z-index: 2;
+}
+
+.sukoon-v2-art {
+  z-index: 1;
+  opacity: .92;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,.12));
+}
+
+/* Six balanced premium feature cards — three columns */
+.sukoon-v2-paths {
+  padding-top: 25px;
+}
+
+.sukoon-v2-section-heading {
+  margin-bottom: 15px;
+  padding: 0 3px;
+}
+
+.sukoon-v2-path-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sukoon-v2-path {
+  position: relative;
+  min-height: 126px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 7px 11px;
+  overflow: hidden;
+  border: 1px solid rgba(184,149,88,.34);
+  border-radius: 17px 5px 17px 5px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.94), transparent 64%),
+    linear-gradient(150deg, rgba(255,253,248,.94), rgba(239,229,210,.86));
+  box-shadow: 0 6px 16px rgba(65,30,43,.075), inset 0 1px 0 rgba(255,255,255,.9);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.sukoon-v2-path::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(184,149,88,.15);
+  border-radius: 13px 3px 13px 3px;
+  pointer-events: none;
+}
+
+.sukoon-v2-path::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: -27px;
+  bottom: -31px;
+  border: 1px solid rgba(184,149,88,.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 7px rgba(184,149,88,.045), 0 0 0 14px rgba(184,149,88,.03);
+  pointer-events: none;
+}
+
+.sukoon-v2-path:active {
+  transform: translateY(2px) scale(.975);
+  box-shadow: 0 2px 7px rgba(65,30,43,.08);
+}
+
+.sukoon-v2-path-number {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  align-self: auto;
+  padding: 0;
+  font-size: 9px;
+  color: #A18A68;
+  opacity: .85;
+}
+
+.sukoon-v2-path-symbol {
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 47px;
+  flex: 0 0 47px;
+  border-radius: 15px 5px 15px 5px;
+  font-size: 25px;
+  background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(112,40,63,.13));
+  border: 1px solid rgba(112,40,63,.27);
+  box-shadow: 0 4px 10px rgba(65,30,43,.08), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.sukoon-v2-path-label {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.sukoon-v2-path-label strong {
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: normal;
+  color: #3C202B;
+}
+
+.sukoon-v2-path-label small {
+  font-size: 9px;
+  line-height: 1.6;
+  white-space: normal;
+  text-align: center;
+  color: #88796D;
+}
+
+.sukoon-v2-path-arrow {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  z-index: 1;
+  font-size: 12px;
+  opacity: .7;
+}
+
+/* Each destination gets its own restrained accent treatment */
+.path-prayer {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #F9ECEB, #EBD9D5);
+  border-color: rgba(112,40,63,.34);
+}
+.path-prayer .sukoon-v2-path-symbol {
+  color: #762B45;
+  background: linear-gradient(145deg, #FFF9F3, #E9C9C7);
+  border-color: rgba(112,40,63,.34);
+}
+
+.path-tasbeeh {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #FBF2DD, #EDE0BF);
+}
+.path-tasbeeh .sukoon-v2-path-symbol {
+  color: #98723A;
+  background: linear-gradient(145deg, #FFFCF0, #EED9A8);
+  border-color: rgba(184,149,88,.48);
+}
+
+.path-calendar {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #EAF1E9, #D9E4D7);
+}
+.path-calendar .sukoon-v2-path-symbol {
+  color: #4E6C59;
+  background: linear-gradient(145deg, #F8FFF6, #CFE0D0);
+  border-color: rgba(78,108,89,.34);
+}
+
+.path-deeds {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #F8EFDF, #EBDCC2);
+}
+.path-deeds .sukoon-v2-path-symbol {
+  color: #9B7134;
+  background: linear-gradient(145deg, #FFFBF0, #EBD4A5);
+  border-color: rgba(184,149,88,.42);
+}
+
+.path-reflection {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #F0EAF2, #E1D6E6);
+}
+.path-reflection .sukoon-v2-path-symbol {
+  color: #765879;
+  background: linear-gradient(145deg, #FFFAFF, #DCCBE1);
+  border-color: rgba(117,86,116,.35);
+}
+
+.path-fasting {
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 65%), linear-gradient(145deg, #EAF0E9, #D7E2D6);
+}
+.path-fasting .sukoon-v2-path-symbol {
+  color: #4F6C58;
+  background: linear-gradient(145deg, #F8FFF7, #C9DCCB);
+  border-color: rgba(69,91,79,.34);
+}
+
+/* Daily reflection panel sits clearly above the decorative background */
+.sukoon-v2-thought {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232,201,145,.2), transparent 38%),
+    linear-gradient(135deg, rgba(255,253,248,.94), rgba(239,229,210,.9));
+  box-shadow: 0 7px 20px rgba(65,30,43,.055);
+}
+
+/* Small screens: preserve three cards without clipping Urdu labels */
+@media (max-width: 370px) {
+  .sukoon-v2-header {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .sukoon-v2-path-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .sukoon-v2-path {
+    min-height: 116px;
+    padding: 12px 4px 9px;
+  }
+
+  .sukoon-v2-path-symbol {
+    width: 41px;
+    height: 41px;
+    flex-basis: 41px;
+    font-size: 22px;
+  }
+
+  .sukoon-v2-path-label strong {
+    font-size: 10px;
+  }
+
+  .sukoon-v2-path-label small {
+    font-size: 8px;
+  }
+}
+
+/* Wider screens retain the same editorial rhythm */
+@media (min-width: 700px) {
+  .sukoon-v2-header {
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .sukoon-v2-path {
+    min-height: 138px;
+  }
+}
