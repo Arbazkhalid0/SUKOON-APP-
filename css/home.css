@@ -62,18 +62,33 @@ body.sukoon-home-v2::before {
 .sukoon-v2-shell {
   width: min(100% - 34px, 520px);
   margin: 0 auto;
-  padding: 20px 0 115px;
+  /* Space reserved for the fixed header */
+  padding: 88px 0 115px;
 }
 
 
 /* HEADER */
 
 .sukoon-v2-header {
+  /* Fixed to the top of the screen */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  width: min(calc(100% - 34px), 520px);
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 2px 19px;
-  border-bottom: 1px solid var(--s2-line);
+  padding: 10px 12px;
+  border: 1px solid rgba(184,149,88,.32);
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  background: rgba(251,248,241,.97);
+  box-shadow: 0 8px 24px rgba(65,30,43,.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .sukoon-v2-brand {
@@ -692,6 +707,13 @@ body.sukoon-home-v2::before {
 
   .sukoon-v2-shell {
     width: calc(100% - 24px);
+    padding-top: 82px;
+  }
+
+  .sukoon-v2-header {
+    width: calc(100% - 24px);
+    min-height: 68px;
+    padding: 8px 9px;
   }
 
   .sukoon-v2-header-caption {
