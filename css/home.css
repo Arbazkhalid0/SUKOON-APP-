@@ -1130,3 +1130,257 @@ body.sukoon-home-v2::before {
     min-height: 138px;
   }
 }
+
+
+/* ======================================================
+   SUKOON — UNIFIED FIXED TOP BAR (FINAL OVERRIDE)
+   Brand + Gregorian/Hijri date + live clock stay together
+====================================================== */
+
+/* Reserve enough room so the first content card never hides
+   behind the fixed identity/date panel. */
+.sukoon-v2-shell {
+  width: min(calc(100% - 24px), 520px);
+  padding-top: 184px !important;
+  padding-bottom: 118px;
+}
+
+/* One fixed surface contains both the brand row and date row. */
+.sukoon-v2-fixed-top {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  width: min(calc(100% - 20px), 520px);
+  padding: calc(7px + env(safe-area-inset-top)) 12px 10px;
+  border: 1px solid rgba(184,149,88,.48);
+  border-top: 0;
+  border-radius: 0 0 22px 22px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.98), transparent 58%),
+    linear-gradient(135deg, rgba(255,252,245,.985), rgba(239,229,211,.975));
+  box-shadow:
+    0 10px 28px rgba(65,30,43,.16),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(184,149,88,.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.sukoon-v2-fixed-top::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(184,149,88,.17);
+  border-radius: 0 0 17px 17px;
+  pointer-events: none;
+}
+
+/* The brand row is now part of the fixed wrapper, not fixed alone. */
+.sukoon-v2-fixed-top .sukoon-v2-header {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  transform: none;
+  width: 100%;
+  min-height: 68px;
+  margin: 0;
+  padding: 7px 5px 11px;
+  border: 0;
+  border-bottom: 1px solid rgba(184,149,88,.30);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-brand {
+  gap: 12px;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-brand-symbol {
+  width: 50px;
+  height: 50px;
+  font-size: 29px;
+  border-width: 1.5px;
+  box-shadow:
+    inset 0 0 0 3px rgba(66,23,41,.88),
+    inset 0 0 0 4px rgba(232,201,145,.82),
+    0 5px 13px rgba(65,30,43,.20);
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-brand-name strong {
+  font-size: 22px;
+  letter-spacing: 3.5px;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-brand-name small {
+  font-size: 11px;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-header-caption {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-settings {
+  width: 42px;
+  height: 42px;
+  color: var(--s2-burgundy);
+  font-size: 20px;
+  border: 1px solid rgba(184,149,88,.52);
+  background: linear-gradient(145deg, #fffdf8, #eadfc9);
+  box-shadow: 0 4px 11px rgba(65,30,43,.10), inset 0 1px 0 #fff;
+}
+
+/* The date, Hijri date and clock become the second row of the fixed panel. */
+.sukoon-v2-fixed-top .sukoon-v2-dayline {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: minmax(0,1fr) 1px minmax(0,1fr) minmax(68px,auto);
+  align-items: center;
+  gap: 9px;
+  margin: 7px 0 0;
+  padding: 10px 5px 5px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-dayline > div {
+  min-width: 0;
+  gap: 4px;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-overline {
+  font-size: 9px;
+  color: #987744;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-day-date strong,
+.sukoon-v2-fixed-top .sukoon-v2-day-hijri strong {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #422333;
+  white-space: normal;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-day-divider {
+  height: 39px;
+  background: rgba(184,149,88,.35);
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-day-clock {
+  min-width: 68px;
+  padding: 5px 7px;
+  gap: 1px !important;
+  border: 1px solid rgba(184,149,88,.27);
+  border-radius: 11px 4px 11px 4px;
+  background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(239,229,211,.56));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-clock-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-day-clock strong {
+  font-size: 16px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.sukoon-v2-fixed-top .sukoon-v2-day-clock small {
+  font-size: 9px;
+}
+
+/* Give the six feature tiles a more tactile, raised-button finish. */
+.sukoon-v2-path {
+  border-width: 1px;
+  box-shadow:
+    0 7px 15px rgba(65,30,43,.10),
+    0 2px 3px rgba(65,30,43,.05),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -2px 0 rgba(120,83,53,.07);
+  transform: translateY(0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sukoon-v2-path:focus-visible {
+  outline: 2px solid #9D7845;
+  outline-offset: 3px;
+}
+
+.sukoon-v2-path-symbol {
+  box-shadow:
+    0 5px 10px rgba(65,30,43,.10),
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -2px 3px rgba(65,30,43,.08);
+}
+
+@media (max-width: 370px) {
+  .sukoon-v2-shell {
+    width: calc(100% - 20px);
+    padding-top: 178px !important;
+  }
+
+  .sukoon-v2-fixed-top {
+    width: calc(100% - 14px);
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-header {
+    min-height: 64px;
+    padding: 5px 2px 9px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-brand-symbol {
+    width: 45px;
+    height: 45px;
+    font-size: 26px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-brand-name strong {
+    font-size: 19px;
+    letter-spacing: 2.5px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-header-caption {
+    display: none;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-dayline {
+    grid-template-columns: minmax(0,1fr) 1px minmax(0,1fr) 64px;
+    gap: 6px;
+    padding: 8px 1px 3px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-day-date strong,
+  .sukoon-v2-fixed-top .sukoon-v2-day-hijri strong {
+    font-size: 10px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-overline {
+    font-size: 8px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-day-clock {
+    min-width: 64px;
+    padding: 4px 3px;
+  }
+
+  .sukoon-v2-fixed-top .sukoon-v2-day-clock strong {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 700px) {
+  .sukoon-v2-shell {
+    padding-top: 190px !important;
+  }
+}
