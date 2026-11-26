@@ -1043,3 +1043,249 @@ body.sukoon-home {
     font-size: 19px;
   }
 }
+
+/* =====================================
+   SUKOON — ORNAMENTAL APP REDESIGN
+   Compact 3 x 2 feature layout
+===================================== */
+
+/* Feature section */
+.explore-section {
+  padding: 35px 5% 40px;
+  background:
+    radial-gradient(circle at 5% 10%, rgba(216,184,117,.12), transparent 25%),
+    var(--fusion-cream);
+}
+
+.explore-heading {
+  position: relative;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(157,121,80,.25);
+}
+
+.explore-heading::after {
+  content: "✦";
+  position: absolute;
+  bottom: -9px;
+  right: 0;
+  padding: 0 8px;
+  color: #C49A59;
+  background: var(--fusion-cream);
+}
+
+/* Exactly 3 columns and 2 rows */
+.fusion-menu {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, 122px) !important;
+  gap: 10px !important;
+  margin-top: 22px !important;
+}
+
+/* Compact decorative tiles */
+.fusion-item {
+  min-width: 0;
+  min-height: 122px !important;
+  height: 122px !important;
+  margin: 0 !important;
+  padding: 13px 8px 12px !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(255,255,255,.42) !important;
+  box-shadow:
+    0 5px 14px rgba(32,53,43,.08),
+    inset 0 0 0 1px rgba(255,255,255,.12);
+  display: flex !important;
+  align-items: center;
+  justify-content: center !important;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Decorative corner geometry */
+.fusion-item::before {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  top: -28px;
+  right: -25px;
+  border: 1px solid currentColor;
+  opacity: .16;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.fusion-item::after {
+  content: "✧";
+  position: absolute;
+  left: 9px;
+  bottom: 7px;
+  font-size: 15px;
+  opacity: .42;
+}
+
+/* Clear and consistent typography */
+.item-index {
+  top: 8px !important;
+  left: 9px !important;
+  font-size: 9px !important;
+  opacity: .65;
+}
+
+.item-icon {
+  font-size: 27px !important;
+  margin: 0 0 9px !important;
+  line-height: 1 !important;
+  position: relative;
+  z-index: 2;
+}
+
+.item-copy {
+  align-items: center;
+  gap: 4px !important;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.item-copy strong {
+  font-size: 13px !important;
+  line-height: 1.7;
+  font-weight: 700;
+  white-space: normal;
+}
+
+.item-copy small {
+  font-size: 9px !important;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.item-arrow {
+  display: none;
+}
+
+/* Strong readable contrast */
+.item-prayer,
+.item-reflection {
+  color: #FFF9EA !important;
+}
+
+.item-prayer *,
+.item-reflection * {
+  color: inherit !important;
+}
+
+.item-prayer .item-icon,
+.item-reflection .item-icon {
+  color: #E7C889 !important;
+}
+
+.item-tasbeeh {
+  color: #214A3E !important;
+}
+
+.item-calendar {
+  color: #603B34 !important;
+}
+
+.item-deeds {
+  color: #665338 !important;
+}
+
+.item-fasting {
+  color: #294B59 !important;
+}
+
+/* More refined tile colors */
+.item-prayer {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), transparent 55%),
+    #17483F !important;
+}
+
+.item-tasbeeh {
+  background:
+    linear-gradient(145deg, #E7F0E5, #C9DFD0) !important;
+}
+
+.item-calendar {
+  background:
+    linear-gradient(145deg, #F2D0C2, #E5AE9D) !important;
+}
+
+.item-deeds {
+  background:
+    linear-gradient(145deg, #F0E8D2, #DED2B3) !important;
+}
+
+.item-reflection {
+  background:
+    linear-gradient(145deg, #28594D, #153D35) !important;
+}
+
+.item-fasting {
+  background:
+    linear-gradient(145deg, #E7EFF1, #CADCE2) !important;
+}
+
+/* Ornamental borders around the section */
+.fusion-menu {
+  position: relative;
+}
+
+.fusion-item:active {
+  transform: scale(.96);
+  filter: brightness(.96);
+}
+
+/* Mobile adjustments */
+@media (max-width: 380px) {
+  .fusion-menu {
+    grid-template-rows: repeat(2, 112px) !important;
+    gap: 8px !important;
+  }
+
+  .fusion-item {
+    height: 112px !important;
+    min-height: 112px !important;
+    padding: 10px 5px !important;
+  }
+
+  .item-copy strong {
+    font-size: 12px !important;
+  }
+
+  .item-copy small {
+    font-size: 8px !important;
+  }
+
+  .item-icon {
+    font-size: 24px !important;
+  }
+}
+
+/* Tablet and desktop */
+@media (min-width: 700px) {
+  .fusion-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, 155px) !important;
+    gap: 16px !important;
+  }
+
+  .fusion-item {
+    height: 155px !important;
+    min-height: 155px !important;
+    border-radius: 20px !important;
+  }
+
+  .item-copy strong {
+    font-size: 17px !important;
+  }
+
+  .item-icon {
+    font-size: 34px !important;
+  }
+}
+
