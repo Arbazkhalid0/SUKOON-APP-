@@ -1,61 +1,98 @@
 
-/* =====================================
-   SUKOON - CARD FLIP NAVIGATION
-===================================== */
+/* =============================================
+   SUKOON — UNIVERSAL FEATURE CARD FLIP
+   Home Cards + Prayer Feature Cards
+   Navigate after animation completes
+============================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+(() => {
+  "use strict";
 
-  const featureCards = document.querySelectorAll(".feature-card");
+  const CARD_SELECTOR =
+    ".sukoon-v2-path, .pd-feature-card, .feature-card";
 
-  featureCards.forEach(function (card) {
+  const FLIP_DURATION = 560;
+  const activeCards = new WeakSet();
 
-    card.addEventListener("click", function (event) {
+  function isPlainPrimaryClick(event) {
+    return (
+      event.button === 0 &&
+      !event.ctrlKey &&
+      !event.metaKey &&
+      !event.shiftKey &&
+      !event.altKey
+    );
+  }
 
-      // Prevent repeated clicks during animation
-      if (card.classList.contains("is-flipping")) {
-        event.preventDefault();
-        return;
-      }
+  document.addEventListener("click", (event) => {
+    const card = event.target.closest(CARD_SELECTOR);
 
-      // Respect browser open-in-new-tab shortcuts
-      if (
-        event.ctrlKey ||
-        event.metaKey ||
-        event.shiftKey ||
-        event.button !== 0
-      ) {
-        return;
-      }
+    if (!card || !card.matches("a[href]")) return;
 
-      const destination = card.getAttribute("href");
+    // Preserve normal browser behaviour for modified clicks.
+    if (!isPlainPrimaryClick(event) || event.defaultPrevented) return;
 
-      if (!destination) {
-        return;
-      }
+    const destination = card.getAttribute("href");
 
-      // Reduced motion accessibility
-      if (
-        window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches
-      ) {
-        return;
-      }
+    if (
+      !destination ||
+      destination.startsWith("#") ||
+      destination.startsWith("javascript:")
+    ) return;
 
-      // Stop immediate navigation
+    // Do not animate external links or downloads.
+    if (card.target && card.target !== "_self") return;
+    if (card.hasAttribute("download")) return;
+
+    // Prevent repeated clicks during animation.
+    if (activeCards.has(card)) {
       event.preventDefault();
+      return;
+    }
 
-      // Start flip animation
-      card.classList.add("is-flipping");
+    const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // Open destination after animation
-      window.setTimeout(function () {
-        window.location.href = destination;
-      }, 560);
+    if (reduceMotion || typeof card.animate !== "function") return;
 
-    });
+    event.preventDefault();
 
-  });
+    activeCards.add(card);
+    card.setAttribute("aria-busy", "true");
 
-});
+    const animation = card.animate(
+      [
+        {
+          transform: "perspective(900px) rotateY(0deg) scale(1)",
+          opacity: 1,
+          offset: 0
+        },
+        {
+          transform: "perspective(900px) rotateY(82deg) scale(.96)",
+          opacity: .82,
+          offset: .48
+        },
+        {
+          transform: "perspective(900px) rotateY(180deg) scale(.94)",
+          opacity: .55,
+          offset: 1
+        }
+      ],
+      {
+        duration: FLIP_DURATION,
+        easing: "cubic-bezier(.55,.08,.35,1)",
+        fill: "forwards"
+      }
+    );
 
+    animation.onfinish = () => {
+      window.location.assign(destination);
+    };
+
+    animation.oncancel = () => {
+      activeCards.delete(card);
+      card.removeAttribute("aria-busy");
+    };
+  }, true);
+})();
