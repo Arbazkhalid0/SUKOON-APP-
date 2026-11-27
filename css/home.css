@@ -1633,3 +1633,73 @@ body.sukoon-home-v2::before {
     flex-basis: 70px;
   }
 }
+
+/* ==========================================
+   SUKOON — DATE STRIP CLARITY UPDATE
+   Visual-only refinement; keeps existing fonts and palette.
+========================================== */
+.sukoon-v2-dayline {
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 11px;
+  padding: 10px;
+  border: 1px solid rgba(184,149,88,.42);
+  border-radius: 16px 5px 16px 5px;
+  background: linear-gradient(135deg, rgba(255,253,248,.97), rgba(244,239,229,.94));
+  box-shadow: 0 7px 18px rgba(65,30,43,.09), inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.sukoon-v2-dayline > div {
+  min-height: 76px;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 11px;
+  border: 1px solid rgba(184,149,88,.28);
+  border-radius: 11px 4px 11px 4px;
+  background: linear-gradient(145deg, #fffdf8, #f4ecdc);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 2px 7px rgba(65,30,43,.045);
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-hijri {
+  border-color: rgba(112,40,63,.25);
+  background: linear-gradient(145deg, #fffaf1, #f0e2d5);
+}
+
+.sukoon-v2-dayline .sukoon-v2-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: #80552d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-hijri .sukoon-v2-overline {
+  color: #70283F;
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-date strong,
+.sukoon-v2-dayline .sukoon-v2-day-hijri strong {
+  display: block;
+  color: #321923;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-divider {
+  align-self: center;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, rgba(184,149,88,.7), transparent);
+}
+
+@media (max-width: 370px) {
+  .sukoon-v2-dayline { gap: 7px; padding: 7px; }
+  .sukoon-v2-dayline > div { min-height: 72px; padding: 8px 7px; }
+  .sukoon-v2-dayline .sukoon-v2-day-date strong,
+  .sukoon-v2-dayline .sukoon-v2-day-hijri strong { font-size: 12px; }
+  .sukoon-v2-dayline .sukoon-v2-overline { font-size: 10px; }
+}
