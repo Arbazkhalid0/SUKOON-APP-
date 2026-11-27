@@ -1384,3 +1384,272 @@ body.sukoon-home-v2::before {
     padding-top: 190px !important;
   }
 }
+
+
+/* =========================================================
+   SUKOON HOME — REFINED STICKY BRAND BAR
+   The identity + live clock stay visible; the date strip
+   scrolls away naturally with the page.
+========================================================= */
+.sukoon-v2-shell {
+  padding-top: 0 !important;
+}
+
+.sukoon-v2-fixed-top {
+  display: contents;
+}
+
+.sukoon-v2-header {
+  position: sticky !important;
+  top: 0;
+  left: auto;
+  transform: none !important;
+  z-index: 1200;
+  width: calc(100% + 24px);
+  min-height: 78px;
+  margin: 0 -12px;
+  padding: calc(9px + env(safe-area-inset-top)) 16px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(220, 190, 132, .58);
+  border-radius: 0 0 20px 20px;
+  background:
+    radial-gradient(ellipse at 16% 0%, rgba(226, 194, 137, .23), transparent 42%),
+    linear-gradient(112deg, #3b1728 0%, #67263d 48%, #42182b 100%);
+  box-shadow:
+    0 8px 22px rgba(49, 22, 34, .23),
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 0 -1px 0 rgba(232, 203, 153, .24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sukoon-v2-header::before {
+  content: "";
+  position: absolute;
+  inset: 5px 7px 5px;
+  border: 1px solid rgba(226, 194, 137, .20);
+  border-radius: 0 0 15px 15px;
+  pointer-events: none;
+}
+
+.sukoon-v2-brand {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 11px;
+}
+
+.sukoon-v2-brand-symbol {
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
+  color: #f7e9c9;
+  background:
+    radial-gradient(circle at 35% 28%, #8b4a5d, #4c1c30 72%);
+  border: 1px solid #d8b878;
+  box-shadow:
+    inset 0 0 0 3px rgba(56, 20, 37, .85),
+    inset 0 0 0 4px rgba(226, 194, 137, .66),
+    0 3px 10px rgba(0,0,0,.22);
+  font-size: 27px;
+}
+
+.sukoon-v2-brand-name {
+  gap: 2px;
+}
+
+.sukoon-v2-brand-name strong {
+  color: #fff4df;
+  font-family: "Inter", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 5px rgba(0,0,0,.18);
+}
+
+.sukoon-v2-brand-name small {
+  color: #e7d2ad;
+  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.sukoon-v2-header-side {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sukoon-v2-header-caption {
+  display: none;
+}
+
+.sukoon-v2-header-clock {
+  min-width: 73px;
+  padding: 4px 8px 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0 !important;
+  border: 1px solid rgba(226, 194, 137, .34);
+  border-radius: 12px 4px 12px 4px;
+  background: linear-gradient(145deg, rgba(255,248,230,.15), rgba(255,248,230,.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.sukoon-v2-header-clock .sukoon-v2-clock-icon {
+  display: none;
+}
+
+.sukoon-v2-header-clock strong {
+  color: #fff0cf;
+  font-family: "Inter", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  direction: ltr;
+  letter-spacing: .5px;
+}
+
+.sukoon-v2-header-clock small {
+  color: #e4c99c;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.sukoon-v2-settings {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+  color: #f4dfb8;
+  border: 1px solid rgba(226, 194, 137, .45);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.13);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.sukoon-v2-settings:active {
+  transform: scale(.94);
+  background: rgba(255,255,255,.18);
+}
+
+/* Date and Hijri stay below the sticky bar and scroll out of view. */
+.sukoon-v2-dayline {
+  position: relative;
+  grid-template-columns: minmax(0,1fr) 1px minmax(0,1fr);
+  gap: 14px;
+  margin: 10px 0 0;
+  padding: 13px 12px 14px;
+  border: 1px solid rgba(164, 126, 69, .24);
+  border-radius: 4px 17px 4px 17px;
+  background:
+    linear-gradient(120deg, rgba(255,252,245,.88), rgba(239,229,211,.78));
+  box-shadow:
+    0 5px 15px rgba(65,30,43,.07),
+    inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-clock {
+  display: none;
+}
+
+.sukoon-v2-dayline .sukoon-v2-overline {
+  color: #987744;
+  font-size: 9px;
+  letter-spacing: .8px;
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-date strong,
+.sukoon-v2-dayline .sukoon-v2-day-hijri strong {
+  color: #422333;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.sukoon-v2-dayline .sukoon-v2-day-divider {
+  height: 38px;
+  background: rgba(184,149,88,.42);
+}
+
+.sukoon-v2-welcome {
+  margin-top: 17px;
+}
+
+@media (max-width: 370px) {
+  .sukoon-v2-header {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    min-height: 70px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .sukoon-v2-brand {
+    gap: 8px;
+  }
+
+  .sukoon-v2-brand-symbol {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    font-size: 24px;
+  }
+
+  .sukoon-v2-brand-name strong {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  .sukoon-v2-brand-name small {
+    font-size: 10px;
+  }
+
+  .sukoon-v2-header-side {
+    gap: 6px;
+  }
+
+  .sukoon-v2-header-clock {
+    min-width: 65px;
+    padding: 3px 5px;
+  }
+
+  .sukoon-v2-header-clock strong {
+    font-size: 15px;
+  }
+
+  .sukoon-v2-settings {
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
+  }
+
+  .sukoon-v2-dayline {
+    gap: 9px;
+    padding: 10px 8px 11px;
+  }
+
+  .sukoon-v2-dayline .sukoon-v2-day-date strong,
+  .sukoon-v2-dayline .sukoon-v2-day-hijri strong {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 700px) {
+  .sukoon-v2-shell {
+    padding-top: 0 !important;
+  }
+
+  .sukoon-v2-header {
+    width: calc(100% + 24px);
+  }
+}
