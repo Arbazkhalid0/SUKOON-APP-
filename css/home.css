@@ -1597,3 +1597,39 @@ body.sukoon-home-v2::before {
   .sukoon-v2-settings { width: 35px; height: 35px; flex-basis: 35px; }
 }
 
+
+
+/* ==========================================
+   SUKOON — OFFICIAL MAIN LOGO
+   Uses the user's uploaded square wordmark.
+   Existing typefaces, colors and layout are preserved.
+========================================== */
+.sukoon-v2-brand {
+  gap: 8px;
+  align-items: center;
+}
+
+.sukoon-v2-brand-logo {
+  display: block;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid rgba(184,149,88,.58);
+  border-radius: 13px 4px 13px 4px;
+  background: #F4EFE5;
+  box-shadow: 0 3px 10px rgba(25,8,16,.22), inset 0 0 0 2px rgba(255,255,255,.42);
+}
+
+.sukoon-v2-brand-name {
+  gap: 1px;
+}
+
+@media (max-width: 370px) {
+  .sukoon-v2-brand-logo {
+    width: 70px;
+    height: 70px;
+    flex-basis: 70px;
+  }
+}
