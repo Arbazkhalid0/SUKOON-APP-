@@ -1,8 +1,7 @@
 
 /* ==========================================
-   SUKOON — HIJRI CALENDAR ENGINE
-   Pakistan Time • Offline Cache • Official
-   Moon-Sighting Date Override
+   SUKOON — PAKISTAN HIJRI DATE
+   Official month-start anchor + offline support
 ========================================== */
 
 (() => {
@@ -10,104 +9,17 @@
 
   const STORAGE_KEY = "hijri_official_anchor";
   const CACHE_KEY = "hijri_last_display";
-  const TIME_ZONE = "Asia/Karachi";
 
-  // پاکستان کی موجودہ تاریخ حاصل کریں
-  function getPakistanDate() {
-    const parts = new Intl.DateTimeFormat("en-CA", {
-      timeZone: TIME_ZONE,
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }).formatToParts(new Date());
+  // Pakistan calendar reference:
+  // 1 Jumada al-Thani 1448 = 12 November 2026
+  const DEFAULT_ANCHOR = {
+    gregorianDate: "2026-11-12",
+    hijriDay: 1,
+    hijriMonth: 6,
+    hijriYear: 1448,
+    monthDays: 29
+  };
 
-    const result = {};
-
-    parts.forEach(part => {
-      if (part.type !== "literal") {
-        result[part.type] = Number(part.value);
-      }
-    });
-
-    return result;
-  }
-
-  // تاریخ کو UTC دنوں میں تبدیل کریں
-  function toDayNumber(year, month, day) {
-    return Math.floor(
-      Date.UTC(year, month - 1, day) / 86400000
-    );
-  }
-
-  // سرکاری اعلان سے محفوظ کردہ تاریخ حاصل کریں
-  function getOfficialAnchor() {
-    if (!window.SukoonStorage) return null;
-
-    const anchor = window.SukoonStorage.get(
-      STORAGE_KEY,
-      null
-    );
-
-    if (!anchor) return null;
-
-    if (
-      !anchor.gregorianDate ||
-      !anchor.hijriDay ||
-      !anchor.hijriMonth ||
-      !anchor.hijriYear
-    ) {
-      return null;
-    }
-
-    return anchor;
-  }
-
-  // سرکاری بنیاد کی تاریخ سے موجودہ ہجری تاریخ نکالیں
-  function calculateFromOfficialAnchor(anchor, today) {
-    const [year, month, day] =
-      anchor.gregorianDate.split("-").map(Number);
-
-    const difference =
-      toDayNumber(today.year, today.month, today.day) -
-      toDayNumber(year, month, day);
-
-    if (difference < 0 || difference > 45) {
-      return null;
-    }
-
-    const baseDate = new Date(Date.UTC(
-      anchor.hijriYear,
-      anchor.hijriMonth - 1,
-      anchor.hijriDay + difference
-    ));
-
-    return {
-      day: baseDate.getUTCDate(),
-      month: baseDate.getUTCMonth() + 1,
-      year: baseDate.getUTCFullYear(),
-      source: "official-anchor"
-    };
-  }
-
-  // عارضی حسابی تاریخ — سرکاری تصدیق نہیں
-  function calculateApproximateDate() {
-    const formatter = new Intl.DateTimeFormat(
-      "ur-PK-u-ca-islamic-umalqura",
-      {
-        timeZone: TIME_ZONE,
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }
-    );
-
-    return {
-      text: formatter.format(new Date()),
-      source: "calculated"
-    };
-  }
-
-  // ہجری مہینوں کے نام
   const MONTHS = [
     "",
     "محرم",
@@ -124,53 +36,117 @@
     "ذوالحجہ"
   ];
 
-  // اردو ہندسوں میں تبدیلی
   function toUrduDigits(value) {
-    return String(value).replace(/\d/g, digit =>
-      "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]
+    return String(value).replace(
+      /\d/g,
+      digit => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]
     );
   }
 
-  // تاریخ کو اردو میں دکھائیں
-  function formatOfficialDate(date) {
-    return (
-      toUrduDigits(date.day) +
-      " " +
-      MONTHS[date.month] +
-      " " +
-      toUrduDigits(date.year) +
-      "ھ"
-    );
-  }
+  function getPakistanDate() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Karachi",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
 
-  // آج کی ہجری تاریخ حاصل کریں
-  function getToday() {
-    const today = getPakistanDate();
-    const anchor = getOfficialAnchor();
+    const date = {};
 
-    if (anchor) {
-      const officialDate =
-        calculateFromOfficialAnchor(anchor, today);
-
-      if (officialDate) {
-        return {
-          text: formatOfficialDate(officialDate),
-          source: "official-anchor"
-        };
+    parts.forEach(part => {
+      if (part.type !== "literal") {
+        date[part.type] = Number(part.value);
       }
+    });
+
+    return date;
+  }
+
+  function dayNumber(year, month, day) {
+    return Math.floor(
+      Date.UTC(year, month - 1, day) / 86400000
+    );
+  }
+
+  function getAnchor() {
+    if (window.SukoonStorage) {
+      const saved = window.SukoonStorage.get(
+        STORAGE_KEY,
+        null
+      );
+
+      if (isValidAnchor(saved)) return saved;
     }
 
-    return calculateApproximateDate();
+    return DEFAULT_ANCHOR;
   }
 
-  // ہوم اسکرین پر تاریخ دکھائیں
+  function isValidAnchor(data) {
+    if (!data) return false;
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(data.gregorianDate)) {
+      return false;
+    }
+
+    return (
+      Number.isInteger(data.hijriDay) &&
+      Number.isInteger(data.hijriMonth) &&
+      Number.isInteger(data.hijriYear) &&
+      Number.isInteger(data.monthDays) &&
+      data.hijriDay >= 1 &&
+      data.hijriDay <= 30 &&
+      data.hijriMonth >= 1 &&
+      data.hijriMonth <= 12 &&
+      data.hijriYear >= 1 &&
+      data.monthDays >= 29 &&
+      data.monthDays <= 30
+    );
+  }
+
+  function getHijriDate() {
+    const anchor = getAnchor();
+    const today = getPakistanDate();
+
+    const [year, month, day] =
+      anchor.gregorianDate.split("-").map(Number);
+
+    const difference =
+      dayNumber(today.year, today.month, today.day) -
+      dayNumber(year, month, day);
+
+    if (difference < 0) {
+      return {
+        text: "اسلامی تاریخ دستیاب نہیں",
+        source: "unavailable"
+      };
+    }
+
+    const hijriDay = anchor.hijriDay + difference;
+
+    // Do not guess the next month's moon-sighting date.
+    if (hijriDay > anchor.monthDays) {
+      return {
+        text: "نئے چاند کے اعلان کا انتظار",
+        source: "awaiting-announcement"
+      };
+    }
+
+    const text =
+      toUrduDigits(hijriDay) + " " +
+      MONTHS[anchor.hijriMonth] + " " +
+      toUrduDigits(anchor.hijriYear) + "ھ";
+
+    return {
+      text,
+      source: "Pakistan-month-start"
+    };
+  }
+
   function updateHomeHijriDate() {
     const element = document.getElementById("today-hijri");
-
     if (!element) return;
 
-    const result = getToday();
-
+    const result = getHijriDate();
     element.textContent = result.text;
 
     if (window.SukoonStorage) {
@@ -182,38 +158,27 @@
     }
   }
 
-  // سرکاری اعلان سے تصدیق شدہ بنیاد محفوظ کرنا
+  // Use this function when a new official month is announced.
+  // gregorianDate must be the Gregorian date of 1st Hijri day.
   function setOfficialAnchor(data) {
-    if (
-      !data ||
-      !/^\d{4}-\d{2}-\d{2}$/.test(data.gregorianDate) ||
-      !Number.isInteger(data.hijriDay) ||
-      !Number.isInteger(data.hijriMonth) ||
-      !Number.isInteger(data.hijriYear) ||
-      data.hijriDay < 1 ||
-      data.hijriDay > 30 ||
-      data.hijriMonth < 1 ||
-      data.hijriMonth > 12 ||
-      data.hijriYear < 1
-    ) {
-      return false;
-    }
+    if (!isValidAnchor(data)) return false;
+    if (!window.SukoonStorage) return false;
 
-    const anchor = {
-      gregorianDate: data.gregorianDate,
-      hijriDay: data.hijriDay,
-      hijriMonth: data.hijriMonth,
-      hijriYear: data.hijriYear,
-      announcementId: data.announcementId || null,
-      verifiedAt: data.verifiedAt || new Date().toISOString()
-    };
-
-    const saved = window.SukoonStorage &&
-      window.SukoonStorage.set(STORAGE_KEY, anchor);
+    const saved = window.SukoonStorage.set(
+      STORAGE_KEY,
+      {
+        gregorianDate: data.gregorianDate,
+        hijriDay: data.hijriDay,
+        hijriMonth: data.hijriMonth,
+        hijriYear: data.hijriYear,
+        monthDays: data.monthDays,
+        announcementId: data.announcementId || null,
+        verifiedAt: data.verifiedAt || new Date().toISOString()
+      }
+    );
 
     if (saved) updateHomeHijriDate();
-
-    return Boolean(saved);
+    return saved;
   }
 
   function initialize() {
@@ -227,7 +192,7 @@
   }
 
   window.SukoonHijriCalendar = {
-    getToday,
+    getToday: getHijriDate,
     update: updateHomeHijriDate,
     setOfficialAnchor
   };
@@ -237,5 +202,4 @@
   } else {
     initialize();
   }
-
 })();
